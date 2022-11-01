@@ -1,7 +1,13 @@
 import React from 'react';
+import Category from './components/Category/Category';
 
 function App() {
-  return <div>router 를 연결해주세요.</div>;
+  return (
+    <>
+      <h1>shopping items</h1>
+      <Category />
+    </>
+  );
 }
 
 export default App;
