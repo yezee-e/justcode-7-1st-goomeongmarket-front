@@ -1,4 +1,5 @@
-//상품리스트 컴포넌트라고 생각
+//각 제품들
+//api 받아오면 상품 하나하나 보여줄수있다
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
