@@ -6,6 +6,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
+import './Dropdown.scss';
 
 function Dropdown({ data, setData, list }) {
   const [isActive, setIsActive] = useState(false);
