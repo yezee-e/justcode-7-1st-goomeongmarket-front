@@ -20,12 +20,23 @@ function Dropdown({ data, setData, list }) {
       </div>
       {isActive && (
         <div className="dropdown-content">
-          <div className="dropdown-item" onClick={() => filterResult('food')}>
+          <label
+            htmlFor="check"
+            className="dropdown-item"
+            onClick={() => filterResult('food')}
+          >
+            <input type="checkbox" id="check" />
             음식
-          </div>
-          <div className="dropdown-item" onClick={() => filterResult('goods')}>
+          </label>
+
+          <label
+            htmlFor="check1"
+            className="dropdown-item"
+            onClick={() => filterResult('goods')}
+          >
+            <input type="checkbox" id="check1" />
             생활용품
-          </div>
+          </label>
         </div>
       )}
     </div>
