@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../../components/Header/Header';
 import './Home.scss';
-import Nav from './Nav';
-import SliderImages from './SliderImages';
-import Maincontent from './Maincontent';
+import Nav from '../../components/Nav/Nav';
+import SliderImages from '../../components/SliderImages/SliderImages';
+import Maincontent from '../../components/Maincontent/Maincontent';
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Header />
       <SliderImages />
       <Maincontent />
+      <Footer />
     </div>
   );
 }

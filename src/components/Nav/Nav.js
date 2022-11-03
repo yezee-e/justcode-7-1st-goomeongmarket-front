@@ -24,10 +24,10 @@ function Nav() {
 
         <div className="navSection">
           <div className="navSectionLeft">
-            <img alt="컬리" src="./img/Kurly.jpg" />
-            <button className="NavKurlyMarkerBtn marginLeft20">마켓컬리</button>
+            <img alt="컬리" src="./img/GMMK.jpg" />
+            <button className="NavKurlyMarkerBtn marginLeft20">GM마켓</button>
             <div className="borderRightSection" />
-            <button className="NavKurlyBeautyBtn marginLeft20">뷰티컬리</button>
+            <button className="NavKurlyBeautyBtn marginLeft20">뷰티GM</button>
             <button className="redNWord">N</button>
           </div>
           <form className="navSectionCenter">
