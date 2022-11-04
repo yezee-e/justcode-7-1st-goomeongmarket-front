@@ -5,7 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import SliderImages from '../../components/SliderImages/SliderImages';
 import Footer from '../../components/Footer/Footer';
 import CardList from '../../components/Maincontent/CardList';
-import Dropdown from '../../components/Category/Dropdown';
+import Dropdown from '../../components/Filter/Dropdown';
 
 function Home() {
   const [data, setData] = useState([]);
@@ -46,7 +46,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <CardList />
+
       <Footer />
     </div>
   );

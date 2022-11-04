@@ -32,7 +32,7 @@ function Dropdown({ data, setData, list }) {
             className="dropdown-item"
             onClick={() => filterResult('food')}
           >
-            <input type="checkbox" id="check" />
+            <input type="radio" id="check" name="together" />
             음식
           </label>
 
@@ -41,7 +41,7 @@ function Dropdown({ data, setData, list }) {
             className="dropdown-item"
             onClick={() => filterResult('goods')}
           >
-            <input type="checkbox" id="check1" />
+            <input type="radio" id="check1" name="together" />
             생활용품
           </label>
         </div>

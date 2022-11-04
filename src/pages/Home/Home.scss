@@ -12,6 +12,12 @@
   align-items: center;
   height: auto;
 
+  .wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+
   .MaincontentWrap {
     width: 100vw;
     height: 650px;
@@ -29,7 +35,7 @@
 
     font-size: 25px;
 
-    margin: 100px 0px 50px 0px;
+    // margin: 100px 0px 50px 0px;
   }
   .productInformation {
     position: relative;
@@ -38,11 +44,5 @@
 
     display: flex;
     flex-direction: row;
-  }
-
-  .wrap {
-    width: 100%;
-    height: 100vh;
-    display: flex;
   }
 }
