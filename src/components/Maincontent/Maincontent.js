@@ -12,13 +12,24 @@ function Maincontent() {
     fetch(mockData)
       .then(res => res.json())
       .then(json => setData(json.data));
-  });
+  }, []);
+
+  // console.log(data[2].title);
   return (
     <div>
       <div className="MaincontentWrap">
         <div className="MainContentBox">
           <div className="MainContentTitle">
-            <span>제목 들어오는 자리</span>
+            {data.map((titleName, index) => {
+              const { titlename } = titleName;
+
+              return (
+                <span>
+                  {index}
+                  {titlename}
+                </span>
+              );
+            })}
           </div>
 
           <div className="productInformation">
@@ -26,13 +37,12 @@ function Maincontent() {
               const { id, title, price } = values;
               return <CardList key={id} title={title} price={price} />;
             })}
-            <button className="cart" />
           </div>
 
           {/* <div className="productBox">
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
-            <span>가격</span>
+            <span>{data.price}</span>
             <button className="cart" />
           </div>
 

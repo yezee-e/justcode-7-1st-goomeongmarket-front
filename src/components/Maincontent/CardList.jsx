@@ -10,6 +10,7 @@ function CardList({ title, price }) {
       <img className="mainProductImg" alt="" src="/img/예제.jpg" />
       <h3 className="productName">{title}</h3>
       <span>{price}</span>
+      <button className="cart" />
     </div>
   );
 }
