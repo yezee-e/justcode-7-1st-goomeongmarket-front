@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import CardList from "./CardList";
-import "./Maincontent.scss";
+import React, { useState, useEffect } from 'react';
+import CardList from './CardList';
+import './Maincontent.scss';
 
 function Maincontent() {
   const [data, setData] = useState([]);
@@ -10,8 +10,8 @@ function Maincontent() {
   //mock데이터 들고오기
   useEffect(() => {
     fetch(mockData)
-      .then((res) => res.json())
-      .then((json) => setData(json.data));
+      .then(res => res.json())
+      .then(json => setData(json.data));
   });
   return (
     <div>
@@ -22,14 +22,14 @@ function Maincontent() {
           </div>
 
           <div className="productInformation">
-            {data.map((values) => {
+            {data.map(values => {
               const { id, title, price } = values;
               return <CardList key={id} title={title} price={price} />;
             })}
             <button className="cart" />
           </div>
 
-          <div className="productBox">
+          {/* <div className="productBox">
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
@@ -48,7 +48,7 @@ function Maincontent() {
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
             <button className="cart" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
