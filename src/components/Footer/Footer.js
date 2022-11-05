@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import './Footer.scss';
+import "./Footer.scss";
 
 function Footer() {
   return (
@@ -84,23 +84,23 @@ function Footer() {
               사업자정보 확인
             </a>
             <br />
-            통신판매업:제2000-서울강남-01234호{' '}
+            통신판매업:제2000-서울강남-01234호{" "}
             <span className="borderRight">ㅣ</span>
             개인정보보호책임자:000
             <br />
-            주소 : 서울특별시 00구 000로 123, 55층(역삼동){' '}
+            주소 : 서울특별시 00구 000로 123, 55층(역삼동){" "}
             <span className="borderRight">ㅣ</span> 대표이사 : 000
             <br />
-            입점문의 :{' '}
+            입점문의 :{" "}
             <a className="textDecorationNone" href="www.naver.com">
               입점문의하기
-            </a>{' '}
+            </a>{" "}
             <span className="borderRight">ㅣ</span> 제휴문의 :
             <a className="textDecorationNone" href="www.naver.com">
               wpgbansdml@nevercant.com
             </a>
             <br />
-            채용문의 :{' '}
+            채용문의 :{" "}
             <a className="textDecorationNone" href="www.naver.com">
               codydansdml@nevercant.com
             </a>
