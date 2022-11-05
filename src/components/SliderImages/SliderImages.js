@@ -1,5 +1,5 @@
-import React from 'react';
-import './SliderImages.scss';
+import React from "react";
+import "./SliderImages.scss";
 function SliderImages() {
   return (
     <div>

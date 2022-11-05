@@ -1,8 +1,8 @@
-import React from 'react';
-import './Nav.scss';
+import React from "react";
+import "./Nav.scss";
 function Nav() {
   return (
-    <nav className="test">
+    <nav className="navMain">
       <div className="navBody">
         <div className="naviHead">
           <a className="signUp" href="https://www.naver.com">
@@ -16,10 +16,20 @@ function Nav() {
           </a>
 
           <div className="borderRight" />
-
-          <a className="underLineNone" href="https://www.naver.com">
-            고객센터 ▼
-          </a>
+          <div className="dropDown">
+            <a className="underLineNone" href="https://www.naver.com">
+              고객센터 ▼
+            </a>
+          </div>
+          <div className="serviceCenterBox">
+            <span>공지사항</span>
+            <br />
+            <span>자주하는 질문</span>
+            <br />
+            <span>1:1 문의</span>
+            <br />
+            <span>대량주문 문의</span>
+          </div>
         </div>
 
         <div className="navSection">

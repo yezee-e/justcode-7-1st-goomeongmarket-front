@@ -1,8 +1,8 @@
 //각 제품들
 //api 받아오면 상품 하나하나 보여줄수있다
-import React from 'react';
-import '../Category/Dropdown.scss';
-import './CardList.scss';
+import React from "react";
+import "../Category/Dropdown.scss";
+import "./CardList.scss";
 
 function CardList({ title, price }) {
   return (
