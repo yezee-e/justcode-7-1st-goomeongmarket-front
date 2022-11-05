@@ -19,14 +19,16 @@ function Home() {
     fetch(mockData)
       .then(res => res.json())
       .then(json => setData(json.data));
-  }, []);
+  });
   return (
     <div className="mainPages">
       <Nav />
       <Header />
       <SliderImages />
+
       <div className="wrap">
         <div>
+          <div className="filter">필터</div>
           {filterList.map(list => (
             <Dropdown key={list} list={list} data={data} setData={setData} />
           ))}
@@ -46,7 +48,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

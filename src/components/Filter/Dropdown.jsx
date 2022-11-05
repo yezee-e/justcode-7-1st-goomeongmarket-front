@@ -27,23 +27,64 @@ function Dropdown({ data, setData, list }) {
       </div>
       {isActive && (
         <div className="dropdown-content">
-          <label
-            htmlFor="check"
-            className="dropdown-item"
-            onClick={() => filterResult('food')}
-          >
-            <input type="radio" id="check" name="together" />
-            음식
-          </label>
-
-          <label
-            htmlFor="check1"
-            className="dropdown-item"
-            onClick={() => filterResult('goods')}
-          >
-            <input type="radio" id="check1" name="together" />
-            생활용품
-          </label>
+          {list == '카테고리' && (
+            <div className="dropdown-content_label">
+              <label
+                htmlFor="check"
+                className="dropdown-item"
+                onClick={() => filterResult('food')}
+              >
+                <input type="radio" id="check" name="together" />
+                음식
+              </label>
+              <label
+                htmlFor="check1"
+                className="dropdown-item"
+                onClick={() => filterResult('food')}
+              >
+                <input type="radio" id="check1" name="together" />
+                가구
+              </label>
+            </div>
+          )}
+          {list == '가격' && (
+            <div>
+              <label
+                htmlFor="check2"
+                className="dropdown-item"
+                onClick={() => filterResult('food')}
+              >
+                <input type="radio" id="check2" name="together" />
+                높은 가격순
+              </label>
+              <label
+                htmlFor="check3"
+                className="dropdown-item"
+                onClick={() => filterResult('food')}
+              >
+                <input type="radio" id="check3" name="together" />
+                낮은 가격순
+              </label>
+            </div>
+          )}
+          {list == '이름순' && (
+            <div className="dropdown-content_label">
+              <label
+                htmlFor="check4"
+                className="dropdown-item"
+                onClick={() => filterResult('food')}
+              >
+                <input type="radio" id="check4" name="together" />가
+              </label>
+              <label
+                htmlFor="check4"
+                className="dropdown-item"
+                onClick={() => filterResult('food')}
+              >
+                <input type="radio" id="check4" name="together" />나
+              </label>
+            </div>
+          )}
         </div>
       )}
     </div>
