@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import './Header.scss';
+import React, { useState, useEffect } from "react";
+import "./Header.scss";
 
 function Header() {
   const [isVisible, setIsVisible] = useState(false); // Nav가 보일지말지 정하는 setter
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll); //clean up
+      window.removeEventListener("scroll", handleScroll); //clean up
     };
   }, []);
 
@@ -72,8 +72,8 @@ function Header() {
       <div
         style={
           isVisible === true
-            ? { visibility: 'visible' }
-            : { visibility: 'hidden' }
+            ? { visibility: "visible" }
+            : { visibility: "hidden" }
         }
         className="scrollheaderWrap"
       >

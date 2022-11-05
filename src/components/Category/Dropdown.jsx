@@ -5,7 +5,7 @@
 //filter 넣고 ->다시 필터빼기 //map,useEffect()
 import React from 'react';
 import { useState } from 'react';
-//import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown } from 'react-icons/fa';
 import './Dropdown.scss';
 
 function Dropdown({ data, setData, list }) {
@@ -24,7 +24,7 @@ function Dropdown({ data, setData, list }) {
       <div className="dropdown">
         <div className="dropdown-btn" onClick={e => setIsActive(!isActive)}>
           {list}
-          {/* <FaAngleDown className="dropIcon" /> */}
+          <FaAngleDown className="dropIcon" />
         </div>
         {isActive && (
           <div className="dropdown-content">
