@@ -14,21 +14,28 @@ function Maincontent() {
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
+            <button className="cart" />
           </div>
+
           <div className="productBox">
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
+            <button className="cart" />
           </div>
+
           <div className="productBox">
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
+            <button className="cart" />
           </div>
+
           <div className="productBox">
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
+            <button className="cart" />
           </div>
         </div>
       </div>

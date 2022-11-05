@@ -31,6 +31,7 @@
       flex-direction: row;
     }
     .productBox {
+      position: relative;
       width: 250px;
       height: 450px;
       margin-left: 20px;
@@ -42,6 +43,23 @@
     }
     .productName {
       margin-bottom: 7px;
+    }
+
+    .cart {
+      position: absolute;
+
+      right: 10px;
+      bottom: 140px;
+      width: 50px;
+      height: 50px;
+      background: url(../../img/purchase.png);
+      background-size: 30px 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #857190;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
     }
   }
 }
