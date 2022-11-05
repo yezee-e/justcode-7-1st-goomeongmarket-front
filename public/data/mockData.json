@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "title": "쇼파",
+      "price": 21300,
+      "category": "goods"
+    },
+    {
+      "id": "2",
+      "title": "피자",
+      "price": 10000,
+      "category": "food"
+    },
+    {
+      "id": "3",
+      "title": "파스타",
+      "price": 50000,
+      "category": "food"
+    },
+    {
+      "id": "4",
+      "title": "침대",
+      "price": 230000,
+      "category": "goods"
+    },
+    {
+      "id": "5",
+      "title": "책상",
+      "price": 220000,
+      "category": "goods"
+    }
+  ]
+}

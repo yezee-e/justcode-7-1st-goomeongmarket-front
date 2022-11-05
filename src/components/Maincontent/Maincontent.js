@@ -1,5 +1,6 @@
-import React from 'react';
-import './Maincontent.scss';
+import React from "react";
+import CardList from "./CardList";
+import "./Maincontent.scss";
 
 function Maincontent() {
   return (
@@ -10,7 +11,12 @@ function Maincontent() {
         </div>
 
         <div className="productInformation">
-          <div className="productBox">
+          <CardList />
+          <CardList />
+          <CardList />
+          <CardList />
+
+          {/* <div className="productBox">
             <img className="mainProductImg" alt="" src="/img/예제.jpg" />
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
@@ -36,7 +42,7 @@ function Maincontent() {
             <h3 className="productName">상품 제목</h3>
             <span>가격</span>
             <button className="cart" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
