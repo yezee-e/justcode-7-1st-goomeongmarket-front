@@ -3,10 +3,10 @@
 //FaAngleDown아이콘 keyfram 효과넣기
 
 //filter 넣고 ->다시 필터빼기 //map,useEffect()
-import React from "react";
-import { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
-import "./Dropdown.scss";
+import React from 'react';
+import { useState } from 'react';
+//import { FaAngleDown } from "react-icons/fa";
+import './Dropdown.scss';
 
 function Dropdown({ data, setData, list }) {
   const [isActive, setIsActive] = useState(false);
@@ -14,24 +14,24 @@ function Dropdown({ data, setData, list }) {
   //   console.log(data[0].category);
 
   //카테고리 필터기능
-  let filterResult = (item) => {
-    let result = data.filter((fakeData) => fakeData.category == item);
+  let filterResult = item => {
+    let result = data.filter(fakeData => fakeData.category == item);
     setData(result);
   };
 
   return (
     <div className="dropDownWraper">
       <div className="dropdown">
-        <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
+        <div className="dropdown-btn" onClick={e => setIsActive(!isActive)}>
           {list}
-          <FaAngleDown className="dropIcon" />
+          {/* <FaAngleDown className="dropIcon" /> */}
         </div>
         {isActive && (
           <div className="dropdown-content">
             <label
               htmlFor="check"
               className="dropdown-item"
-              onClick={() => filterResult("food")}
+              onClick={() => filterResult('food')}
             >
               <input type="checkbox" id="check" />
               음식
@@ -40,7 +40,7 @@ function Dropdown({ data, setData, list }) {
             <label
               htmlFor="check1"
               className="dropdown-item"
-              onClick={() => filterResult("goods")}
+              onClick={() => filterResult('goods')}
             >
               <input type="checkbox" id="check1" />
               생활용품
