@@ -11,7 +11,6 @@ import './Dropdown.scss';
 function Dropdown({ data, setData, list }) {
   const [isActive, setIsActive] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
-  //   console.log(data[0].category);
 
   //카테고리 필터기능
   let filterResult = item => {

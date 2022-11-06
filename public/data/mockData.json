@@ -7,6 +7,12 @@
       "category": "goods"
     },
     {
+      "id": "8",
+      "title": "더 이쁜 쇼파",
+      "price": 21300,
+      "category": "goods"
+    },
+    {
       "id": "2",
       "title": "피자",
       "price": 10000,

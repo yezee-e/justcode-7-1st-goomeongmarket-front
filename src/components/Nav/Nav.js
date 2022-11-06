@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Nav.scss';
-function Nav() {
+function Nav({ setSearch }) {
   return (
     <nav className="navMain">
       <div className="navBody">
@@ -41,7 +41,13 @@ function Nav() {
             <button className="redNWord">N</button>
           </div>
           <form className="navSectionCenter">
-            <input className="navSearch" placeholder="검색어를 입력해주세요" />
+            <input
+              type="text"
+              className="navSearch"
+              placeholder="검색어를 입력해주세요"
+              onChange={e => setSearch(e.target.value)}
+            />
+
             <button className="SearchBarMagnifier" />
           </form>
           <div className="navSectionLeft">
