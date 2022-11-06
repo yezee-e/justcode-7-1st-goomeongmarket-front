@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.MaincontentWrap {
+  width: 100vw;
+  height: 650px;
+
+  .MainContentBox {
+    width: 1050px;
+    height: 50px;
+    margin: 0px auto;
+
+    .MainContentTitle {
+      display: flex;
+      justify-content: center;
+
+      font-size: 25px;
+
+      margin: 100px 0px 50px 0px;
+    }
+
+    .productInformation {
+      position: relative;
+      width: 100%;
+      height: 450px;
+
+      display: flex;
+      flex-direction: row;
+    }
+    .productBox {
+      position: relative;
+      width: 250px;
+      height: 450px;
+      margin-left: 20px;
+    }
+    .mainProductImg {
+      width: 250px;
+      height: 320px;
+      margin-bottom: 15px;
+    }
+    .productName {
+      margin-bottom: 7px;
+    }
+
+    .cart {
+      position: absolute;
+
+      right: 10px;
+      bottom: 140px;
+      width: 50px;
+      height: 50px;
+      background: url(../../img/purchase.png);
+      background-size: 30px 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #857190;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

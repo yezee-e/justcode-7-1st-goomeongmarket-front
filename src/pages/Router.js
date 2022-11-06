@@ -1,17 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-import Home from './Home/Home';
-import Login from './Login/Login';
-import Signup from './Signup/Signup';
+import Menu from './Menu/Menu';
+import Main from './Main/Main';
+import Mainlogin from './Mainlogin/Mainlogin';
+import Mainsignup from './Mainsignup/Mainsignup';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/signup" element={<Mainsignup />} />
+        <Route path="/login" element={<Mainlogin />} />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </BrowserRouter>
   );
