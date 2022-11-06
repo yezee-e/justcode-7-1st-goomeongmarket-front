@@ -2,6 +2,18 @@
   padding: 0;
   margin: 0;
 
+  .textDecorationNone {
+    text-decoration: none;
+  }
+
+  .lineHeight30 {
+    line-height: 70px;
+  }
+
+  .footerFlag {
+    display: flex;
+  }
+
   .marginLeft5 {
     margin-left: 5px;
   }
@@ -74,13 +86,16 @@
         .footerRightHead {
           display: flex;
           list-style: none;
+          padding: 0;
         }
         li {
           font-size: 13px;
-          margin: 0px 10px 20px 0px;
+          margin: 0px 0px 10px 0px;
         }
-        .textDecorationNone {
-          text-decoration: none;
+        .footerRightContent {
+          color: black;
+          cursor: pointer;
+          margin-right: 5px;
         }
 
         .borderRight {
