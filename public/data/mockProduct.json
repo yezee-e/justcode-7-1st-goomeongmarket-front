@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "[KF365] DOLE 실속 바나나 1kg (필리핀)",
+      "sub_name": "믿고 먹을 수 있는 상품을 합리적인 가격에, KF365",
+      "product_img": "https://img-cf.kurly.com/shop/data/goods/165303902534l0.jpg",
+      "price": 3700,
+      "country_id": "필리핀",
+      "sale": 15,
+      "category_id": 10
+    },
+    {
+      "id": 2,
+      "name": "[PPUL] 1++ 한우 추리 모둠 150g (냉장)",
+      "sub_name": "100g당 가격:25,333원",
+      "product_img": "https://product-image.kurly.com/product/image/60ad6375-f264-4b1b-ba0b-7021d2970215.jpg",
+      "price": 38000,
+      "country_id": "국내산(한우)",
+      "sale": 20,
+      "category_id": 20
+    }
+  ]
+}

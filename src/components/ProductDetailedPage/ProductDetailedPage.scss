@@ -103,7 +103,6 @@ button {
 
   .productInfoSection {
     padding: 17px 0 18px 0;
-    border-top: 1px #f4f4f4 solid;
     border-bottom: 1px #f4f4f4 solid;
     display: flex;
     flex-direction: row;
@@ -316,7 +315,7 @@ button {
     border-color: rgb(238, 238, 238);
     border-style: solid;
 
-    a {
+    button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -325,6 +324,7 @@ button {
       cursor: default;
       height: 59px;
       width: 251px;
+      border: none;
 
       span:first-child {
         font-size: 16px;

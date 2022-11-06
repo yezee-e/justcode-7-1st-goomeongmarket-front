@@ -1,25 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ProductDetailedPage.scss';
 
 function ProductDetailedPage() {
+  const reviewRef = useRef();
+  const inquiryRef = useRef();
+  const [productState, setProductState] = useState({
+    id: '',
+    name: '',
+    sub_name: '',
+    product_img: '',
+    price: '',
+    country_id: '',
+    sale: '',
+    category_id: '',
+  });
+  useEffect(() => {
+    fetch('http://localhost:3000/data/mockProduct.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(result => setProductState(result.data));
+  }, []);
+
+  console.log(productState[0]);
+
+  const clickScrollReview = () => {
+    reviewRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const clickScrollInq = () => {
+    inquiryRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="container">
       <article className="mainDetail">
-        <img className="mainImage" src="/images/banana.png" alt="메인이미지" />
+        <img
+          className="mainImage"
+          // src={productState[0].product_img}
+          alt="메인이미지"
+        />
 
         <div className="infoContainer">
           <div className="productTitle">
             <div className="titleWrap">
               <p className="titleDelivery">배송</p>
-              <p className="title">[KF365] DOLE 실속 바나나 1kg (필리핀)</p>
-              <p className="titleShort">
-                믿고 먹을 수 있는 상품을 합리적인 가격에, KF365
-              </p>
+              <p className="title">{}</p>
+              <p className="titleShort">{}</p>
             </div>
 
             <div className="discountPriceWrap">
-              <span className="discountRate">15%</span>
-              <span className="discountPrice">3,145</span>
+              <span className="discountRate">{}%</span>
+              <span className="discountPrice">{}</span>
               <span className="discountWon">원</span>
             </div>
 
@@ -141,25 +172,25 @@ function ProductDetailedPage() {
       <div className="navContainer">
         <nav className="detailNav">
           <div className="productDes">
-            <a href="/">
+            <button>
               <span>상품설명</span>
-            </a>
+            </button>
           </div>
           <div className="datailInfo">
-            <a href="/">
+            <button>
               <span>상세정보</span>
-            </a>
+            </button>
           </div>
           <div className="review">
-            <a href="/">
+            <button onClick={clickScrollReview}>
               <span>후기</span>
               <span>(9,999+)</span>
-            </a>
+            </button>
           </div>
           <div className="inquiry">
-            <a href="/">
+            <button onClick={clickScrollInq}>
               <span>문의</span>
-            </a>
+            </button>
           </div>
         </nav>
       </div>
@@ -349,7 +380,7 @@ function ProductDetailedPage() {
         </p>
       </div>
 
-      <div className="reviewList">
+      <div className="reviewList" ref={reviewRef}>
         <section>
           <header>
             <h2>상품 후기</h2>
@@ -437,7 +468,7 @@ function ProductDetailedPage() {
         </section>
       </div>
 
-      <div className="inquiryWrap">
+      <div className="inquiryWrap" ref={inquiryRef}>
         <div className="inquiry">
           <div className="inquiryBtnWrap">
             <button className="inquiryBtn">
