@@ -1,14 +1,25 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .mainPages {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: auto;
+
+  .wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+
+  .filter {
+    width: 250px;
+    margin: 20px;
+    padding: 15px 10px;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    color: #333;
+    cursor: default;
+  }
 
   .MaincontentWrap {
     width: 1050px;
@@ -26,7 +37,8 @@
     justify-content: center;
 
     font-size: 25px;
-    margin: 10px 10px 50px 0px;
+
+    // margin: 100px 0px 50px 0px;
   }
   .productInformation {
     margin-top: 40px;
@@ -37,10 +49,5 @@
     display: flex;
     flex-direction: row;
   }
-
-  .wrap {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-  }
 }
+// >>>>>>> 07c8f907b9b4ad14503b5073a397295b4d07e7b6
