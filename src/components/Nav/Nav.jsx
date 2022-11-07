@@ -13,7 +13,7 @@ function Nav({ setSearch, searchClick }) {
     navigateLogin('/login');
   };
   const goToBasket = () => {
-    navigateLogin('/basket');
+    NavigateBasket('/basket');
   };
   return (
     <div className="fontAdd">

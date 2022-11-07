@@ -13,6 +13,7 @@
 .basketBody {
   .fontSettingh2 {
     font-weight: 700;
+    box-sizing: border-box;
   }
 
   .cartNameBox {
@@ -34,6 +35,16 @@
       width: 750px;
       height: 700px;
 
+      .noProdInCart {
+        width: 500px;
+        margin-top: 50px;
+        margin-left: 50px;
+        padding: 115px 0;
+        font-size: 10px;
+        line-height: 24px;
+        text-align: center;
+        color: #b5b5b5;
+      }
       .selectBox {
         display: flex;
         flex-direction: row;
