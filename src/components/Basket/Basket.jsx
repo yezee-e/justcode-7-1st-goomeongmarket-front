@@ -3,20 +3,30 @@ import './Basket.scss';
 import ProductList from './ProductList';
 function Basket() {
   const [basket, setBasket] = useState([]);
+  const [payPrice, setPayPrice] = useState(0);
 
-  const cartMock = `http://localhost:3000/data/cartData.json`;
+  //자식 컴포넌트에서 값 받아오는 함수
+  const getPrice = num => {
+    setPayPrice(num);
+  };
 
+  const cartMock = `/data/cartData.json`;
+
+  // mockdata fetch
   useEffect(() => {
     fetch(cartMock)
       .then(res => res.json())
       .then(json => setBasket(json.data));
   }, []);
+
+  // 가격표 3번째 자리에 쉼표 찍는 함수
   const converPrice = price => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
+  // 장바구니 삭제하는 함수
   const onRemove = id => {
-    setBasket(basket.filter(prod => prod.id != id));
+    setBasket(basket.filter(prod => prod.id !== id));
   };
 
   return (
@@ -28,30 +38,38 @@ function Basket() {
         <div className="cartBoxLeft">
           <div className="selectBox">
             <input className="checkBoxBtnHead" type="checkbox" id="check1" />
-            <label form="check1"></label>
+            <label form="check1" />
             <span>전체선택(0/0)</span>
             <span className="borderRightInBasket" />
             <button className="selectDelBox">선택삭제</button>
           </div>
           <div className="productBox">
             <ul>
-              {basket.map(values => {
-                const { key, id, title, price, picture } = values;
-                return (
-                  <ProductList
-                    converPrice={converPrice}
-                    key={key}
-                    id={id}
-                    title={title}
-                    price={price}
-                    picture={picture}
-                    onRemove={onRemove}
-                  />
-                );
-              })}
+              {basket.length === 0 ? (
+                <div className="noProdInCart">
+                  <h4>장바구니에 담긴 상품이 없습니다.</h4>
+                </div>
+              ) : (
+                basket.map(values => {
+                  const { key, id, title, price, picture } = values;
+                  return (
+                    <ProductList
+                      converPrice={converPrice}
+                      key={key}
+                      id={id}
+                      title={title}
+                      price={price}
+                      picture={picture}
+                      onRemove={onRemove}
+                      getPrice={getPrice}
+                    />
+                  );
+                })
+              )}
             </ul>
           </div>
         </div>
+
         <div className="cartBoxRight">
           <div className="productInformationBox">
             <div className="cartBoxRightWraper">
@@ -79,7 +97,7 @@ function Basket() {
               <div className="cartBoxRightBody">
                 <div className="cartBoxTop">
                   <span>상품금액</span>
-                  <span>{converPrice(7900)}원</span>
+                  <span>{converPrice(payPrice)}원</span>
                 </div>
                 <div className="cartBoxMid">
                   <span>배송비</span>
