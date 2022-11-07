@@ -40,12 +40,14 @@ function Signup() {
       {/*회원가입 타이틀 */}
       <div className="title">
         <h1>회원가입 </h1>
-        <p>필수입력사항</p>
+        <p>
+          필수입력사항<span className="must-input">*</span>
+        </p>
       </div>
       <form className="form-whole">
         <div className="form-input">
           {/* 아이디 */}
-          <div className="input-container">
+          <div className="input-container ">
             <div className="input-name-container">
               <label className="form-label">
                 이메일<span className="must-input">*</span>
@@ -56,6 +58,7 @@ function Signup() {
                 className="real-input"
                 type="text"
                 onChange={e => setEmail(e.target.value)}
+                placeholder="이메일을 입력해주세요"
               />
               <button className="check-email">중복확인 </button>
               <p
@@ -157,7 +160,9 @@ function Signup() {
           {/* 성별 */}
           <div className="input-container">
             <div className="input-name-container gender-name">
-              <label className="form-label">성별</label>
+              <label className="form-label">
+                성별<span className="must-input">*</span>
+              </label>
             </div>
             <div className="gender-input-container">
               <div className="gender-input-personal-container">
@@ -178,7 +183,10 @@ function Signup() {
           {/* 생일 */}
           <div className="input-container birth-margin">
             <div className="input-name-container">
-              <label className="form-label"> 생년월일</label>
+              <label className="form-label">
+                {' '}
+                생년월일<span className="must-input">*</span>
+              </label>
             </div>
             <div className="real-input birth-input-column">
               <input type="text" className="birth-input" placeholder="YYYY" />
@@ -191,7 +199,7 @@ function Signup() {
           <div className="margin-box"> </div>
           {/* 이용약관동의 */}
           <div className="input-container">
-            <div className="input-name-container">
+            <div className="input-name-container padding-size">
               <label className="form-label">
                 이용약관동의<span className="must-input">*</span>
               </label>
@@ -304,10 +312,10 @@ function Signup() {
           </div>
           <div className="input-container gap2">
             <div className="agree-column">
-              <div className="agree-column-without">
+              <div className="agree-column-without gap3">
                 <input type="checkbox" id="check" />
                 <label
-                  className="check-content-else"
+                  className="check-content-else gap3"
                   id="check"
                   htmlFor="check"
                 >
