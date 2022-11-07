@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import './ProductList.scss';
 
-function ProductList({
-  id,
-  converPrice,
-  title,
-  price,
-  picture,
-  onRemove,
-  getPrice,
-}) {
+function ProductList({ id, converPrice, onRemove, getPrice, cart }) {
   //제품 수량 체크
   const [stock, setStock] = useState(1);
 
@@ -18,21 +10,17 @@ function ProductList({
     setStock(stock + 1);
   };
   const onClickMinus = () => {
-    setStock(stock - 1);
+    setStock(stock !== 0 ? stock - 1 : (stock = 0));
   };
 
-  const prodSumPrice = () => {
-    getPrice(priceSum);
-  };
-
-  const priceSum = stock * price;
+  const priceSum = stock * cart.price;
 
   return (
     <div className="boxSizing">
       <li className="productLi">
         <input className="checkBoxBtn" type="checkbox" />
-        <img className="produntImg" alt="" src={picture} />
-        <div className="productTitle">{title}</div>
+        <img className="produntImg" alt="" src={cart.img} />
+        <div className="productTitle">{cart.title}</div>
         <div className="pmButtonBox">
           <button className="pmButton" onClick={onClickMinus}>
             -
@@ -43,9 +31,7 @@ function ProductList({
           </button>
         </div>
         <div>
-          <span className="productPrice" onChange={prodSumPrice()}>
-            {converPrice(priceSum)}원
-          </span>
+          <span className="productPrice">{converPrice(priceSum)}원</span>
         </div>
         <button
           className="listClearbButton"

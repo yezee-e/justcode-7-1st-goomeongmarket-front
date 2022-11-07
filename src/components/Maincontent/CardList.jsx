@@ -3,14 +3,14 @@ import Incart from './Incart';
 
 import './CardList.scss';
 
-function CardList({ title, price }) {
+function CardList({ id, title, img, price, converPrice, cart, setCart }) {
   const [popUp, setPopUp] = useState(false);
 
   return (
     <div className="productBox">
-      <img className="mainProductImg" alt="" src="/img/예제.jpg" />
+      <img className="mainProductImg" alt="" src={img} />
       <h3 className="productName">{title}</h3>
-      <span>{price}</span>
+      <span>{converPrice(price)}</span>
       <button
         onClick={() => {
           setPopUp(true);
@@ -19,7 +19,16 @@ function CardList({ title, price }) {
         className="cart"
       />
       {popUp === true ? (
-        <Incart title={title} setPopUp={setPopUp} price={price} />
+        <Incart
+          cart={cart}
+          setCart={setCart}
+          key={id}
+          setPopUp={setPopUp}
+          converPrice={converPrice}
+          price={price}
+          img={img}
+          title={title}
+        />
       ) : null}
     </div>
   );

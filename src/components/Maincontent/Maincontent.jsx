@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CardList from './CardList';
 import './Maincontent.scss';
 
-function Maincontent() {
-  const [data, setData] = useState([]);
-
-  const mockData = `http://localhost:3000/data/mockData.json`;
-
-  //mock데이터 들고오기
-  useEffect(() => {
-    fetch(mockData)
-      .then(res => res.json())
-      .then(json => setData(json.data));
-  }, []);
-
-  // console.log(data[2].title);
+function Maincontent({ data, converPrice, cart, setCart }) {
   return (
     <div>
-      <div className="MaincontentWrap">
+      <div className="MaincontentWraper">
         <div className="MainContentBox">
           <div className="MainContentTitle">
             {data.map((titleName, index) => {
@@ -34,31 +22,20 @@ function Maincontent() {
 
           <div className="productInformation">
             {data.map(values => {
-              const { id, title, price } = values;
-              return <CardList key={id} title={title} price={price} />;
+              const { id, title, price, img } = values;
+              return (
+                <CardList
+                  converPrice={converPrice}
+                  key={id}
+                  title={title}
+                  price={price}
+                  img={img}
+                  cart={cart}
+                  setCart={setCart}
+                />
+              );
             })}
           </div>
-
-          {/* <div className="productBox">
-            <img className="mainProductImg" alt="" src="/img/예제.jpg" />
-            <h3 className="productName">상품 제목</h3>
-            <span>{data.price}</span>
-            <button className="cart" />
-          </div>
-
-          <div className="productBox">
-            <img className="mainProductImg" alt="" src="/img/예제.jpg" />
-            <h3 className="productName">상품 제목</h3>
-            <span>가격</span>
-            <button className="cart" />
-          </div>
-
-          <div className="productBox">
-            <img className="mainProductImg" alt="" src="/img/예제.jpg" />
-            <h3 className="productName">상품 제목</h3>
-            <span>가격</span>
-            <button className="cart" />
-          </div> */}
         </div>
       </div>
     </div>
