@@ -5,7 +5,7 @@ import './Maincontent.scss';
 function Maincontent() {
   const [data, setData] = useState([]);
 
-  const mockData = `http://localhost:3000/data/mockData.json`;
+  const mockData = `http://localhost:3000/data/mockProduct.json`; //수정1 데이터주소
 
   //mock데이터 들고오기
   useEffect(() => {
@@ -15,6 +15,7 @@ function Maincontent() {
   }, []);
 
   // console.log(data[2].title);
+  //수정2 키값
   return (
     <div>
       <div className="MaincontentWrap">
@@ -31,11 +32,29 @@ function Maincontent() {
               );
             })}
           </div>
-
           <div className="productInformation">
             {data.map(values => {
-              const { id, title, price } = values;
-              return <CardList key={id} title={title} price={price} />;
+              const {
+                id,
+                name,
+                sub_name,
+                product_img,
+                price,
+                country_id,
+                sale,
+              } = values;
+              return (
+                <CardList
+                  key={id}
+                  id={id}
+                  name={name}
+                  sub_name={sub_name}
+                  product_img={product_img}
+                  price={price}
+                  country_id={country_id}
+                  sale={sale}
+                />
+              );
             })}
           </div>
 
