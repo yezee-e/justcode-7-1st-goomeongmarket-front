@@ -1,8 +1,3 @@
-// * {
-//   padding: 0;
-//   margin: 0;
-// }
-
 .fontAdd {
   font-family: 'Noto Sans KR', sans-serif;
 }
@@ -81,6 +76,7 @@
   }
   .headerCenter {
     list-style: none;
+    margin-bottom: 10px;
 
     .linkToMenu {
       color: black;
@@ -164,6 +160,7 @@
   }
   .scrollheaderCenter {
     list-style: none;
+    margin-bottom: 10px;
 
     .scrollLinkToMenu {
       color: black;
@@ -237,6 +234,7 @@
       border: none;
       background: url(../../img/location.png);
       background-size: cover;
+      cursor: pointer;
     }
 
     .iconHeart {
@@ -246,6 +244,7 @@
       border: none;
       background: url(../../img/love.png);
       background-size: cover;
+      cursor: pointer;
     }
     .iconCart {
       margin-left: 20px;
@@ -254,6 +253,7 @@
       border: none;
       background: url(../../img/purchase.png);
       background-size: cover;
+      cursor: pointer;
     }
   }
 }

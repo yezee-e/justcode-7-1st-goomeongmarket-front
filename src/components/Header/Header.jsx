@@ -133,14 +133,16 @@ function Header() {
           </div>
           <div className="scrollIconBox">
             <button
+              type="button"
               className="iconLocation"
               onClick={() => alert('준비중입니다.')}
             />
             <button
+              type="button"
               className="iconHeart"
               onClick={() => alert('준비중입니다.')}
             />
-            <button className="iconCart" onClick={goToBasket} />
+            <button type="button" className="iconCart" onClick={goToBasket} />
           </div>
         </div>
       </div>

@@ -28,30 +28,32 @@ function ProductList({
   const priceSum = stock * price;
 
   return (
-    <li className="productLi">
-      <input className="checkBoxBtn" type="checkbox" />
-      <img className="produntImg" alt="" src={picture} />
-      <div className="productTitle">{title}</div>
-      <div className="pmButtonBox">
-        <button className="pmButton" onClick={onClickMinus}>
-          -
-        </button>
-        <div>{stock}</div>
-        <button className="pmButton" onClick={onClickPlus}>
-          +
-        </button>
-      </div>
-      <div>
-        <span className="productPrice" onChange={prodSumPrice()}>
-          {converPrice(priceSum)}원
-        </span>
-      </div>
-      <button
-        className="listClearbButton"
-        type="button"
-        onClick={() => onRemove(id)}
-      />
-    </li>
+    <div className="boxSizing">
+      <li className="productLi">
+        <input className="checkBoxBtn" type="checkbox" />
+        <img className="produntImg" alt="" src={picture} />
+        <div className="productTitle">{title}</div>
+        <div className="pmButtonBox">
+          <button className="pmButton" onClick={onClickMinus}>
+            -
+          </button>
+          <div>{stock}</div>
+          <button className="pmButton" onClick={onClickPlus}>
+            +
+          </button>
+        </div>
+        <div>
+          <span className="productPrice" onChange={prodSumPrice()}>
+            {converPrice(priceSum)}원
+          </span>
+        </div>
+        <button
+          className="listClearbButton"
+          type="button"
+          onClick={() => onRemove(id)}
+        />
+      </li>
+    </div>
   );
 }
 
