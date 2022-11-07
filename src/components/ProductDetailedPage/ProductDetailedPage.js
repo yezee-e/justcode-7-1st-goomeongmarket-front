@@ -10,6 +10,7 @@ function ProductDetailedPage() {
   const [number, setNumber] = useState(1);
   const [state, setState] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isWishAdd, setIsWishAdd] = useState(false);
   const reviewRef = useRef();
   const inquiryRef = useRef();
 
@@ -41,6 +42,30 @@ function ProductDetailedPage() {
   };
   const clickScrollInq = () => {
     inquiryRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const wishAddHandler = () => {
+    setIsWishAdd(!isWishAdd);
+  };
+  const wishCountHandler = () => {
+    wishAddHandler();
+    if (!isWishAdd) {
+      fetch('http://localhost:3000/data/mockLikes.json', {
+        method: 'POST',
+        body: JSON.stringify({
+          user_id: 1,
+          product_id: params,
+        }),
+      });
+    } else if (isWishAdd) {
+      fetch('http://localhost:3000/data/mockLikes.json', {
+        method: 'POST',
+        body: JSON.stringify({
+          user_id: 1,
+          product_id: params,
+        }),
+      });
+    }
   };
 
   return (
@@ -192,11 +217,15 @@ function ProductDetailedPage() {
               </div>
 
               <div className="buttonContainer">
-                <button className="heartButton">
+                <button className="heartButton" onClick={wishCountHandler}>
                   <span>
                     <img
                       className="purpleHeart"
-                      src="/icons/purpleHeart.png"
+                      src={
+                        isWishAdd
+                          ? '/icons/redheart.png'
+                          : '/icons/purpleHeart.png'
+                      }
                       width="24px"
                       alt="찜아이콘"
                     />
