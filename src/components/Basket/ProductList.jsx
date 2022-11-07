@@ -6,9 +6,10 @@ function ProductList({
   converPrice,
   title,
   price,
-  picture,
+  img,
   onRemove,
   getPrice,
+  cart,
 }) {
   //제품 수량 체크
   const [stock, setStock] = useState(1);
@@ -31,7 +32,7 @@ function ProductList({
     <div className="boxSizing">
       <li className="productLi">
         <input className="checkBoxBtn" type="checkbox" />
-        <img className="produntImg" alt="" src={picture} />
+        <img className="produntImg" alt="" src={img} />
         <div className="productTitle">{title}</div>
         <div className="pmButtonBox">
           <button className="pmButton" onClick={onClickMinus}>

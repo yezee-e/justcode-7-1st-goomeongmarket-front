@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import './Incart.scss';
 
-function Incart({ setPopUp, title, price }) {
+function Incart({ id, setPopUp, title, price, converPrice, img }) {
   const [stock, setStock] = useState(1);
+  const [cart, setCart] = useState([]);
 
   const onClickPlus = () => {
     setStock(stock + 1);
   };
   const onClickMinus = () => {
-    setStock(stock - 1);
-  };
-
-  const converPrice = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    setStock(stock !== 0 ? stock - 1 : (stock = 0));
   };
 
   const priceMultiplQanntity = price * stock;
+
+  const handleCart = () => {
+    const cartItem = {
+      id: id,
+      img: img,
+      price: priceMultiplQanntity,
+      quantity: stock,
+      title: title,
+    };
+
+    setCart([...cart, cartItem]);
+  };
 
   return (
     <div className="popUpWraper">
@@ -57,6 +66,7 @@ function Incart({ setPopUp, title, price }) {
           </button>
 
           <button
+            onClick={handleCart}
             type="button"
             className="popUpBotSectionBoxDesign popUpBotSectionBoxDesignR"
           >
