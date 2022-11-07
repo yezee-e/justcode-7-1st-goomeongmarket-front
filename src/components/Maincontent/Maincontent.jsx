@@ -2,11 +2,10 @@ import React from 'react';
 import CardList from './CardList';
 import './Maincontent.scss';
 
-function Maincontent({ data, converPrice }) {
-  // console.log(data[2].title);
+function Maincontent({ data, converPrice, cart, setCart }) {
   return (
     <div>
-      <div className="MaincontentWrap">
+      <div className="MaincontentWraper">
         <div className="MainContentBox">
           <div className="MainContentTitle">
             {data.map((titleName, index) => {
@@ -31,31 +30,12 @@ function Maincontent({ data, converPrice }) {
                   title={title}
                   price={price}
                   img={img}
+                  cart={cart}
+                  setCart={setCart}
                 />
               );
             })}
           </div>
-
-          {/* <div className="productBox">
-            <img className="mainProductImg" alt="" src="/img/예제.jpg" />
-            <h3 className="productName">상품 제목</h3>
-            <span>{data.price}</span>
-            <button className="cart" />
-          </div>
-
-          <div className="productBox">
-            <img className="mainProductImg" alt="" src="/img/예제.jpg" />
-            <h3 className="productName">상품 제목</h3>
-            <span>가격</span>
-            <button className="cart" />
-          </div>
-
-          // <div className="productBox">
-          //   <img className="mainProductImg" alt="" src="/img/예제.jpg" />
-          //   <h3 className="productName">상품 제목</h3>
-          //   <span>가격</span>
-          //   <button className="cart" />
-          // </div> */}
         </div>
       </div>
     </div>

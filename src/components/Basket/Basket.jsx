@@ -1,28 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Basket.scss';
 import ProductList from './ProductList';
-function Basket() {
+function Basket({ cart, converPrice }) {
   const [basket, setBasket] = useState([]);
-  const [payPrice, setPayPrice] = useState(0);
-
-  //자식 컴포넌트에서 값 받아오는 함수
-  const getPrice = num => {
-    setPayPrice(num);
-  };
-
-  const mockData = `/data/mockData.json`;
-
-  // mockdata fetch
-  useEffect(() => {
-    fetch(mockData)
-      .then(res => res.json())
-      .then(json => setBasket(json.data));
-  }, []);
-
-  // 가격표 3번째 자리에 쉼표 찍는 함수
-  const converPrice = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
 
   // 장바구니 삭제하는 함수
   const onRemove = id => {
@@ -45,23 +25,17 @@ function Basket() {
           </div>
           <div className="productBox">
             <ul>
-              {basket.length === 0 ? (
+              {cart.length === 0 ? (
                 <div className="noProdInCart">
                   <h4>장바구니에 담긴 상품이 없습니다.</h4>
                 </div>
               ) : (
-                basket.map(values => {
-                  const { key, id, title, price, img } = values;
+                cart.map(cart => {
                   return (
                     <ProductList
                       converPrice={converPrice}
-                      key={key}
-                      id={id}
-                      title={title}
-                      price={price}
-                      img={img}
                       onRemove={onRemove}
-                      getPrice={getPrice}
+                      cart={cart}
                     />
                   );
                 })
@@ -97,7 +71,7 @@ function Basket() {
               <div className="cartBoxRightBody">
                 <div className="cartBoxTop">
                   <span>상품금액</span>
-                  <span>{converPrice(payPrice)}원</span>
+                  <span>{converPrice(5000)}원</span>
                 </div>
                 <div className="cartBoxMid">
                   <span>배송비</span>

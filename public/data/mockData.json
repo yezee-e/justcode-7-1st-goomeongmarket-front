@@ -8,13 +8,7 @@
       "titlename": "안녕하세요",
       "img": "./img/1.jpg"
     },
-    {
-      "id": "8",
-      "title": "더 이쁜 쇼파",
-      "price": 21300,
-      "category": "goods",
-      "img": "./img/2.jpg"
-    },
+
     {
       "id": "2",
       "title": "피자",
@@ -46,6 +40,27 @@
       "category": "goods",
       "titlename": "완전보장",
       "img": "./img/6.jpg"
+    },
+    {
+      "id": "6",
+      "title": "이쁜 쇼파",
+      "price": 21300,
+      "category": "goods",
+      "img": "./img/2.jpg"
+    },
+    {
+      "id": "7",
+      "title": "안이쁜 쇼파",
+      "price": 21300,
+      "category": "goods",
+      "img": "./img/2.jpg"
+    },
+    {
+      "id": "8",
+      "title": "우리집 쇼파",
+      "price": 21300,
+      "category": "goods",
+      "img": "./img/2.jpg"
     }
   ]
 }

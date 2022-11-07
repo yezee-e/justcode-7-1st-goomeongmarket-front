@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from '../../components/Header/Header';
 import './Main.scss';
 import Nav from '../../components/Nav/Nav';
 import SliderImages from '../../components/SliderImages/SliderImages';
 import Footer from '../../components/Footer/Footer';
-
 import Maincontent from '../../components/Maincontent/Maincontent';
 
-function Main({ data }) {
+function Main({ cart, setCart, data, converPrice }) {
   const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
 
   return (
@@ -15,7 +14,12 @@ function Main({ data }) {
       <Nav />
       <Header />
       <SliderImages />
-      <Maincontent data={data} />
+      <Maincontent
+        cart={cart}
+        setCart={setCart}
+        data={data}
+        converPrice={converPrice}
+      />
       <Footer />
     </div>
   );

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../../components/Header/Header';
 import './Mainbasket.scss';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import Basket from '../../components/Basket/Basket';
 
-function Mainbasket() {
+function Mainbasket({ cart, converPrice }) {
   return (
     <div className="mainPages">
       <Nav />
       <Header />
-      <Basket />
+      <Basket cart={cart} converPrice={converPrice} />
       <Footer />
     </div>
   );

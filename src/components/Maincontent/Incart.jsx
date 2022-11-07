@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import './Incart.scss';
 
-function Incart({ id, setPopUp, title, price, converPrice, img }) {
+function Incart({
+  id,
+  setPopUp,
+  converPrice,
+  cart,
+  setCart,
+  price,
+  img,
+  title,
+}) {
   const [stock, setStock] = useState(1);
-  const [cart, setCart] = useState([]);
 
   const onClickPlus = () => {
     setStock(stock + 1);
@@ -12,7 +20,7 @@ function Incart({ id, setPopUp, title, price, converPrice, img }) {
     setStock(stock !== 0 ? stock - 1 : (stock = 0));
   };
 
-  const priceMultiplQanntity = price * stock;
+  const priceMultiplQanntity = stock * price;
 
   const handleCart = () => {
     const cartItem = {
@@ -26,6 +34,7 @@ function Incart({ id, setPopUp, title, price, converPrice, img }) {
     setCart([...cart, cartItem]);
   };
 
+  console.log(cart);
   return (
     <div className="popUpWraper">
       <div className="popUpBox">

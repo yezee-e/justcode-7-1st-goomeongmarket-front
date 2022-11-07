@@ -23,28 +23,28 @@ function Router() {
       .then(json => setData(json.data));
   }, []);
 
-  // const converPrice = price => {
-  //   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  // };
-
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<Main data={data} converPrice={converPrice} />}
+          element={
+            <Main
+              data={data}
+              cart={cart}
+              setCart={setCart}
+              converPrice={converPrice}
+            />
+          }
         />
         <Route
           path="/basket"
-          element={<Mainbasket cart={cart} setCart={setCart} />}
+          element={<Mainbasket cart={cart} converPrice={converPrice} />}
         />
         <Route path="/signup" element={<Mainsignup />} />
         <Route path="/login" element={<Mainlogin />} />
         <Route path="/menu" element={<Menu />} />
-        <Route
-          path="/incart"
-          element={<Incart cart={cart} setCart={setCart} />}
-        />
+        <Route path="/incart" element={<Incart />} />
       </Routes>
     </BrowserRouter>
   );
