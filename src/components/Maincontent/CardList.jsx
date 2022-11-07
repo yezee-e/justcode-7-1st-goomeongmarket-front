@@ -3,7 +3,7 @@ import Incart from './Incart';
 
 import './CardList.scss';
 
-function CardList({ id, title, img, price, converPrice, cart, setCart }) {
+function CardList({ id, title, img, price, converPrice, cart, setCart, key }) {
   const [popUp, setPopUp] = useState(false);
 
   return (
@@ -22,7 +22,8 @@ function CardList({ id, title, img, price, converPrice, cart, setCart }) {
         <Incart
           cart={cart}
           setCart={setCart}
-          key={id}
+          key={key}
+          id={id}
           setPopUp={setPopUp}
           converPrice={converPrice}
           price={price}
