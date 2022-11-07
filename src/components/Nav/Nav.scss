@@ -1,8 +1,7 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: "Noto Sans KR", sans-serif;
-}
+// * {
+//   padding: 0;
+//   margin: 0;
+// }
 
 .navMain {
   width: 100vw;
@@ -38,6 +37,12 @@
       align-items: center;
       justify-content: flex-end;
 
+      .btnDesign {
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+      }
+
       .borderRight {
         width: 1px;
         height: 14px;
@@ -47,8 +52,6 @@
 
       .signUp {
         color: #8300a1;
-
-        text-decoration: none;
       }
       .underLineNone {
         color: black;
@@ -141,6 +144,7 @@
           width: 30px;
           height: 30px;
           margin-right: 20px;
+          cursor: pointer;
         }
       }
       .navSectionCenter {

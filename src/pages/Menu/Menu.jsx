@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
-import './Home.scss';
+import './Menu.scss';
 import Nav from '../../components/Nav/Nav';
 import SliderImages from '../../components/SliderImages/SliderImages';
 import Footer from '../../components/Footer/Footer';
 import CardList from '../../components/Maincontent/CardList';
 import Dropdown from '../../components/Filter/Dropdown';
 
-function Home() {
+function Menu() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
 
@@ -63,4 +63,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Menu;

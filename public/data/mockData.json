@@ -4,7 +4,8 @@
       "id": "1",
       "title": "쇼파",
       "price": 21300,
-      "category": "goods"
+      "category": "goods",
+      "titlename": "안녕하세요"
     },
     {
       "id": "8",
@@ -16,25 +17,29 @@
       "id": "2",
       "title": "피자",
       "price": 10000,
-      "category": "food"
+      "category": "food",
+      "titlename": "GMMK"
     },
     {
       "id": "3",
       "title": "파스타",
       "price": 50000,
-      "category": "food"
+      "category": "food",
+      "titlename": "반갑습니다."
     },
     {
       "id": "4",
       "title": "침대",
       "price": 230000,
-      "category": "goods"
+      "category": "goods",
+      "titlename": "좋은 가격"
     },
     {
       "id": "5",
       "title": "책상",
       "price": 220000,
-      "category": "goods"
+      "category": "goods",
+      "titlename": "완전보장"
     }
   ]
 }
