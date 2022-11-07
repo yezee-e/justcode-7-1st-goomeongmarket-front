@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Nav.scss';
-function Nav({ setSearch }) {
+function Nav({ setSearch, searchClick }) {
   return (
     <nav className="navMain">
       <div className="navBody">
@@ -48,7 +48,7 @@ function Nav({ setSearch }) {
               onChange={e => setSearch(e.target.value)}
             />
 
-            <button className="SearchBarMagnifier" />
+            <button className="SearchBarMagnifier" onClick={searchClick} />
           </form>
           <div className="navSectionLeft">
             <img className="iconControl " alt="위치" src="./img/location.png" />

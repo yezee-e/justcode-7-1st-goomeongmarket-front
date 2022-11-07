@@ -13,7 +13,6 @@ function Home() {
 
   const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
   const mockData = `http://localhost:3000/data/mockData.json`;
-  // const queryData=`http://localhost:3000?all=${search}`
   //mock데이터 들고오기
   useEffect(() => {
     fetch(mockData)
