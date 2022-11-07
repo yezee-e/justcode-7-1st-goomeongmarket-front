@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Nav.scss';
-function Nav() {
+function Nav({ setSearch, searchClick }) {
   const navigateSignUp = useNavigate();
   const navigateLogin = useNavigate();
   const NavigateBasket = useNavigate();
@@ -64,6 +64,7 @@ function Nav() {
               <input
                 className="navSearch"
                 placeholder="검색어를 입력해주세요"
+                onChange={e => setSearch(e.target.value)}
               />
               <button className="SearchBarMagnifier" />
             </form>
