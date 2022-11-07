@@ -1,0 +1,82 @@
+.popUpWraper {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  button {
+    cursor: pointer;
+  }
+  .popUpBox {
+    top: 350px;
+    left: 700px;
+    width: 450px;
+    height: 340px;
+    border-radius: 10px;
+    padding: 30px;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: rgb(255, 255, 255);
+
+    border-radius: 15px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
+      rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
+    overflow-y: auto;
+
+    .popUpBoxTop {
+      margin-top: 20px;
+      margin-bottom: 10px;
+
+      .pmBox {
+        border: 1px solid rgb(221, 223, 225);
+        border-radius: 3px;
+
+        button {
+          background-color: inherit;
+          border: none;
+          margin: 10px;
+        }
+      }
+
+      .popUpCartPriceSection {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .popUpMarginTop10px {
+        margin-top: 20px;
+      }
+    }
+
+    .popUpBoxMid {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .popUpBoxBot {
+      display: flex;
+
+      .popUpBotSectionBoxDesign {
+        width: 200px;
+        height: 60px;
+        border: 1px solid rgb(221, 223, 225);
+        background-color: inherit;
+      }
+      .popUpBotSectionBoxDesignL {
+        margin-right: 10px;
+      }
+      .popUpBotSectionBoxDesignR {
+        margin-right: 10px;
+      }
+    }
+  }
+}
