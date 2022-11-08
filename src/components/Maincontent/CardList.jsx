@@ -1,22 +1,36 @@
-//각 제품들
-//api 받아오면 상품 하나하나 보여줄수있다
-import React from 'react';
-// import '../../Category/Dropdown.scss';
+import React, { useState } from 'react';
+import Incart from './Incart';
+
 import './CardList.scss';
 
-function CardList({ title, price }) {
+function CardList({ id, title, img, price, converPrice, cart, setCart, key }) {
+  const [popUp, setPopUp] = useState(false);
+
   return (
     <div className="productBox">
-      <img className="mainProductImg" alt="" src="/img/예제.jpg" />
+      <img className="mainProductImg" alt="" src={img} />
       <h3 className="productName">{title}</h3>
-      <span>{price}</span>
+      <span>{converPrice(price)}</span>
       <button
         onClick={() => {
-          alert('준비중입니다.');
+          setPopUp(true);
         }}
         type="button"
         className="cart"
       />
+      {popUp === true ? (
+        <Incart
+          cart={cart}
+          setCart={setCart}
+          key={key}
+          id={id}
+          setPopUp={setPopUp}
+          converPrice={converPrice}
+          price={price}
+          img={img}
+          title={title}
+        />
+      ) : null}
     </div>
   );
 }

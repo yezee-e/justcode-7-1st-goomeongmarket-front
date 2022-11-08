@@ -33,7 +33,7 @@
     }
     .cartBoxLeft {
       width: 750px;
-      height: 700px;
+      height: 100%;
 
       .noProdInCart {
         width: 500px;
@@ -89,6 +89,7 @@
         }
       }
       .addressBox {
+        position: relative;
         width: 250px;
         height: 35px;
         font-size: 12px;
@@ -99,6 +100,9 @@
         margin: 15px 0px 15px 0px;
 
         .addressBoxMagnifier {
+          position: absolute;
+          top: 10px;
+          left: 82px;
           width: 15px;
           height: 15px;
         }

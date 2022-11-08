@@ -1,45 +1,74 @@
 {
   "data": [
     {
+      "key": "1",
       "id": "1",
       "title": "쇼파",
       "price": 21300,
       "category": "goods",
-      "titlename": "안녕하세요"
+      "titlename": "안녕하세요",
+      "img": "./img/1.jpg"
     },
+
     {
-      "id": "8",
-      "title": "더 이쁜 쇼파",
-      "price": 21300,
-      "category": "goods"
-    },
-    {
+      "key": "2",
       "id": "2",
       "title": "피자",
-      "price": 10000,
+      "price": 29000,
       "category": "food",
-      "titlename": "GMMK"
+      "titlename": "GMMK",
+      "img": "./img/3.jpg"
     },
     {
+      "key": "3",
       "id": "3",
       "title": "파스타",
       "price": 50000,
       "category": "food",
-      "titlename": "반갑습니다."
+      "titlename": "반갑습니다.",
+      "img": "./img/4.jpg"
     },
     {
+      "key": "4",
       "id": "4",
       "title": "침대",
       "price": 230000,
       "category": "goods",
-      "titlename": "좋은 가격"
+      "titlename": "좋은 가격",
+      "img": "./img/5.jpg"
     },
     {
+      "key": "5",
       "id": "5",
       "title": "책상",
       "price": 220000,
       "category": "goods",
-      "titlename": "완전보장"
+      "titlename": "완전보장",
+      "img": "./img/6.jpg"
+    },
+    {
+      "key": "6",
+      "id": "6",
+      "title": "이쁜 쇼파",
+      "price": 21300,
+      "category": "goods",
+      "img": "./img/2.jpg"
+    },
+    {
+      "key": "7",
+      "id": "7",
+      "title": "안이쁜 쇼파",
+      "price": 21300,
+      "category": "goods",
+      "img": "./img/2.jpg"
+    },
+    {
+      "key": "8",
+      "id": "8",
+      "title": "우리집 쇼파",
+      "price": 21300,
+      "category": "goods",
+      "img": "./img/2.jpg"
     }
   ]
 }
