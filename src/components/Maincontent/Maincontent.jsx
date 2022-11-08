@@ -7,7 +7,7 @@ function Maincontent({ data, converPrice, cart, setCart }) {
     <div>
       <div className="MaincontentWraper">
         <div className="MainContentBox">
-          <button className="btnLeft">← </button>
+          <button className="btnLeft">←</button>
           <button className="btnRight">→</button>
           <div className="MainContentTitle">
             {data.map((titleName, index) => {

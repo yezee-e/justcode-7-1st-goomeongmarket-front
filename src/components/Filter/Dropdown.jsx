@@ -10,11 +10,11 @@ import './Dropdown.scss';
 
 function Dropdown({ data, setData, list }) {
   const [isActive, setIsActive] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
+  // const [isSelected, setIsSelected] = useState(false);
 
   //카테고리 필터기능
   let filterResult = item => {
-    let result = data.filter(fakeData => fakeData.category == item);
+    let result = data.filter(fakeData => fakeData.category === item);
     setData(result);
   };
 
@@ -26,7 +26,7 @@ function Dropdown({ data, setData, list }) {
       </div>
       {isActive && (
         <div className="dropdown-content">
-          {list == '카테고리' && (
+          {list === '카테고리' && (
             <div className="dropdown-content_label">
               <label
                 htmlFor="check"
@@ -46,7 +46,7 @@ function Dropdown({ data, setData, list }) {
               </label>
             </div>
           )}
-          {list == '가격' && (
+          {list === '가격' && (
             <div>
               <label
                 htmlFor="check2"
@@ -66,7 +66,7 @@ function Dropdown({ data, setData, list }) {
               </label>
             </div>
           )}
-          {list == '이름순' && (
+          {list === '이름순' && (
             <div className="dropdown-content_label">
               <label
                 htmlFor="check4"
