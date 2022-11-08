@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Nav.scss';
-function Nav({ setSearch, searchClick }) {
+function Nav({ setSearch }) {
   const navigateSignUp = useNavigate();
   const navigateLogin = useNavigate();
   const NavigateBasket = useNavigate();

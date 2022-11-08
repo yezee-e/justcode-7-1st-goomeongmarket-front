@@ -22,7 +22,7 @@ function ProductDetailedPage() {
   // }, [match]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mockProduct.json')
+    fetch('http://localhost:3000/data/mockData.json')
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
@@ -75,36 +75,34 @@ function ProductDetailedPage() {
       {isLoaded && (
         <div className="container">
           <article className="mainDetail">
-            <img
-              className="mainImage"
-              src={change.product_img}
-              alt="메인이미지"
-            />
+            <img className="mainImage" src={change.img} alt="메인이미지" />
 
             <div className="infoContainer">
               <div className="productTitle">
                 <div className="titleWrap">
                   <p className="titleDelivery">배송</p>
-                  <p className="title">{change.name}</p>
-                  <p className="titleShort">{change.sub_name}</p>
+                  <p className="title">{change.title}</p>
+                  <p className="titleShort">{}</p>
                 </div>
 
                 <div className="discountPriceWrap">
                   <span className="discountRate">
-                    {change.sale ? `${change.sale * 100}%` : null}
+                    {/* {change.sale ? `${change.sale * 100}%` : null} */}
                   </span>
                   <span className="discountPrice">
-                    {change.sale
+                    {/* {change.sale
                       ? change.price - change.sale * change.price
-                      : change.price}
+                      : change.price} */}
+                    {change.price}
                   </span>
                   <span className="discountWon">원</span>
                 </div>
 
                 <div className="priceWrap">
                   <span className="price">
-                    {(change.sale ? `${change.sale * 100}%` : null) &&
-                      `${change.price}원`}
+                    {/* {(change.sale ? `${change.sale * 100}%` : null) &&
+                      `${change.price}원`} */}
+                    {change.price}
                   </span>
                 </div>
 
@@ -135,7 +133,7 @@ function ProductDetailedPage() {
                 <div className="productInfoSection">
                   <p className="InfoTitle">원산지</p>
                   <div className="InfoContent">
-                    <p>{change.country_id}</p>
+                    <p>{}</p>
                   </div>
                 </div>
 
@@ -143,7 +141,7 @@ function ProductDetailedPage() {
                   <div className="productInfoSection">
                     <p className="InfoTitle">상품선택</p>
                     <div className="selctionQuantity">
-                      <p className="quantityTitle">{change.name}</p>
+                      <p className="quantityTitle">{change.title}</p>
                       <p className="quantityShort">적립제외상품</p>
 
                       <div className="quantityWrap">
@@ -175,17 +173,18 @@ function ProductDetailedPage() {
 
                         <div className="onePrice">
                           <span className="beforePrice">
-                            {(change.sale ? `${change.sale * 100}%` : null) &&
-                              `${change.price}원`}
+                            {/* {(change.sale ? `${change.sale * 100}%` : null) &&
+                              `${change.price}원`} */}
                           </span>
                           <span className="afterPrice">
-                            {(change.sale ? `${change.sale * 100}%` : null)
+                            {/* {(change.sale ? `${change.sale * 100}%` : null)
                               ? `${
                                   change.sale
                                     ? change.price - change.sale * change.price
                                     : change.price
                                 }원`
-                              : `${change.price}원`}
+                              : `${change.price}원`} */}
+                            {change.price}
                           </span>
                         </div>
                       </div>
@@ -198,13 +197,14 @@ function ProductDetailedPage() {
                 <div className="totalWrap">
                   <span className="totalText">총 상품금액:</span>
                   <span className="totalPrice">
-                    {(change.sale ? `${change.sale * 100}%` : null)
+                    {/* {(change.sale ? `${change.sale * 100}%` : null)
                       ? `${
                           (change.sale
                             ? change.price - change.sale * change.price
                             : change.price) * number
                         }`
-                      : `${change.price * number}`}
+                      : `${change.price * number}`} */}
+                    {change.price * number}
                   </span>
                   <span className="totalWon">원</span>
                 </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import './Menu.scss';
 import Nav from '../../components/Nav/Nav';
@@ -7,18 +7,10 @@ import Footer from '../../components/Footer/Footer';
 import CardList from '../../components/Maincontent/CardList';
 import Dropdown from '../../components/Filter/Dropdown';
 
-function Menu() {
-  const [data, setData] = useState([]);
+function Menu({ data, setData, converPrice }) {
   const [search, setSearch] = useState('');
 
   const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
-  const mockData = `http://localhost:3000/data/mockData.json`;
-  //mock데이터 들고오기
-  useEffect(() => {
-    fetch(mockData)
-      .then(res => res.json())
-      .then(json => setData(json.data));
-  }, []);
 
   //검색창 활성화 구현
   const filterTitle = data.filter(item =>
@@ -48,10 +40,17 @@ function Menu() {
               <span>제목 들어오는 자리</span>
             </div>
             <div className="productInformation">
-              {filterTitle.map(values => {
-                const { id, title, price } = values;
+              {filterTitle.map((values, index) => {
+                const { id, title, price, img } = values;
                 return (
-                  <CardList data={data} key={id} title={title} price={price} />
+                  <CardList
+                    id={id}
+                    title={title}
+                    price={price}
+                    key={index}
+                    img={img}
+                    converPrice={converPrice}
+                  />
                 );
               })}
             </div>
