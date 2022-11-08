@@ -7,7 +7,7 @@
       "price": 21300,
       "category": "goods",
       "titlename": "안녕하세요",
-      "img": "./img/1.jpg"
+      "img": "/img/1.jpg"
     },
 
     {
@@ -17,7 +17,7 @@
       "price": 29000,
       "category": "food",
       "titlename": "GMMK",
-      "img": "./img/3.jpg"
+      "img": "/img/3.jpg"
     },
     {
       "key": "3",
@@ -26,7 +26,7 @@
       "price": 50000,
       "category": "food",
       "titlename": "반갑습니다.",
-      "img": "./img/4.jpg"
+      "img": "/img/4.jpg"
     },
     {
       "key": "4",
@@ -35,7 +35,7 @@
       "price": 230000,
       "category": "goods",
       "titlename": "좋은 가격",
-      "img": "./img/5.jpg"
+      "img": "/img/5.jpg"
     },
     {
       "key": "5",
@@ -44,7 +44,7 @@
       "price": 220000,
       "category": "goods",
       "titlename": "완전보장",
-      "img": "./img/6.jpg"
+      "img": "/img/6.jpg"
     },
     {
       "key": "6",
@@ -52,7 +52,7 @@
       "title": "이쁜 쇼파",
       "price": 21300,
       "category": "goods",
-      "img": "./img/2.jpg"
+      "img": "/img/2.jpg"
     },
     {
       "key": "7",
@@ -60,7 +60,7 @@
       "title": "안이쁜 쇼파",
       "price": 21300,
       "category": "goods",
-      "img": "./img/2.jpg"
+      "img": "/img/2.jpg"
     },
     {
       "key": "8",
@@ -68,7 +68,7 @@
       "title": "우리집 쇼파",
       "price": 21300,
       "category": "goods",
-      "img": "./img/2.jpg"
+      "img": "/img/2.jpg"
     }
   ]
 }

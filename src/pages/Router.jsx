@@ -6,6 +6,7 @@ import Mainlogin from './Mainlogin/Mainlogin';
 import Mainsignup from './Mainsignup/Mainsignup';
 import Mainbasket from './Mainbasket/Mainbasket';
 import Incart from '../components/Maincontent/Incart';
+import ProductDetailedPage from '../components/ProductDetailedPage/ProductDetailedPage';
 
 function Router() {
   const converPrice = price => {
@@ -55,6 +56,7 @@ function Router() {
           }
         />
         <Route path="/incart" element={<Incart />} />
+        <Route path="/detail/:id" element={<ProductDetailedPage />} />
       </Routes>
     </BrowserRouter>
   );
