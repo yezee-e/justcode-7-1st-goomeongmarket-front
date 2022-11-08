@@ -11,6 +11,7 @@ function ProductDetailedPage() {
   const [state, setState] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isWishAdd, setIsWishAdd] = useState(false);
+  const [comment, setComment] = useState([]);
   const reviewRef = useRef();
   const inquiryRef = useRef();
 
@@ -26,10 +27,17 @@ function ProductDetailedPage() {
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
+    fetch('http://localhost:3000/data/mockComment.json')
+      .then(res => res.json())
+      .then(result => setComment(result.data));
   }, []);
 
+  // console.log(params);
   const select = state.filter(value => value.id == params.id);
   const change = select[0];
+
+  const selectCom = comment.filter(value => value.product_id == params.id);
+  const changeCom = selectCom[0];
 
   const increaseNumber = () => {
     setNumber(number + 1);
@@ -527,11 +535,9 @@ function ProductDetailedPage() {
                   <article>
                     <div>
                       <div className="reviewsProduct">
-                        <h3 className="reviewsProductTitle">
-                          [KF365] DOLE 실속 바나나 1kg (필리핀)
-                        </h3>
+                        <h3 className="reviewsProductTitle">{change.title}</h3>
                       </div>
-                      <p className="reviewsText">리뷰내용</p>
+                      <p className="reviewsText">{changeCom.comment}</p>
                       <div className="reviewsPhotoWrap">
                         <button className="reviewsPhoto"></button>
                       </div>
