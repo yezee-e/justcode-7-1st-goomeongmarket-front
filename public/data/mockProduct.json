@@ -7,7 +7,7 @@
       "product_img": "https://img-cf.kurly.com/shop/data/goods/165303902534l0.jpg",
       "price": 3700,
       "country_id": "필리핀",
-      "sale": 15,
+      "sale": 0.15,
       "category_id": 10
     },
     {
@@ -17,7 +17,7 @@
       "product_img": "https://product-image.kurly.com/product/image/60ad6375-f264-4b1b-ba0b-7021d2970215.jpg",
       "price": 38000,
       "country_id": "국내산(한우)",
-      "sale": 20,
+      "sale": "",
       "category_id": 20
     }
   ]

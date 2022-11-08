@@ -16,7 +16,6 @@ function Maincontent({ data, converPrice, cart, setCart }) {
               return <span key={index}>{titlename}</span>;
             })}
           </div>
-
           <div className="productInformation">
             {data.map((values, index) => {
               const { id, title, price, img } = values;
