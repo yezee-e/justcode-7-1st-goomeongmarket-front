@@ -5,7 +5,7 @@ import Nav from '../Nav/Nav';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-function ProductDetailedPage() {
+function ProductDetailedPage({ converPrice }) {
   const params = useParams();
   const [number, setNumber] = useState(1);
   const [state, setState] = useState([]);

@@ -29,7 +29,7 @@ function ProductList({ converPrice, onRemove, cart }) {
             +
           </button>
         </div>
-        <div>
+        <div className="productPriceBox">
           <span className="productPrice">{converPrice(priceSum)}원</span>
         </div>
         <button
