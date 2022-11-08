@@ -4,31 +4,29 @@
 
 //filter 넣고 ->다시 필터빼기 //map,useEffect()
 import React from 'react';
-import { useEffect } from 'react';
+
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
 import './Dropdown.scss';
-import { useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 
-function Dropdown({ data, setData, list }) {
+function Dropdown({ list }) {
   const [isActive, setIsActive] = useState(false);
   const [filter, setFilter] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
 
   let [searchParms, setSearchParams] = useSearchParams();
   const sorted_by = searchParms.get('sorted_by');
-  console.log(sorted_by);
+  const { tabId } = useParams();
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/product/new?sorted_by=${sorted_by}`)
-      .then(res => res.json())
-      .then(res => setFilter(res.data));
-  }, [sorted_by]);
+  // const FETCH = `http://localhost:8000/products/${tabId}?sorted_by=${pageNumber}`;
 
   const filtering = pageNumber => {
+    fetch(`http://localhost:3000/data/mockData.json`)
+      .then(res => res.json())
+      .then(res => setFilter(res.data));
     searchParms.set('sorted_by', pageNumber);
     setSearchParams(searchParms);
-    setData(searchParms);
   };
 
   return (
@@ -39,7 +37,7 @@ function Dropdown({ data, setData, list }) {
       </div>
       {isActive && (
         <div className="dropdown-content">
-          {list == '카테고리' && (
+          {list === '카테고리' && (
             <div className="dropdown-content_label">
               <label
                 htmlFor="check"
@@ -79,7 +77,7 @@ function Dropdown({ data, setData, list }) {
               </label>
             </div>
           )}
-          {list == '이름순' && (
+          {list === '이름순' && (
             <div className="dropdown-content_label">
               <label
                 htmlFor="check4"

@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Basket.scss';
 import ProductList from './ProductList';
-function Basket() {
-  const [basket, setBasket] = useState([]);
-
-  const cartMock = `http://localhost:3000/data/cartData.json`;
-
-  useEffect(() => {
-    fetch(cartMock)
-      .then(res => res.json())
-      .then(json => setBasket(json.data));
-  }, []);
-  const converPrice = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
+function Basket({ cart, converPrice, setCart }) {
+  // 장바구니 삭제하는 함수
   const onRemove = id => {
-    setBasket(basket.filter(prod => prod.id != id));
+    setCart(cart.filter(el => el.id !== id));
   };
 
+  let priceSum = cart.map(el => el.price);
+  let sumArr = priceSum.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+
+  // console.log(cart.length);
   return (
     <div className="basketBody">
       <div className="cartNameBox">
@@ -28,30 +22,33 @@ function Basket() {
         <div className="cartBoxLeft">
           <div className="selectBox">
             <input className="checkBoxBtnHead" type="checkbox" id="check1" />
-            <label form="check1"></label>
-            <span>전체선택(0/0)</span>
+            <label form="check1" />
+            <span>전체선택(0/{cart.length})</span>
             <span className="borderRightInBasket" />
             <button className="selectDelBox">선택삭제</button>
           </div>
           <div className="productBox">
             <ul>
-              {basket.map(values => {
-                const { key, id, title, price, picture } = values;
-                return (
-                  <ProductList
-                    converPrice={converPrice}
-                    key={key}
-                    id={id}
-                    title={title}
-                    price={price}
-                    picture={picture}
-                    onRemove={onRemove}
-                  />
-                );
-              })}
+              {cart.length === 0 ? (
+                <div className="noProdInCart">
+                  <h4>장바구니에 담긴 상품이 없습니다.</h4>
+                </div>
+              ) : (
+                cart.map(cart => {
+                  return (
+                    <ProductList
+                      key={cart.key}
+                      converPrice={converPrice}
+                      onRemove={onRemove}
+                      cart={cart}
+                    />
+                  );
+                })
+              )}
             </ul>
           </div>
         </div>
+
         <div className="cartBoxRight">
           <div className="productInformationBox">
             <div className="cartBoxRightWraper">
@@ -79,18 +76,20 @@ function Basket() {
               <div className="cartBoxRightBody">
                 <div className="cartBoxTop">
                   <span>상품금액</span>
-                  <span>{converPrice(7900)}원</span>
+                  <span>{converPrice(sumArr)}원</span>
                 </div>
                 <div className="cartBoxMid">
                   <span>배송비</span>
-                  <span>{converPrice(3000)}원</span>
+                  <span>{converPrice(sumArr >= 30000 ? '0' : '3000')}원</span>
                 </div>
                 <p className="benefits">
                   30,000원 추가주문 시,<strong>무료배송</strong>
                 </p>
                 <div className="cartBoxBot">
                   <span>결제예정금액</span>
-                  <span>{converPrice(19000)}원</span>
+                  <span>
+                    {converPrice(sumArr >= 30000 ? sumArr : sumArr + 3000)}원
+                  </span>
                 </div>
               </div>
             </div>

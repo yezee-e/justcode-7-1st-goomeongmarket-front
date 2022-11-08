@@ -108,46 +108,30 @@ function Footer() {
               팩스 : 070-0000-0000
             </div>
             <div>
-              <img
-                className="imgSizeControl"
-                alt=""
-                src="./img/instagram.png"
-              />
-              <img className="imgSizeControl" alt="" src="./img/facebook.png" />
-              <img className="imgSizeControl" alt="" src="./img/blogger.png" />
-              <img className="imgSizeControl" alt="" src="./img/mail.png" />
-              <img className="imgSizeControl" alt="" src="./img/youtube.png" />
+              <img className="imgSizeControl" alt="" src="/img/instagram.png" />
+              <img className="imgSizeControl" alt="" src="/img/facebook.png" />
+              <img className="imgSizeControl" alt="" src="/img/blogger.png" />
+              <img className="imgSizeControl" alt="" src="/img/mail.png" />
+              <img className="imgSizeControl" alt="" src="/img/youtube.png" />
             </div>
           </div>
         </div>
 
         <div className="footerCertificationBox">
           <div className="footerFlag">
-            <img className="flagSizeContol" alt="한국" src="./img/korea.png" />
+            <img className="flagSizeContol" alt="한국" src="/img/korea.png" />
             <span className="lineHeight30">Korea</span>
           </div>
           <div className="footerFlag">
-            <img
-              className="flagSizeContol"
-              alt="미국"
-              src="./img/america.png"
-            />
+            <img className="flagSizeContol" alt="미국" src="/img/america.png" />
             <span className="lineHeight30">America</span>
           </div>
           <div className="footerFlag">
-            <img
-              className="flagSizeContol"
-              alt="영국"
-              src="./img/england.png"
-            />
+            <img className="flagSizeContol" alt="영국" src="/img/england.png" />
             <span className="lineHeight30">England</span>
           </div>
           <div className="footerFlag">
-            <img
-              className="flagSizeContol"
-              alt="독일"
-              src="./img/germany.png"
-            />
+            <img className="flagSizeContol" alt="독일" src="/img/germany.png" />
             <span className="lineHeight30">Germany</span>
           </div>
         </div>

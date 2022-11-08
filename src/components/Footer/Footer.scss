@@ -1,151 +1,146 @@
-* {
-  padding: 0;
-  margin: 0;
+.textDecorationNone {
+  text-decoration: none;
+}
 
-  .textDecorationNone {
-    text-decoration: none;
-  }
+.lineHeight30 {
+  line-height: 70px;
+}
 
-  .lineHeight30 {
-    line-height: 70px;
-  }
+.footerFlag {
+  display: flex;
+}
 
-  .footerFlag {
+.marginLeft5 {
+  margin-left: 5px;
+}
+
+.footerWrap {
+  margin-top: 80px;
+  width: 100vw;
+  border-top: 1px solid #f7f7f7;
+
+  .footerBox {
+    width: 1050px;
+    height: 350px;
+    margin: 0px auto;
+    bottom: 0;
+
     display: flex;
-  }
+    flex-direction: row;
 
-  .marginLeft5 {
-    margin-left: 5px;
-  }
+    .footerLeft {
+      width: 450px;
+      padding-top: 20px;
+      margin-right: 200px;
 
-  .footerWrap {
-    margin-top: 80px;
-    width: 100vw;
-    border-top: 1px solid #f7f7f7;
-
-    .footerBox {
-      width: 1050px;
-      height: 350px;
-      margin: 0px auto;
-      bottom: 0;
-
-      display: flex;
-      flex-direction: row;
-
-      .footerLeft {
-        width: 450px;
-        padding-top: 20px;
-        margin-right: 200px;
-
-        .clientHappyCenter {
-          margin-bottom: 15px;
-        }
-
-        .callNumber {
-          padding-bottom: 20px;
-          font-size: 28px;
-          line-height: 40px;
-          margin-right: 10px;
-        }
-        .footerLeftBtnBox {
-          background-color: inherit;
-          width: 140px;
-          height: 40px;
-          border: 1px solid rgb(226, 226, 226);
-          border-radius: 3px;
-          text-align: center;
-          margin-right: 16px;
-        }
-
-        .footerLeftBtnInContent {
-          font-size: 13px;
-          margin-top: 2px;
-          color: rgb(153, 153, 153);
-          letter-spacing: -0.5px;
-          line-height: 16.8px;
-        }
-
-        .noneUserInquiry {
-          font-size: 12px;
-          color: rgb(153, 153, 153);
-          letter-spacing: -0.5px;
-          line-height: 16.8px;
-          margin-top: 15px;
-        }
-
-        .boxContentFlex {
-          display: flex;
-          margin-top: 20px;
-        }
+      .clientHappyCenter {
+        margin-bottom: 15px;
       }
 
-      .footerRight {
-        width: 450px;
-        padding-top: 20px;
+      .callNumber {
+        padding-bottom: 20px;
+        font-size: 28px;
+        line-height: 40px;
+        margin-right: 10px;
+      }
+      .footerLeftBtnBox {
+        background-color: inherit;
+        width: 140px;
+        height: 40px;
+        border: 1px solid rgb(226, 226, 226);
+        border-radius: 3px;
+        text-align: center;
+        margin-right: 16px;
+      }
 
-        .footerRightHead {
-          display: flex;
-          list-style: none;
-          padding: 0;
-        }
-        li {
-          font-size: 13px;
-          margin: 0px 0px 10px 0px;
-        }
-        .footerRightContent {
-          color: black;
-          cursor: pointer;
-          margin-right: 5px;
-        }
+      .footerLeftBtnInContent {
+        font-size: 13px;
+        margin-top: 2px;
+        color: rgb(153, 153, 153);
+        letter-spacing: -0.5px;
+        line-height: 16.8px;
+      }
 
-        .borderRight {
-          font-size: 10px;
-          vertical-align: top;
-          margin-right: 5px;
-        }
+      .noneUserInquiry {
+        font-size: 12px;
+        color: rgb(153, 153, 153);
+        letter-spacing: -0.5px;
+        line-height: 16.8px;
+        margin-top: 15px;
+      }
 
-        .footerCompanyInformation {
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 18px;
-          color: rgb(153, 153, 153);
-          margin-bottom: 40px;
-        }
-        .companyInformationUnderBarDel {
-          text-decoration: none;
-        }
-        .imgSizeControl {
-          width: 25px;
-          height: 25px;
-          border-radius: 5px;
-          margin-right: 10px;
-        }
+      .boxContentFlex {
+        display: flex;
+        margin-top: 20px;
       }
     }
-    .footerCertificationBox {
-      width: 1050px;
-      height: 100px;
-      margin: 0px auto;
-      border-top: 1px solid #f7f7f7;
-      display: flex;
-      justify-content: space-between;
 
-      .flagSizeContol {
-        width: 35px;
-        height: 35px;
+    .footerRight {
+      width: 450px;
+      padding-top: 20px;
+
+      .footerRightHead {
+        display: flex;
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        font-size: 13px;
+        margin: 0px 0px 10px 0px;
+      }
+      .footerRightContent {
+        color: black;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .borderRight {
+        font-size: 10px;
+        vertical-align: top;
+        margin-right: 5px;
+      }
+
+      .footerCompanyInformation {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: rgb(153, 153, 153);
+        margin-bottom: 40px;
+      }
+      .companyInformationUnderBarDel {
+        text-decoration: none;
+      }
+      .imgSizeControl {
+        width: 25px;
+        height: 25px;
         border-radius: 5px;
-        margin: 20px 10px 0px 0px;
+        margin-right: 10px;
       }
     }
+  }
+  .footerCertificationBox {
+    width: 1050px;
+    height: 100px;
+    margin: 0px auto;
+    border-top: 1px solid #f7f7f7;
+    display: flex;
+    justify-content: space-between;
 
-    .footerEndBox {
-      width: 100vw;
-      padding: 20px 0px 30px;
-      font-size: 10px;
-      line-height: 15px;
-      text-align: center;
-      background-color: rgb(247, 247, 247);
-      color: rgb(153, 153, 153);
+    .flagSizeContol {
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
+      margin: 20px 10px 0px 0px;
     }
+  }
+
+  .footerEndBox {
+    width: 100vw;
+    padding: 20px 0px 30px;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    background-color: rgb(247, 247, 247);
+    color: rgb(153, 153, 153);
   }
 }

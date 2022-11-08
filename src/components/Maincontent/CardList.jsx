@@ -1,16 +1,46 @@
-//각 제품들
-//api 받아오면 상품 하나하나 보여줄수있다
-import React from 'react';
-// import '../../Category/Dropdown.scss';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Incart from './Incart';
+
 import './CardList.scss';
 
-function CardList({ title, price }) {
+function CardList({ id, title, img, price, converPrice, cart, setCart, key }) {
+  const [popUp, setPopUp] = useState(false);
+  const navigate = useNavigate();
+  const moveDetail = () => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <div className="productBox">
-      <img className="mainProductImg" alt="" src="/img/예제.jpg" />
+      <img
+        className="mainProductImg"
+        alt="제풒사진"
+        src={img}
+        onClick={moveDetail}
+      />
       <h3 className="productName">{title}</h3>
-      <span>{price}</span>
-      <button className="cart" />
+      <span>{converPrice(price)}</span>
+      <button
+        onClick={() => {
+          setPopUp(true);
+        }}
+        type="button"
+        className="cart"
+      />
+      {popUp === true ? (
+        <Incart
+          cart={cart}
+          setCart={setCart}
+          key={key}
+          id={id}
+          setPopUp={setPopUp}
+          converPrice={converPrice}
+          price={price}
+          img={img}
+          title={title}
+        />
+      ) : null}
     </div>
   );
 }
