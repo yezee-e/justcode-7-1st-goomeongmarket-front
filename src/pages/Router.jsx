@@ -48,7 +48,12 @@ function Router() {
         />
         <Route path="/signup" element={<Mainsignup />} />
         <Route path="/login" element={<Mainlogin />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route
+          path="/menu"
+          element={
+            <Menu data={data} setData={setData} converPrice={converPrice} />
+          }
+        />
         <Route path="/incart" element={<Incart />} />
       </Routes>
     </BrowserRouter>
