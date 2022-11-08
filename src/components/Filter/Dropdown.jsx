@@ -4,18 +4,31 @@
 
 //filter 넣고 ->다시 필터빼기 //map,useEffect()
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
 import './Dropdown.scss';
+import { useSearchParams } from 'react-router-dom';
 
 function Dropdown({ data, setData, list }) {
   const [isActive, setIsActive] = useState(false);
+  const [filter, setFilter] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
 
-  //카테고리 필터기능
-  let filterResult = item => {
-    let result = data.filter(fakeData => fakeData.category == item);
-    setData(result);
+  let [searchParms, setSearchParams] = useSearchParams();
+  const sorted_by = searchParms.get('sorted_by');
+  console.log(sorted_by);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/product/new?sorted_by=${sorted_by}`)
+      .then(res => res.json())
+      .then(res => setFilter(res.data));
+  }, [sorted_by]);
+
+  const filtering = pageNumber => {
+    searchParms.set('sorted_by', pageNumber);
+    setSearchParams(searchParms);
+    setData(searchParms);
   };
 
   return (
@@ -31,7 +44,7 @@ function Dropdown({ data, setData, list }) {
               <label
                 htmlFor="check"
                 className="dropdown-item"
-                onClick={() => filterResult('food')}
+                onClick={() => filtering()}
               >
                 <input type="radio" id="check" name="together" />
                 음식
@@ -39,7 +52,7 @@ function Dropdown({ data, setData, list }) {
               <label
                 htmlFor="check1"
                 className="dropdown-item"
-                onClick={() => filterResult('food')}
+                onClick={() => filtering()}
               >
                 <input type="radio" id="check1" name="together" />
                 가구
@@ -47,11 +60,11 @@ function Dropdown({ data, setData, list }) {
             </div>
           )}
           {list == '가격' && (
-            <div>
+            <div className="dropdown-content_label">
               <label
                 htmlFor="check2"
                 className="dropdown-item"
-                onClick={() => filterResult('food')}
+                onClick={() => filtering(6)}
               >
                 <input type="radio" id="check2" name="together" />
                 높은 가격순
@@ -59,7 +72,7 @@ function Dropdown({ data, setData, list }) {
               <label
                 htmlFor="check3"
                 className="dropdown-item"
-                onClick={() => filterResult('food')}
+                onClick={() => filtering(6)}
               >
                 <input type="radio" id="check3" name="together" />
                 낮은 가격순
@@ -71,14 +84,14 @@ function Dropdown({ data, setData, list }) {
               <label
                 htmlFor="check4"
                 className="dropdown-item"
-                onClick={() => filterResult('food')}
+                onClick={() => filtering()}
               >
                 <input type="radio" id="check4" name="together" />가
               </label>
               <label
                 htmlFor="check4"
                 className="dropdown-item"
-                onClick={() => filterResult('food')}
+                onClick={() => filtering()}
               >
                 <input type="radio" id="check4" name="together" />나
               </label>

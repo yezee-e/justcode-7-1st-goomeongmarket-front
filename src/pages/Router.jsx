@@ -14,7 +14,7 @@ function Router() {
         <Route path="/basket" element={<Mainbasket />} />
         <Route path="/signup" element={<Mainsignup />} />
         <Route path="/login" element={<Mainlogin />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/product/new" element={<Menu />} />
       </Routes>
     </BrowserRouter>
   );

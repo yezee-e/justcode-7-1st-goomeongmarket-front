@@ -60,7 +60,7 @@ function Header() {
 
           <ul className="headerCenter">
             <li className="headerCenterBox">
-              <Link className="linkToMenu" to="/menu">
+              <Link className="linkToMenu" to="/product/new">
                 신상품
               </Link>
             </li>

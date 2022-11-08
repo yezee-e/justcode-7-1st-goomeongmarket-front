@@ -12,12 +12,14 @@ function Menu() {
   const [search, setSearch] = useState('');
 
   const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
-  const mockData = `http://localhost:3000/data/mockData.json`;
   //mock데이터 들고오기
-  useEffect(() => {
-    fetch(mockData)
+  const fetchData = () => {
+    fetch(`http://localhost:3000/data/mockData.json`)
       .then(res => res.json())
       .then(json => setData(json.data));
+  };
+  useEffect(() => {
+    fetchData();
   }, []);
 
   //검색창 활성화 구현
