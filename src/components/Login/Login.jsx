@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Login.scss';
+const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,24}$/;
 
 function Login() {
+  const [id, setId] = useState('');
+  const [validId, setValidId] = useState('');
+  const [pw, setPw] = useState('');
+  const [validPw, setValidPw] = useState('');
+
+  useEffect(() => {
+    setValidId(EMAIL_REGEX.test(id));
+  }, [id]);
   return (
     <div className="login-whole">
       <div className="login-title">
