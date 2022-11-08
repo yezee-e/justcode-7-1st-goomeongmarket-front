@@ -577,15 +577,16 @@ function ProductDetailedPage() {
               </div>
 
               <table className="inquiryTable">
-                <div>
+                <thead>
                   <tr>
                     <th className="inqTitle">제목</th>
                     <th className="inqAuthor">작성자</th>
                     <th className="inqDate">작성일</th>
                     <th className="inqStatus">답변상태</th>
                   </tr>
-                </div>
-                <div className="inqCon">
+                </thead>
+
+                <thead className="inqCon">
                   <tr>
                     <td className="inqConTitle">
                       <span>공지</span>판매 (일시)중단 제품 안내 (22.11.04
@@ -595,7 +596,7 @@ function ProductDetailedPage() {
                     <td className="inqConDate">2022.10.04</td>
                     <td className="inqConStatus">-</td>
                   </tr>
-                </div>
+                </thead>
               </table>
             </div>
 
