@@ -11,7 +11,7 @@ function Incart({
   img,
   title,
 }) {
-  const [stock, setStock] = useState(1);
+  let [stock, setStock] = useState(1);
 
   const onClickPlus = () => {
     setStock(stock + 1);
@@ -34,7 +34,7 @@ function Incart({
     setCart([...cart, cartItem]);
   };
 
-  console.log(cart);
+  // console.log(cart);
   return (
     <div className="popUpWraper">
       <div className="popUpBox">

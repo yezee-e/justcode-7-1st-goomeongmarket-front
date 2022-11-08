@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Basket.scss';
 import ProductList from './ProductList';
-function Basket({ cart, converPrice }) {
-  const [basket, setBasket] = useState([]);
-
+function Basket({ cart, converPrice, setCart }) {
   // 장바구니 삭제하는 함수
   const onRemove = id => {
-    setBasket(basket.filter(prod => prod.id !== id));
+    setCart(cart.filter(el => el.id !== id));
   };
 
+  let priceSum = cart.map(el => el.price);
+  let sumArr = priceSum.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+
+  // console.log(cart.length);
   return (
     <div className="basketBody">
       <div className="cartNameBox">
@@ -19,7 +23,7 @@ function Basket({ cart, converPrice }) {
           <div className="selectBox">
             <input className="checkBoxBtnHead" type="checkbox" id="check1" />
             <label form="check1" />
-            <span>전체선택(0/0)</span>
+            <span>전체선택(0/{cart.length})</span>
             <span className="borderRightInBasket" />
             <button className="selectDelBox">선택삭제</button>
           </div>
@@ -33,6 +37,7 @@ function Basket({ cart, converPrice }) {
                 cart.map(cart => {
                   return (
                     <ProductList
+                      key={cart.key}
                       converPrice={converPrice}
                       onRemove={onRemove}
                       cart={cart}
@@ -71,18 +76,20 @@ function Basket({ cart, converPrice }) {
               <div className="cartBoxRightBody">
                 <div className="cartBoxTop">
                   <span>상품금액</span>
-                  <span>{converPrice(5000)}원</span>
+                  <span>{converPrice(sumArr)}원</span>
                 </div>
                 <div className="cartBoxMid">
                   <span>배송비</span>
-                  <span>{converPrice(3000)}원</span>
+                  <span>{converPrice(sumArr >= 30000 ? '0' : '3000')}원</span>
                 </div>
                 <p className="benefits">
                   30,000원 추가주문 시,<strong>무료배송</strong>
                 </p>
                 <div className="cartBoxBot">
                   <span>결제예정금액</span>
-                  <span>{converPrice(19000)}원</span>
+                  <span>
+                    {converPrice(sumArr >= 30000 ? sumArr : sumArr + 3000)}원
+                  </span>
                 </div>
               </div>
             </div>

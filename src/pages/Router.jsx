@@ -12,7 +12,6 @@ function Router() {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
   const [cart, setCart] = useState([]);
-
   const [data, setData] = useState([]);
 
   const mockData = `http://localhost:3000/data/mockData.json`;
@@ -39,7 +38,13 @@ function Router() {
         />
         <Route
           path="/basket"
-          element={<Mainbasket cart={cart} converPrice={converPrice} />}
+          element={
+            <Mainbasket
+              cart={cart}
+              converPrice={converPrice}
+              setCart={setCart}
+            />
+          }
         />
         <Route path="/signup" element={<Mainsignup />} />
         <Route path="/login" element={<Mainlogin />} />

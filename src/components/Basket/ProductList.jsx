@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import './ProductList.scss';
 
-function ProductList({ id, converPrice, onRemove, getPrice, cart }) {
+function ProductList({ converPrice, onRemove, cart }) {
   //제품 수량 체크
-  const [stock, setStock] = useState(1);
-
+  let [Quan, setQuan] = useState(1);
   // 버튼 클릭 시 수량 +1 or -1
   const onClickPlus = () => {
-    setStock(stock + 1);
+    setQuan(Quan + 1);
   };
   const onClickMinus = () => {
-    setStock(stock !== 0 ? stock - 1 : (stock = 0));
+    setQuan(Quan !== 0 ? Quan - 1 : (Quan = 0));
   };
 
-  const priceSum = stock * cart.price;
-
+  const priceSum = Quan * cart.price;
+  // console.log(cart.id);
   return (
     <div className="boxSizing">
       <li className="productLi">
@@ -25,7 +24,7 @@ function ProductList({ id, converPrice, onRemove, getPrice, cart }) {
           <button className="pmButton" onClick={onClickMinus}>
             -
           </button>
-          <div>{stock}</div>
+          <div>{Quan}</div>
           <button className="pmButton" onClick={onClickPlus}>
             +
           </button>
@@ -36,7 +35,7 @@ function ProductList({ id, converPrice, onRemove, getPrice, cart }) {
         <button
           className="listClearbButton"
           type="button"
-          onClick={() => onRemove(id)}
+          onClick={() => onRemove(cart.id)}
         />
       </li>
     </div>

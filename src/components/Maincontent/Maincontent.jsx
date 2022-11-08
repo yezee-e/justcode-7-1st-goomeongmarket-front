@@ -7,26 +7,24 @@ function Maincontent({ data, converPrice, cart, setCart }) {
     <div>
       <div className="MaincontentWraper">
         <div className="MainContentBox">
+          <button className="btnLeft">← </button>
+          <button className="btnRight">→</button>
           <div className="MainContentTitle">
             {data.map((titleName, index) => {
               const { titlename } = titleName;
 
-              return (
-                <span>
-                  {index}
-                  {titlename}
-                </span>
-              );
+              return <span key={index}>{titlename}</span>;
             })}
           </div>
 
           <div className="productInformation">
-            {data.map(values => {
+            {data.map((values, index) => {
               const { id, title, price, img } = values;
               return (
                 <CardList
                   converPrice={converPrice}
-                  key={id}
+                  key={index}
+                  id={id}
                   title={title}
                   price={price}
                   img={img}
