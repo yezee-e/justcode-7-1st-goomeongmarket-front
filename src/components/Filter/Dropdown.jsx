@@ -7,24 +7,26 @@ import React from 'react';
 
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
-import './Dropdown.scss';
 import { useParams, useSearchParams } from 'react-router-dom';
+import './Dropdown.scss';
 
-function Dropdown({ list }) {
+function Dropdown({ list, setTabList }) {
   const [isActive, setIsActive] = useState(false);
-  const [filter, setFilter] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
-
+  // const [filter, setFilter] = useState([]);
   let [searchParms, setSearchParams] = useSearchParams();
   const sorted_by = searchParms.get('sorted_by');
+  const category_id = searchParms.get('category_id');
   const { tabId } = useParams();
 
   // const FETCH = `http://localhost:8000/products/${tabId}?sorted_by=${pageNumber}`;
 
   const filtering = pageNumber => {
-    fetch(`http://localhost:3000/data/mockData.json`)
+    fetch(`http://localhost:8000/products/${tabId}?sorted_by=${pageNumber}`, {
+      method: 'POST',
+      headers: { 'content-Type': 'application/json' },
+    })
       .then(res => res.json())
-      .then(res => setFilter(res.data));
+      .then(res => setTabList(res.data));
     searchParms.set('sorted_by', pageNumber);
     setSearchParams(searchParms);
   };
@@ -70,7 +72,7 @@ function Dropdown({ list }) {
               <label
                 htmlFor="check3"
                 className="dropdown-item"
-                onClick={() => filtering(6)}
+                onClick={() => filtering(-6)}
               >
                 <input type="radio" id="check3" name="together" />
                 낮은 가격순
@@ -82,16 +84,18 @@ function Dropdown({ list }) {
               <label
                 htmlFor="check4"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => filtering(2)}
               >
-                <input type="radio" id="check4" name="together" />가
+                <input type="radio" id="check4" name="together" />
+                오름차순
               </label>
               <label
-                htmlFor="check4"
+                htmlFor="check5"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => filtering(-2)}
               >
-                <input type="radio" id="check4" name="together" />나
+                <input type="radio" id="check5" name="together" />
+                내림차순
               </label>
             </div>
           )}

@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import './Header.scss';
 
-function Header({ setSearch, tabId, setTab }) {
+function Header({ setSearch }) {
   const NavigateBasket = useNavigate();
 
   const goToBasket = () => {
@@ -59,29 +59,17 @@ function Header({ setSearch, tabId, setTab }) {
 
         <ul className="headerCenter" variant="tabs">
           <li className="headerCenterBox">
-            <Link
-              className="linkToMenu"
-              to={`/products/${tabId}`}
-              onClick={() => setTab(0)}
-            >
+            <Link className="linkToMenu" to={`/products/new`}>
               신상품
             </Link>
           </li>
           <li className="headerCenterBox">
-            <Link
-              className="linkToMenu"
-              to={`/products/${tabId}`}
-              onClick={() => setTab(1)}
-            >
+            <Link className="linkToMenu" to={`/products/best`}>
               베스트
             </Link>
           </li>
           <li className="headerCenterBox">
-            <Link
-              className="linkToMenu"
-              to={`/products/${tabId}`}
-              onClick={() => setTab(2)}
-            >
+            <Link className="linkToMenu" to={`/products/cheap`}>
               알뜰쇼핑
             </Link>
           </li>
@@ -119,29 +107,17 @@ function Header({ setSearch, tabId, setTab }) {
         </div>
         <ul className="scrollheaderCenter">
           <li className="scrollheaderCenterBox">
-            <Link
-              className="scrollLinkToMenu"
-              to={`/products/${tabId}`}
-              onClick={() => setTab(0)}
-            >
+            <Link className="scrollLinkToMenu" to={`/products/new`}>
               신상품
             </Link>
           </li>
           <li className="scrollheaderCenterBox">
-            <Link
-              className="scrollLinkToMenu"
-              to={`/products/${tabId}`}
-              onClick={() => setTab(1)}
-            >
+            <Link className="scrollLinkToMenu" to={`/products/best`}>
               베스트
             </Link>
           </li>
           <li className="scrollheaderCenterBox">
-            <Link
-              className="scrollLinkToMenu"
-              to={`/products/${tabId}`}
-              onClick={() => setTab(2)}
-            >
+            <Link className="scrollLinkToMenu" to={`/products/cheap`}>
               알뜰쇼핑
             </Link>
           </li>

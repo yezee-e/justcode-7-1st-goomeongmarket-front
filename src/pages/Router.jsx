@@ -7,6 +7,7 @@ import Mainsignup from './Mainsignup/Mainsignup';
 import Mainbasket from './Mainbasket/Mainbasket';
 import Incart from '../components/Maincontent/Incart';
 import ProductDetailedPage from '../components/ProductDetailedPage/ProductDetailedPage';
+import Header from '../components/Header/Header';
 
 function Router() {
   const converPrice = price => {
@@ -33,6 +34,7 @@ function Router() {
 
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route
           path="/"
@@ -68,6 +70,7 @@ function Router() {
               converPrice={converPrice}
               setSearch={setSearch}
               filterTitle={filterTitle}
+              search={search}
             />
           }
         />
