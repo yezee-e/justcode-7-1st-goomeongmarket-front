@@ -274,6 +274,7 @@
 }
 .signup-button-div {
   button {
+    cursor: pointer;
     margin-top: 25px;
     margin-left: 185px;
     font-size: 16px;
@@ -303,9 +304,32 @@
 .cond_msg {
   position: absolute;
   display: block;
-  font-size: 1rem;
+  font-size: 12px;
   border: none;
-  color: #31b1e7;
+  color: rgb(241 63 64);
+  padding: 0.25rem;
+  bottom: -2rem;
+  left: 23%;
+}
+
+.gap3 {
+  margin-top: 10px;
+}
+.gap2 {
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 10px;
+  padding-bottom: 30px;
+}
+.padding-size {
+  top: 17px;
+}
+.true-msg {
+  position: absolute;
+  display: block;
+  font-size: 12px;
+  border: none;
+  color: rgb(0 150 255);
   padding: 0.25rem;
   bottom: -2rem;
   left: 23%;
