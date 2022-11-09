@@ -35,7 +35,7 @@ function ProductDetailedPage({ converPrice }) {
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
-    fetch('http://localhost:3000/data/mockComment.json', {
+    fetch('http://localhost:8000/review/myreviewlist', {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
@@ -96,6 +96,7 @@ function ProductDetailedPage({ converPrice }) {
         body: JSON.stringify({
           user_id: '',
           product_id: params.id,
+          // put_quantity: number,
         }),
       });
     } else if (isWishAdd) {
@@ -107,6 +108,7 @@ function ProductDetailedPage({ converPrice }) {
         body: JSON.stringify({
           user_id: '',
           product_id: params.id,
+          // put_quantity: number,
         }),
       });
     }
