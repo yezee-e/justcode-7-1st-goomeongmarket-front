@@ -77,7 +77,7 @@ function Router() {
 
         <Route path="/incart" element={<Incart />} />
         <Route
-          path="/detail/:id"
+          path="/goods/:id"
           element={<ProductDetailedPage converPrice={converPrice} />}
         />
       </Routes>

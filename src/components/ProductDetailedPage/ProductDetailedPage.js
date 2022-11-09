@@ -23,10 +23,10 @@ function ProductDetailedPage({ converPrice }) {
   const [visibleTwo, setVisibleTwo] = useState(true);
 
   const reviewRef = useRef();
-  const inquiryRef = useRef();
+  // const inquiryRef = useRef();
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mockData.json', {
+    fetch(`http://localhost:8000/products/goods/${params.id}`, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
@@ -35,7 +35,7 @@ function ProductDetailedPage({ converPrice }) {
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
-    fetch('http://localhost:8000/review/myreviewlist', {
+    fetch(`http://localhost:8000/products/review/${params.id}`, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
@@ -61,8 +61,6 @@ function ProductDetailedPage({ converPrice }) {
   const select = state.filter(value => value.id == params.id);
   const change = select[0];
 
-  const selectCom = comment.filter(value => value.product_id == params.id);
-
   const scrollToTop = () => {
     window.scroll({
       top: 0,
@@ -78,9 +76,9 @@ function ProductDetailedPage({ converPrice }) {
   const clickScrollReview = () => {
     reviewRef.current.scrollIntoView({ behavior: 'smooth' });
   };
-  const clickScrollInq = () => {
-    inquiryRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const clickScrollInq = () => {
+  //   inquiryRef.current.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   const wishAddHandler = () => {
     setIsWishAdd(!isWishAdd);
@@ -92,23 +90,21 @@ function ProductDetailedPage({ converPrice }) {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
+          token: localStorage.getItem('token'),
         },
         body: JSON.stringify({
-          user_id: '',
           product_id: params.id,
-          // put_quantity: number,
         }),
       });
     } else if (isWishAdd) {
-      fetch('http://localhost:8000/like/addlike', {
-        method: 'POST',
+      fetch('http://localhost:8000/like/removelike', {
+        method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
+          token: localStorage.getItem('token'),
         },
         body: JSON.stringify({
-          user_id: '',
           product_id: params.id,
-          // put_quantity: number,
         }),
       });
     }
@@ -124,21 +120,9 @@ function ProductDetailedPage({ converPrice }) {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
+          token: localStorage.getItem('token'),
         },
         body: JSON.stringify({
-          user_id: '',
-          product_id: params.id,
-          put_quantity: number,
-        }),
-      });
-    } else if (isCartAdd) {
-      fetch('http://localhost:8000/cart/update', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          user_id: '',
           product_id: params.id,
           put_quantity: number,
         }),
@@ -231,7 +215,7 @@ function ProductDetailedPage({ converPrice }) {
                 <div className="productInfoSection">
                   <p className="InfoTitle">원산지</p>
                   <div className="InfoContent">
-                    <p>{change.country}</p>
+                    <p>{change.country_id}</p>
                   </div>
                 </div>
 
@@ -369,11 +353,11 @@ function ProductDetailedPage({ converPrice }) {
               <div className="review">
                 <button onClick={clickScrollReview}>
                   <span>후기</span>
-                  <span>{`(${selectCom.length})`}</span>
+                  <span>{`(${comment.length})`}</span>
                 </button>
               </div>
               <div className="inquiry">
-                <button onClick={clickScrollInq}>
+                <button>
                   <span>문의</span>
                 </button>
               </div>
@@ -614,7 +598,7 @@ function ProductDetailedPage({ converPrice }) {
               </div> */}
               <div className="reviewForm">
                 <div className="reviewCount">
-                  <span>{`총 ${selectCom.length}개`}</span>
+                  <span>{`총 ${comment.length}개`}</span>
                   {/* <div>
                     <button>
                       추천순<div className="sector"></div>
@@ -631,15 +615,14 @@ function ProductDetailedPage({ converPrice }) {
                   <button>금주의 Best 후기 안내</button>
                 </div>
 
-                {selectCom.map((values, index) => {
-                  const { id, user_id, product_id, comment, updated_at } =
-                    values;
+                {comment.map((values, index) => {
+                  const { id, username, comment, updated_at } = values;
+
                   return (
                     <Reviews
                       key={index}
                       id={id}
-                      user_id={user_id}
-                      product_id={product_id}
+                      username={username}
                       comment={comment}
                       title={change.title}
                       update={updated_at}
