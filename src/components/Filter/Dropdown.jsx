@@ -4,7 +4,7 @@ import { FaAngleDown } from 'react-icons/fa';
 import { useParams, useSearchParams } from 'react-router-dom';
 import './Dropdown.scss';
 
-function Dropdown({ list, setTabList }) {
+function Dropdown({ list, setTabList, filtering }) {
   const [isActive, setIsActive] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   let [searchParms, setSearchParams] = useSearchParams();
@@ -24,17 +24,18 @@ function Dropdown({ list, setTabList }) {
   //   setSearchParams(searchParms);
   // };
 
-  const filtering = pageNumber => {
-    fetch(`http://localhost:3000/data/mock${tabId}?sorted_by=${pageNumber}`, {
-      method: 'POST',
-      headers: { 'content-Type': 'application/json' },
-    })
-      .then(res => res.json())
-      .then(res => setTabList(res.data));
-    searchParms.set('sorted_by', pageNumber);
-    setSearchParams(searchParms);
-    setIsChecked(cur => !cur);
-  };
+  //목데이터
+  // const filtering = pageNumber => {
+  //   fetch(`http://localhost:3000/data/mock${tabId}?sorted_by=${pageNumber}`, {
+  //     method: 'POST',
+  //     headers: { 'content-Type': 'application/json' },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setTabList(res.data));
+  //   searchParms.set('sorted_by', pageNumber);
+  //   setSearchParams(searchParms);
+  //   setIsChecked(cur => !cur);
+  // };
 
   return (
     <div className="dropdown">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardList from './CardList';
 import Dropdown from '../Filter/Dropdown';
 import './TabContent.scss';
@@ -9,11 +9,12 @@ function TabContent({
   setData,
   converPrice,
   tabList,
-  search,
   setTabList,
+  search,
 }) {
   // const [miniFilter, setMiniFilter] = useState([]);
   let [searchParms, setSearchParams] = useSearchParams();
+
   const sorted_by = searchParms.get('sorted_by');
   const { tabId } = useParams();
 
@@ -24,8 +25,8 @@ function TabContent({
     })
       .then(res => res.json())
       .then(res => setTabList(res.data));
-    searchParms.set('sorted_by', pageNumber);
     setSearchParams(searchParms);
+    searchParms.set('sorted_by', pageNumber);
   };
   const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
 
@@ -39,7 +40,9 @@ function TabContent({
     }
   };
 
-  //검색창 활성화 구현
+  console.log(tabList);
+
+  // 검색창 활성화 구현
   const filterTab = tabList.filter(item =>
     item.title
       .replace(' ', '')
@@ -65,6 +68,9 @@ function TabContent({
                 setData={setData}
                 tabList={tabList}
                 setTabList={setTabList}
+                searchParms={searchParms}
+                setSearchParams={searchParms}
+                filtering={filtering}
               />
             ))}
           </div>
@@ -77,10 +83,11 @@ function TabContent({
             </div>
             <div className="productInformation-card">
               {filterTab.map((values, index) => {
-                const { id, title, price, img } = values;
+                const { title, price, img } = values;
+                console.log(values);
+
                 return (
                   <CardList
-                    id={id}
                     title={title}
                     price={price}
                     key={index}
