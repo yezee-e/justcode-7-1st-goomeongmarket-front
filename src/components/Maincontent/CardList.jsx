@@ -8,7 +8,7 @@ function CardList({ id, title, img, price, converPrice, cart, setCart }) {
   const [popUp, setPopUp] = useState(false);
   const navigate = useNavigate();
   const moveDetail = () => {
-    navigate(`/detail/${id}`);
+    navigate(`/goods/${id}`);
   };
 
   return (
