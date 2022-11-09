@@ -32,7 +32,7 @@ function Signup() {
   const [emailBtnDisable, setEmailBtnDisable] = useState(false);
   const [signupHadle, setSignupHandle] = useState(false);
 
-  //회원가입 fetch
+  //회원가입
   const sendHandler = e => {
     e.preventDefault();
     fetch('http://localhost:8000/users/account', {
