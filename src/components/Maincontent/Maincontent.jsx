@@ -2,7 +2,7 @@ import React from 'react';
 import CardList from './CardList';
 import './Maincontent.scss';
 
-function Maincontent({ data, converPrice, cart, setCart }) {
+function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
   return (
     <div>
       <div className="MaincontentWraper">
@@ -19,7 +19,7 @@ function Maincontent({ data, converPrice, cart, setCart }) {
           </div>
 
           <div className="productInformation">
-            {data.map((values, index) => {
+            {filterTitle.map((values, index) => {
               const { id, title, price, img } = values;
               return (
                 <CardList
