@@ -4,6 +4,9 @@ import './ProductDetailedPage.scss';
 import Nav from '../Nav/Nav';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Reviews from './Reviews';
+import BoardOne from './BoardOne';
+import BoardTwo from './BoardTwo';
 
 function ProductDetailedPage({ converPrice }) {
   const params = useParams();
@@ -11,26 +14,47 @@ function ProductDetailedPage({ converPrice }) {
   const [state, setState] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isWishAdd, setIsWishAdd] = useState(false);
+  const [isCartAdd, setIsCartAdd] = useState(false);
+  const [comment, setComment] = useState([]);
+  const [showButton, setShowButton] = useState(false);
+  const [visibleOne, setVisibleOne] = useState(true);
+  const [visibleTwo, setVisibleTwo] = useState(true);
+
   const reviewRef = useRef();
   const inquiryRef = useRef();
-
-  // useEffect(() => {
-  //   const { id } = params;
-  //   fetch(`${API}/${params.id}`)
-  //     .then(res => res.json())
-  //     .then(res => setState({ data: res }))
-  // }, [match]);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/mockData.json')
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
+    fetch('http://localhost:3000/data/mockComment.json')
+      .then(res => res.json())
+      .then(result => setComment(result.data));
+    const handleShowButton = () => {
+      if (window.scrollY > 500) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+    window.addEventListener('scroll', handleShowButton);
+    return () => {
+      window.removeEventListener('scroll', handleShowButton);
+    };
   }, []);
 
   const select = state.filter(value => value.id == params.id);
   const change = select[0];
 
+  const selectCom = comment.filter(value => value.product_id == params.id);
+
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   const increaseNumber = () => {
     setNumber(number + 1);
   };
@@ -50,19 +74,57 @@ function ProductDetailedPage({ converPrice }) {
   const wishCountHandler = () => {
     wishAddHandler();
     if (!isWishAdd) {
-      fetch('http://localhost:3000/data/mockLikes.json', {
+      fetch('http://localhost:8000/like/addlike', {
         method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
         body: JSON.stringify({
-          user_id: 1,
-          product_id: params,
+          user_id: '',
+          product_id: params.id,
         }),
       });
     } else if (isWishAdd) {
-      fetch('http://localhost:3000/data/mockLikes.json', {
+      fetch('http://localhost:8000/like/addlike', {
         method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
         body: JSON.stringify({
-          user_id: 1,
-          product_id: params,
+          user_id: '',
+          product_id: params.id,
+        }),
+      });
+    }
+  };
+
+  const cartAddHandler = () => {
+    setIsCartAdd(!isWishAdd);
+  };
+  const cartCountHandler = () => {
+    cartAddHandler();
+    if (!isCartAdd) {
+      fetch('http://localhost:8000/cart/update', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: '',
+          product_id: params.id,
+          put_quantity: number,
+        }),
+      });
+    } else if (isCartAdd) {
+      fetch('http://localhost:8000/cart/update', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: '',
+          product_id: params.id,
+          put_quantity: number,
         }),
       });
     }
@@ -74,15 +136,22 @@ function ProductDetailedPage({ converPrice }) {
       <Header />
       {isLoaded && (
         <div className="container">
+          {showButton && (
+            <div className="scroll__container">
+              <button id="top" onClick={scrollToTop} type="button">
+                <img src="/icons/top.png" />
+              </button>
+            </div>
+          )}
           <article className="mainDetail">
             <img className="mainImage" src={change.img} alt="메인이미지" />
 
             <div className="infoContainer">
               <div className="productTitle">
                 <div className="titleWrap">
-                  <p className="titleDelivery">배송</p>
+                  <p className="titleDelivery">샛별배송</p>
                   <p className="title">{change.title}</p>
-                  <p className="titleShort">{}</p>
+                  <p className="titleShort">{change.sub_name}</p>
                 </div>
 
                 <div className="discountPriceWrap">
@@ -93,22 +162,22 @@ function ProductDetailedPage({ converPrice }) {
                     {/* {change.sale
                       ? change.price - change.sale * change.price
                       : change.price} */}
-                    {change.price}
+                    {converPrice(change.price)}
                   </span>
                   <span className="discountWon">원</span>
                 </div>
 
-                <div className="priceWrap">
+                {/* <div className="priceWrap">
                   <span className="price">
-                    {/* {(change.sale ? `${change.sale * 100}%` : null) &&
-                      `${change.price}원`} */}
-                    {change.price}
+                    {(change.sale ? `${change.sale * 100}%` : null) &&
+                      `${change.price}원`}
+                    {converPrice(change.price)}
                   </span>
-                </div>
+                </div> */}
 
-                <div className="loginBefore">
+                {/* <div className="loginBefore">
                   "로그인 후, 할인 및 적립 혜택이 제공됩니다."
-                </div>
+                </div> */}
               </div>
 
               <div className="productInfoWrap">
@@ -133,7 +202,7 @@ function ProductDetailedPage({ converPrice }) {
                 <div className="productInfoSection">
                   <p className="InfoTitle">원산지</p>
                   <div className="InfoContent">
-                    <p>{}</p>
+                    <p>{change.country}</p>
                   </div>
                 </div>
 
@@ -184,7 +253,7 @@ function ProductDetailedPage({ converPrice }) {
                                     : change.price
                                 }원`
                               : `${change.price}원`} */}
-                            {change.price}
+                            {`${converPrice(change.price)}원`}
                           </span>
                         </div>
                       </div>
@@ -204,16 +273,16 @@ function ProductDetailedPage({ converPrice }) {
                             : change.price) * number
                         }`
                       : `${change.price * number}`} */}
-                    {change.price * number}
+                    {converPrice(change.price * number)}
                   </span>
                   <span className="totalWon">원</span>
                 </div>
-                <div className="savingWrap">
+                {/* <div className="savingWrap">
                   <span className="savingIcon">적립</span>
                   <span className="savingContent">
                     로그인 후,할인 및 적립 혜택 제공
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <div className="buttonContainer">
@@ -232,7 +301,7 @@ function ProductDetailedPage({ converPrice }) {
                   </span>
                 </button>
 
-                <button className="bellButton">
+                {/* <button className="bellButton">
                   <span>
                     <img
                       className="grayBell"
@@ -241,10 +310,14 @@ function ProductDetailedPage({ converPrice }) {
                       alt="재입고알림"
                     />
                   </span>
-                </button>
+                </button> */}
 
                 <div className="cartWrap">
-                  <button className="cartButton" radius="3">
+                  <button
+                    className="cartButton"
+                    radius="3"
+                    onClick={cartCountHandler}
+                  >
                     <span className="cartText">장바구니 담기</span>
                   </button>
                 </div>
@@ -267,7 +340,7 @@ function ProductDetailedPage({ converPrice }) {
               <div className="review">
                 <button onClick={clickScrollReview}>
                   <span>후기</span>
-                  {/* <span>(9,999+)</span> */}
+                  <span>{`(${selectCom.length})`}</span>
                 </button>
               </div>
               <div className="inquiry">
@@ -443,30 +516,46 @@ function ProductDetailedPage({ converPrice }) {
             </div>
           </div>
 
-          <div className="exchange">
-            <strong>교환 및 환불 안내</strong>
-            <p>교환 및 환불이 필요하신 경우 고객행복센터로 문의해주세요.</p>
-            <button className="detailBtnFirst">자세히 보기</button>
-          </div>
+          <div className="guide">
+            <div className="exchange">
+              <div className="exchangeTitle">
+                <strong>교환 및 환불 안내</strong>
+                <p>교환 및 환불이 필요하신 경우 고객행복센터로 문의해주세요.</p>
+                <button
+                  className="detailBtnFirst"
+                  onClick={() => setVisibleOne(!visibleOne)}
+                >
+                  {visibleOne ? '닫기' : '자세히보기'}
+                </button>
+              </div>
+            </div>
+            <div className="boardOne">{visibleOne ? <BoardOne /> : null}</div>
 
-          <div className="cancelOrder">
-            <strong>주문 취소 안내</strong>
-            <p>
-              <strong className="cancelStrong">
-                - [주문완료] 상태일 경우에만 주문 취소 가능합니다.
-                <br />- [마이구멍마켓 &gt; 주문내역 상세페이지] 에서 직접
-                취소하실 수 있습니다.
-              </strong>
-            </p>
-            <button className="datailBtnSecond">자세히 보기</button>
-          </div>
+            <div className="cancelOrder">
+              <strong>주문 취소 안내</strong>
+              <p>
+                <strong className="cancelStrong">
+                  - [주문완료] 상태일 경우에만 주문 취소 가능합니다.
+                  <br />- [마이구멍마켓 &gt; 주문내역 상세페이지] 에서 직접
+                  취소하실 수 있습니다.
+                </strong>
+              </p>
+              <button
+                className="datailBtnSecond"
+                onClick={() => setVisibleTwo(!visibleTwo)}
+              >
+                {visibleTwo ? '닫기' : '자세히보기'}
+              </button>
+            </div>
+            {visibleTwo ? <BoardTwo /> : null}
 
-          <div className="deliveryInfo">
-            <strong>배송관련 안내</strong>
-            <p>
-              배송 과정 중 기상 악화 및 도로교통 상황에 따라 부득이하게 지연
-              배송이 발생될 수 있습니다.
-            </p>
+            <div className="deliveryInfo">
+              <strong>배송관련 안내</strong>
+              <p>
+                배송 과정 중 기상 악화 및 도로교통 상황에 따라 부득이하게 지연
+                배송이 발생될 수 있습니다.
+              </p>
+            </div>
           </div>
 
           <div className="reviewList" ref={reviewRef}>
@@ -475,18 +564,15 @@ function ProductDetailedPage({ converPrice }) {
                 <h2>상품 후기</h2>
               </header>
               <ul>
-                <li>사진후기 100원, 글후기 50원 적립금 혜택이 있어요.</li>
-                <li>
-                  ・퍼플, 더퍼플은 2배 적립 (사진 200원, 글 100원) / 주간 베스트
-                  후기로 선정 시 5,000원을 추가 적립
-                </li>
+                <li>글후기 50원 적립금 혜택이 있어요.</li>
+                <li>・주간 베스트 후기로 선정 시 5,000원을 추가 적립</li>
                 <li>・후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
                 <li>
                   ・작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준
                   평균 1~2일 소요)
                 </li>
               </ul>
-              <div className="reviewMainPhoto">
+              {/* <div className="reviewMainPhoto">
                 <button></button>
                 <button></button>
                 <button></button>
@@ -495,17 +581,17 @@ function ProductDetailedPage({ converPrice }) {
                 <button></button>
                 <button></button>
                 <button></button>
-                <a className="seeMore">{/* <span>+더보기</span> */}</a>
-              </div>
+                <a className="seeMore"><span>+더보기</span></a>
+              </div> */}
               <div className="reviewForm">
                 <div className="reviewCount">
-                  <span>총 343,936개</span>
-                  <div>
+                  <span>{`총 ${selectCom.length}개`}</span>
+                  {/* <div>
                     <button>
                       추천순<div className="sector"></div>
                     </button>
                     <button>최근등록순</button>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="reviewPointNotice">
                   <span>공지</span>
@@ -516,37 +602,21 @@ function ProductDetailedPage({ converPrice }) {
                   <button>금주의 Best 후기 안내</button>
                 </div>
 
-                <div className="reviews">
-                  <div>
-                    <div className="reviewsProfile">
-                      <span className="reviewsBestIcon">베스트</span>
-                      <span className="reviewsGrade">프렌즈</span>
-                      <span className="reviewsWriter">김*후</span>
-                    </div>
-                  </div>
-                  <article>
-                    <div>
-                      <div className="reviewsProduct">
-                        <h3 className="reviewsProductTitle">
-                          [KF365] DOLE 실속 바나나 1kg (필리핀)
-                        </h3>
-                      </div>
-                      <p className="reviewsText">리뷰내용</p>
-                      <div className="reviewsPhotoWrap">
-                        <button className="reviewsPhoto"></button>
-                      </div>
-                      <footer className="reviewsFooter">
-                        <div>
-                          <span className="reviewsDate">2022.05.23</span>
-                        </div>
-                        <button className="reviewsHelpBtn">
-                          <span className="thumbIcon"></span>
-                          <span className="reviewsHelpCount">도움돼요 4</span>
-                        </button>
-                      </footer>
-                    </div>
-                  </article>
-                </div>
+                {selectCom.map((values, index) => {
+                  const { id, user_id, product_id, comment, updated_at } =
+                    values;
+                  return (
+                    <Reviews
+                      key={index}
+                      id={id}
+                      user_id={user_id}
+                      product_id={product_id}
+                      comment={comment}
+                      title={change.title}
+                      update={updated_at}
+                    />
+                  );
+                })}
               </div>
               <div className="reviewsBtnWrap">
                 <button className="reviewsBefBtn"></button>
@@ -555,7 +625,7 @@ function ProductDetailedPage({ converPrice }) {
             </section>
           </div>
 
-          <div className="inquiryWrap" ref={inquiryRef}>
+          {/* <div className="inquiryWrap" ref={inquiryRef}>
             <div className="inquiry">
               <div className="inquiryBtnWrap">
                 <button className="inquiryBtn">
@@ -606,7 +676,7 @@ function ProductDetailedPage({ converPrice }) {
                 <button className="inqNextBtn"></button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
       <Footer />

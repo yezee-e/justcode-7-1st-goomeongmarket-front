@@ -57,7 +57,7 @@ button {
   .titleShort {
     color: rgb(181, 181, 181);
     margin: 0px;
-    padding-top: 5px;
+    padding-top: 12px;
   }
 }
 
@@ -65,11 +65,11 @@ button {
   padding-top: 19px;
   font-weight: 700;
 
-  .discountRate {
-    padding-right: 9px;
-    font-size: 28px;
-    color: rgb(250, 98, 47);
-  }
+  // .discountRate {
+  //   padding-right: 9px;
+  //   font-size: 28px;
+  //   color: rgb(250, 98, 47);
+  // }
   .discountPrice {
     padding-right: 4px;
     font-size: 28px;
@@ -240,6 +240,7 @@ button {
 .buttonContainer {
   margin-top: 20px;
   display: flex;
+  justify-content: flex-end;
 
   .heartButton {
     border: 1px rgb(221, 221, 221) solid;
@@ -257,21 +258,21 @@ button {
     }
   }
 
-  .bellButton {
-    border: 1px rgb(221, 221, 221) solid;
-    background-color: rgb(255, 255, 255);
-    padding: 0 10px 0 10px;
-    height: 56px;
-    margin-right: 11px;
+  // .bellButton {
+  //   border: 1px rgb(221, 221, 221) solid;
+  //   background-color: rgb(255, 255, 255);
+  //   padding: 0 10px 0 10px;
+  //   height: 56px;
+  //   margin-right: 11px;
 
-    span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 32px;
-      height: 32px;
-    }
-  }
+  //   span {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     width: 32px;
+  //     height: 32px;
+  //   }
+  // }
 
   .cartButton {
     height: 54px;
@@ -473,6 +474,124 @@ button {
     }
   }
 }
+.boardOne {
+  width: 1010px;
+}
+.boardone {
+  width: 1010px;
+  font-size: 16px;
+  font-weight: 300;
+
+  .secOne {
+    display: flex;
+    padding: 39px 0 40px 0;
+    border-top: 1px rgb(221, 221, 221) solid;
+
+    .onetitle {
+      width: 340px;
+      padding-left: 31px;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 25px;
+    }
+    p {
+      padding: 2px 20px 0 0;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 22px;
+
+      span {
+        display: block;
+        padding-top: 22px;
+        font-size: 15px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .secTwo {
+    padding: 39px 0 40px 0;
+    display: flex;
+    border-top: 1px rgb(221, 221, 221) solid;
+
+    .twotitle {
+      padding-left: 31px;
+      width: 340px;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 25px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 22px;
+
+      strong:first-child {
+        display: block;
+        font-size: 15px;
+        color: rgb(95, 0, 128);
+        line-height: 22px;
+        padding-bottom: 6px;
+      }
+
+      .strongTwo {
+        padding: 30px 0 6px 0;
+        display: block;
+        font-size: 15px;
+        color: rgb(95, 0, 128);
+        line-height: 22px;
+      }
+      span {
+        display: block;
+        padding-top: 22px;
+      }
+    }
+  }
+
+  .secThree {
+    padding: 39px 0 40px 0;
+    display: flex;
+    border-top: 1px rgb(221, 221, 221) solid;
+
+    .threetitle {
+      width: 340px;
+      padding-left: 31px;
+    }
+
+    p {
+      font-size: 15px;
+
+      span:first-child {
+        padding-top: 20px;
+      }
+    }
+    span {
+      display: block;
+      line-height: 22px;
+    }
+  }
+}
+
+.boardtwo {
+  width: 1010px;
+
+  .boardsecOne,
+  .boardsecTwo {
+    padding: 39px 0 40px 0;
+    border-top: 1px rgb(221, 221, 221) solid;
+    display: flex;
+
+    strong {
+      padding-left: 31px;
+      width: 340px;
+      font-size: 17px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 22px;
+    }
+  }
+}
 
 .exchange,
 .cancelOrder,
@@ -484,8 +603,13 @@ button {
   line-height: 27px;
   border: 1px rgb(221, 221, 221) solid;
   border-bottom: none;
+
   padding: 14px 0 17px 0;
   position: relative;
+
+  .exchangeTitle {
+    display: flex;
+  }
 
   strong {
     width: 179px;
@@ -967,4 +1091,15 @@ button {
     background-image: url('../../assets/next.png');
     margin-left: 12px;
   }
+}
+
+.scroll__container {
+  position: fixed;
+  right: 4%;
+  bottom: 5%;
+  z-index: 1;
+}
+#top {
+  border: none;
+  background-color: transparent;
 }
