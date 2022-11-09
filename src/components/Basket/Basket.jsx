@@ -33,16 +33,16 @@ function Basket({ cart, converPrice, setCart }) {
     if (getToken !== '') {
       setTokenVaild(true);
 
-      // fetch('http://localhost:8000/products/pay', {
-      //   method: 'POST',
-      //   headers: {
-      //     Authorization: getToken,
-      //   },
-      //   body: JSON.stringify({
-      //     id: cart.id,
-      //     put_quantity: cart.quantity,
-      //   }),
-      // }).then(console.log('완료'));
+      fetch('http://localhost:8000/products/order', {
+        method: 'POST',
+        headers: {
+          token: getToken,
+        },
+        body: JSON.stringify({
+          id: cart.id,
+          put_quantity: cart.quantity,
+        }),
+      }).then(console.log('완료'));
       console.log('결제 완료 !');
     } else alert('로그인하세요 !');
   };
