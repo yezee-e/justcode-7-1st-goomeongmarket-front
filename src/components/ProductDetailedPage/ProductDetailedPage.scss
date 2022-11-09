@@ -1093,13 +1093,187 @@ button {
   }
 }
 
-.scroll__container {
+.scrollContainer {
   position: fixed;
-  right: 4%;
-  bottom: 5%;
+  right: 1%;
+  bottom: 3%;
   z-index: 1;
 }
 #top {
   border: none;
   background-color: transparent;
+}
+
+.selectContainer {
+  position: fixed;
+  z-index: 20;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-top: 2px rgb(95, 0, 128) solid;
+  min-height: 20px;
+
+  .buttonWrap {
+    position: relative;
+    width: 900px;
+    margin: 0px auto;
+
+    .selectUp {
+      position: absolute;
+      top: -48px;
+      right: 0px;
+      width: 160px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(95, 0, 128);
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+      }
+
+      img {
+        margin-left: 6px;
+      }
+    }
+  }
+
+  .selectWrap {
+    padding-top: 20px;
+    width: 900px;
+
+    .selectTitleWrap {
+      padding: 10px 0 10px 20px;
+      display: flex;
+      background-color: rgb(247, 247, 247);
+      align-items: center;
+
+      .selectTitle {
+        margin-right: 40px;
+        min-width: 500px;
+      }
+
+      .selectButtonWrap {
+        display: flex;
+        justify-content: space-between;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          border: 1px rgb(221, 223, 225) solid;
+          border-radius: 3px;
+          width: 88px;
+          background-color: transparent;
+
+          .selectMinus,
+          .selectPlus {
+            width: 28px;
+            height: 28px;
+            background-color: transparent;
+            background-size: cover;
+            display: flex;
+            border: none;
+          }
+
+          .selectNumber {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 28px;
+            border: none;
+          }
+        }
+        .selectPriceWrap {
+          padding-right: 20px;
+          display: flex;
+          justify-content: flex-end;
+          width: 252px;
+          align-items: center;
+
+          .selectPrice {
+            font-weight: 700;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .selectTotalWrap {
+    width: 900px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding-top: 20px;
+
+    .selectPriceTitle {
+      padding-right: 12px;
+      line-height: 2ppx;
+      font-size: 13px;
+    }
+    .selectTotalPrice {
+      padding-left: 5px;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 30px;
+    }
+    .selectTotalWon {
+      padding-left: 5px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .selectIconContainer {
+    width: 900px;
+    display: flex;
+    justify-content: flex-end;
+
+    .selectIconWrap {
+      margin-bottom: 60px;
+      width: 428px;
+
+      .selectButton {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+
+        .selectLike {
+          padding: 0 10px;
+          border: 1px rgb(221, 221, 221) solid;
+          border-radius: 3px;
+          width: 56px;
+          height: 56px;
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      .selectCartWrap {
+        margin-left: 10px;
+        .selectCart {
+          height: 56px;
+          width: 300px;
+          padding: 0 10px;
+          background-color: rgb(95, 0, 128);
+          color: rgb(255, 255, 255);
+          border-radius: 3px;
+          border: none;
+
+          span {
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
 }

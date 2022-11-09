@@ -1,18 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Basket.scss';
 import ProductList from './ProductList';
 function Basket({ cart, converPrice, setCart }) {
   // 장바구니 삭제하는 함수
+  const [tokenVaild, setTokenVaild] = useState(false);
+
   const onRemove = id => {
     setCart(cart.filter(el => el.id !== id));
   };
 
+  // 장바구니 담은 배열값의 합
   let priceSum = cart.map(el => el.price);
   let sumArr = priceSum.reduce((acc, cur) => {
     return acc + cur;
   }, 0);
 
-  // console.log(cart.length);
+  //결제 시 정보 보내는 코드
+
+  const token = window.localStorage.setItem(
+    'token',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY3OTgyMTU1fQ.OC331tGcgqSpil1IQN-4ZqoyusOuHI8juhW6d8FHGXA'
+  );
+  const getToken = window.localStorage.getItem('token');
+
+  // const tokenVaildCheck = () => {
+  //   if (getToken !== '') {
+  //     console.log('된다');
+  //   } else console.log('안된다');
+  // };
+
+  const payment = () => {
+    if (getToken !== '') {
+      setTokenVaild(true);
+
+      fetch('http://localhost:8000/products/order', {
+        method: 'POST',
+        headers: {
+          token: getToken,
+        },
+        body: JSON.stringify({
+          id: cart.id,
+          put_quantity: cart.quantity,
+        }),
+      }).then(console.log('완료'));
+      console.log('결제 완료 !');
+    } else alert('로그인하세요 !');
+  };
+  // console.log(tokenVaild);
   return (
     <div className="basketBody">
       <div className="cartNameBox">
@@ -95,8 +129,14 @@ function Basket({ cart, converPrice, setCart }) {
             </div>
 
             <div className="cartBoxRightFoo">
-              <button className="cartBoxRightFooBtn" type="button">
-                <span>배송지를 입력해주세요</span>
+              <button
+                onClick={payment}
+                className="cartBoxRightFooBtn"
+                type="button"
+              >
+                <span>
+                  {cart.length >= 1 ? '결제' : '장바구니가 비었습니다.'}
+                </span>
               </button>
               <ul className="listController">
                 <li>[주문완료]상태일 경우에만 주문 취소 가능합니다.</li>

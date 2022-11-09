@@ -164,8 +164,13 @@
         border-radius: 5px;
 
         span {
+          font-size: 14px;
           color: white;
         }
+      }
+
+      .cartBoxRightFooBtn:hover {
+        background-color: #5f0080;
       }
 
       .listController {

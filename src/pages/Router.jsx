@@ -7,7 +7,6 @@ import Mainsignup from './Mainsignup/Mainsignup';
 import Mainbasket from './Mainbasket/Mainbasket';
 import Incart from '../components/Maincontent/Incart';
 import ProductDetailedPage from '../components/ProductDetailedPage/ProductDetailedPage';
-import Header from '../components/Header/Header';
 
 function Router() {
   const converPrice = price => {
@@ -16,7 +15,7 @@ function Router() {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
-  const mockData = `http://localhost:3000/data/mockData.json`;
+  const mockData = `http://localhost:8000/products/main`;
 
   useEffect(() => {
     fetch(mockData)
