@@ -23,6 +23,13 @@ function ProductDetailedPage({ converPrice }) {
   const reviewRef = useRef();
   const inquiryRef = useRef();
 
+  // useEffect(() => {
+  //   const { tabId } = params;
+  //   fetch(`${API}/${params.id}`)
+  //     .then(res => res.json())
+  //     .then(res => setState({ data: res }))
+  // }, [match]);
+
   useEffect(() => {
     fetch('http://localhost:3000/data/mockData.json')
       .then(res => res.json())

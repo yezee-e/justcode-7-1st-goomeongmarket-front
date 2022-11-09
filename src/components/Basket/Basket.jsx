@@ -43,7 +43,7 @@ function Basket({ cart, converPrice, setCart }) {
       //     put_quantity: cart.quantity,
       //   }),
       // }).then(console.log('완료'));
-      console.log('굿');
+      console.log('결제 완료 !');
     } else alert('로그인하세요 !');
   };
   // console.log(tokenVaild);
