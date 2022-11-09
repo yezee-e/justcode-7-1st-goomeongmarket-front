@@ -34,7 +34,6 @@ function Router() {
 
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route
           path="/"
@@ -69,7 +68,6 @@ function Router() {
               setData={setData}
               converPrice={converPrice}
               setSearch={setSearch}
-              filterTitle={filterTitle}
               search={search}
             />
           }
