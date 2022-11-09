@@ -31,7 +31,6 @@ function Signup() {
   const birthDatePlus = year + month + date;
   const [emailBtnDisable, setEmailBtnDisable] = useState(false);
   const [signupHadle, setSignupHandle] = useState(false);
-  // 회원가입 조건부
 
   //회원가입 fetch
   const sendHandler = e => {
