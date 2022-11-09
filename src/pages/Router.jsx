@@ -56,7 +56,10 @@ function Router() {
           }
         />
         <Route path="/incart" element={<Incart />} />
-        <Route path="/detail/:id" element={<ProductDetailedPage />} />
+        <Route
+          path="/detail/:id"
+          element={<ProductDetailedPage converPrice={converPrice} />}
+        />
       </Routes>
     </BrowserRouter>
   );

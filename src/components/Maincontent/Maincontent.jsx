@@ -10,12 +10,14 @@ function Maincontent({ data, converPrice, cart, setCart }) {
           <button className="btnLeft">←</button>
           <button className="btnRight">→</button>
           <div className="MainContentTitle">
-            {data.map((titleName, index) => {
+            <span>제목입니다.</span>
+            {/* {data.map((titleName, index) => {
               const { titlename } = titleName;
 
               return <span key={index}>{titlename}</span>;
-            })}
+            })} */}
           </div>
+
           <div className="productInformation">
             {data.map((values, index) => {
               const { id, title, price, img } = values;

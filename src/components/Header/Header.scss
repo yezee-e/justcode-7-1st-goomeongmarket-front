@@ -59,6 +59,7 @@
 
       .categoryBox {
         width: 60px;
+        margin-top: 5px;
       }
 
       .hamburgerIcon {
@@ -145,6 +146,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    .scrolllistCategory {
+      margin-top: 4px;
+    }
 
     .scrollhamburgerIcon {
       margin: 4px 10px 0px 0px;
