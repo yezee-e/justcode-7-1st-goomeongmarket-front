@@ -153,7 +153,7 @@ function ProductDetailedPage({ converPrice }) {
           {showButton && (
             <div className="scrollContainer">
               <button id="top" onClick={scrollToTop} type="button">
-                <img src="/icons/top.png" />
+                <img src="/icons/top.webp" />
               </button>
             </div>
           )}

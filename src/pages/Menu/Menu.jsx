@@ -1,62 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import './Menu.scss';
 import Nav from '../../components/Nav/Nav';
 import SliderImages from '../../components/SliderImages/SliderImages';
 import Footer from '../../components/Footer/Footer';
-import CardList from '../../components/Maincontent/CardList';
-import Dropdown from '../../components/Filter/Dropdown';
+import TabContent from '../../components/Maincontent/TabContent';
+import { useParams } from 'react-router-dom';
 
-function Menu({ data, setData, converPrice }) {
-  const [search, setSearch] = useState('');
+function Menu({ data, setData, setSearch, converPrice, search }) {
+  const params = useParams();
+  const [tabList, setTabList] = useState([]);
 
-  const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
+  let { tabId } = params;
 
-  //검색창 활성화 구현
-  const filterTitle = data.filter(item =>
-    item.title
-      .replace(' ', '')
-      .toLocaleLowerCase()
-      .includes(search.toLocaleLowerCase().replace(' ', ''))
-  );
+  //진짜 구현해볼 api
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/products/${tabId}`, {
+  //     method: 'POST',
+  //     headers: { 'content-Type': 'application/json' },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setTabList(res.data));
+  // }, [tabId]);
+
+  //가짜 목데이터
+  useEffect(() => {
+    fetch(`http://localhost:3000/data/mock${tabId}.json`)
+      .then(res => res.json())
+      .then(res => setTabList(res.data));
+  }, [tabId]);
 
   return (
-    <div className="mainPages">
+    <div className="menuPages">
       <Nav setSearch={setSearch} />
-      <Header />
+      <Header setSearch={setSearch} tabId={tabId} />
       <SliderImages />
-
-      <div className="wrap">
-        <div>
-          <div className="filter">필터</div>
-          {filterList.map(list => (
-            <Dropdown key={list} list={list} data={data} setData={setData} />
-          ))}
-        </div>
-
-        <div className="MaincontentWrap">
-          <div className="MainContentBox">
-            <div className="MainContentTitle">
-              <span>제목 들어오는 자리</span>
-            </div>
-            <div className="productInformation">
-              {filterTitle.map((values, index) => {
-                const { id, title, price, img } = values;
-                return (
-                  <CardList
-                    id={id}
-                    title={title}
-                    price={price}
-                    key={index}
-                    img={img}
-                    converPrice={converPrice}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
+      <TabContent
+        data={data}
+        setData={setData}
+        converPrice={converPrice}
+        tabList={tabList}
+        search={search}
+        setTabList={setTabList}
+      />
       <Footer />
     </div>
   );

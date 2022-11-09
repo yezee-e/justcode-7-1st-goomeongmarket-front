@@ -13,7 +13,12 @@ function CardList({ id, title, img, price, converPrice, cart, setCart, key }) {
 
   return (
     <div className="productBox">
-      <img className="mainProductImg" alt="" src={img} onClick={moveDetail} />
+      <img
+        className="mainProductImg"
+        alt="제풒사진"
+        src={img}
+        onClick={moveDetail}
+      />
       <h3 className="productName">{title}</h3>
       <span>{converPrice(price)}</span>
       <button
