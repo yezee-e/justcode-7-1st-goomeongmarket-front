@@ -1,13 +1,13 @@
 import React from 'react';
 
-function Reviews({ id, user_id, product_id, comment, title, update }) {
+function Reviews({ id, username, comment, title, update }) {
   return (
     <div className="reviews">
       <div>
         <div className="reviewsProfile">
           <span className="reviewsBestIcon">베스트</span>
           {/* <span className="reviewsGrade">프렌즈</span> */}
-          <span className="reviewsWriter">{user_id}</span>
+          <span className="reviewsWriter">{username}</span>
         </div>
       </div>
       <article>
