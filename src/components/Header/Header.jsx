@@ -83,11 +83,7 @@ function Header({ setSearch }) {
             </Link>
           </li>
         </ul>
-        <div
-          onClick={() => alert('준비중입니다.')}
-          href="www.naver.com"
-          className="headerRight"
-        >
+        <div onClick={() => alert('준비중입니다.')} className="headerRight">
           <span className="colorChagne">샛별 · 낮</span>
           배송안내
         </div>
