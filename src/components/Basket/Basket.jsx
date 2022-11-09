@@ -96,7 +96,9 @@ function Basket({ cart, converPrice, setCart }) {
 
             <div className="cartBoxRightFoo">
               <button className="cartBoxRightFooBtn" type="button">
-                <span>배송지를 입력해주세요</span>
+                <span>
+                  {cart.length >= 1 ? '결제' : '장바구니가 비었습니다.'}
+                </span>
               </button>
               <ul className="listController">
                 <li>[주문완료]상태일 경우에만 주문 취소 가능합니다.</li>
