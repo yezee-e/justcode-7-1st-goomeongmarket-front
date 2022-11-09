@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import Reviews from './Reviews';
 import BoardOne from './BoardOne';
 import BoardTwo from './BoardTwo';
+import SelectDown from './SelectDown';
 
 function ProductDetailedPage({ converPrice }) {
   const params = useParams();
@@ -17,6 +18,7 @@ function ProductDetailedPage({ converPrice }) {
   const [isCartAdd, setIsCartAdd] = useState(false);
   const [comment, setComment] = useState([]);
   const [showButton, setShowButton] = useState(false);
+  const [showSelect, setShowSelect] = useState(false);
   const [visibleOne, setVisibleOne] = useState(true);
   const [visibleTwo, setVisibleTwo] = useState(true);
 
@@ -24,18 +26,30 @@ function ProductDetailedPage({ converPrice }) {
   const inquiryRef = useRef();
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mockData.json')
+    fetch('http://localhost:3000/data/mockData.json', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
-    fetch('http://localhost:3000/data/mockComment.json')
+    fetch('http://localhost:3000/data/mockComment.json', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
       .then(res => res.json())
       .then(result => setComment(result.data));
     const handleShowButton = () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 650) {
         setShowButton(true);
+        setShowSelect(true);
       } else {
         setShowButton(false);
+        setShowSelect(false);
       }
     };
     window.addEventListener('scroll', handleShowButton);
@@ -137,11 +151,24 @@ function ProductDetailedPage({ converPrice }) {
       {isLoaded && (
         <div className="container">
           {showButton && (
-            <div className="scroll__container">
+            <div className="scrollContainer">
               <button id="top" onClick={scrollToTop} type="button">
                 <img src="/icons/top.png" />
               </button>
             </div>
+          )}
+          {showSelect && (
+            <SelectDown
+              title={change.title}
+              number={number}
+              price={change.price}
+              increase={increaseNumber}
+              decrease={decreaseNumber}
+              converPrice={converPrice}
+              isWishAdd={isWishAdd}
+              wishCountHandler={wishCountHandler}
+              cartCountHandler={cartCountHandler}
+            />
           )}
           <article className="mainDetail">
             <img className="mainImage" src={change.img} alt="메인이미지" />
