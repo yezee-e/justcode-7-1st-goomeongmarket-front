@@ -17,10 +17,14 @@ function Router() {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
+<<<<<<< HEAD
   // API
   // const mockData = `http://localhost:8000/products/main`;
   //mock
   const mockData = `http://localhost:3000/data/mockData.json`;
+=======
+  const mockData = `http://localhost:8000/products/main`;
+>>>>>>> d7d7ae5602254ea1ddb4b6ab8b69b1b6b0c97ebd
 
   useEffect(() => {
     fetch(mockData)

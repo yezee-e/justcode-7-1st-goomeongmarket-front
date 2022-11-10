@@ -56,7 +56,11 @@ function Maincontent({
             })} */}
           </div>
 
+<<<<<<< HEAD
           <div className="productInformation">
+=======
+          <div className="productInformation" ref={slideRef}>
+>>>>>>> d7d7ae5602254ea1ddb4b6ab8b69b1b6b0c97ebd
             {filterTitle.map((values, index) => {
               const { id, title, price, img } = values;
               return (
