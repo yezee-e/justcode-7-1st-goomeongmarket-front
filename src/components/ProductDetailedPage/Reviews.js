@@ -6,7 +6,6 @@ function Reviews({ id, username, comment, title, update }) {
       <div>
         <div className="reviewsProfile">
           <span className="reviewsBestIcon">베스트</span>
-          {/* <span className="reviewsGrade">프렌즈</span> */}
           <span className="reviewsWriter">{username}</span>
         </div>
       </div>
@@ -16,17 +15,10 @@ function Reviews({ id, username, comment, title, update }) {
             <h3 className="reviewsProductTitle">{title}</h3>
           </div>
           <p className="reviewsText">{comment}</p>
-          {/* <div className="reviewsPhotoWrap">
-            <button className="reviewsPhoto"></button>
-          </div> */}
           <footer className="reviewsFooter">
             <div>
               <span className="reviewsDate">{update}</span>
             </div>
-            {/* <button className="reviewsHelpBtn">
-              <span className="thumbIcon"></span>
-              <span className="reviewsHelpCount">도움돼요 4</span>
-            </button> */}
           </footer>
         </div>
       </article>

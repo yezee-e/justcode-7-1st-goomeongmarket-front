@@ -16,7 +16,6 @@ button {
 }
 .container {
   padding-top: 30px;
-  // margin: 0 184.5px 0 184.5px;
   margin: 0 auto;
   width: 1050px;
 }
@@ -65,11 +64,6 @@ button {
   padding-top: 19px;
   font-weight: 700;
 
-  // .discountRate {
-  //   padding-right: 9px;
-  //   font-size: 28px;
-  //   color: rgb(250, 98, 47);
-  // }
   .discountPrice {
     padding-right: 4px;
     font-size: 28px;
@@ -257,22 +251,6 @@ button {
       height: 32px;
     }
   }
-
-  // .bellButton {
-  //   border: 1px rgb(221, 221, 221) solid;
-  //   background-color: rgb(255, 255, 255);
-  //   padding: 0 10px 0 10px;
-  //   height: 56px;
-  //   margin-right: 11px;
-
-  //   span {
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     width: 32px;
-  //     height: 32px;
-  //   }
-  // }
 
   .cartButton {
     height: 54px;
@@ -703,34 +681,6 @@ button {
     background-size: cover;
     border: none;
     cursor: pointer;
-  }
-  button:nth-child(1) {
-    // background-image: url('../../assets/review1.jpg');
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-  }
-  // button:nth-child(2) {
-  //   // background-image: url('../../assets/review2.jpg');
-  // }
-  // button:nth-child(3) {
-  //   // background-image: url('../../assets/review3.jpeg');
-  // }
-  // button:nth-child(4) {
-  //   background-image: url('../../assets/review4.jpg');
-  // }
-  // button:nth-child(5) {
-  //   background-image: url('../../assets/review5.jpeg');
-  // }
-  // button:nth-child(6) {
-  //   background-image: url('../../assets/review6.jpeg');
-  // }
-  // button:nth-child(7) {
-  //   background-image: url('../../assets/review7.jpg');
-  // }
-  button:nth-child(8) {
-    // background-image: url('../../assets/review8.jpg');
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
   }
 
   a {
