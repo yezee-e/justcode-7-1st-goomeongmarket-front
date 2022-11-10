@@ -1,41 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
-import { useParams, useSearchParams } from 'react-router-dom';
 import './Dropdown.scss';
 
-function Dropdown({ list, setTabList, filtering }) {
+function Dropdown({ list, filtering, newfilterging }) {
   const [isActive, setIsActive] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  let [searchParms, setSearchParams] = useSearchParams();
-  const sorted_by = searchParms.get('sorted_by');
-  const category_id = searchParms.get('category_id');
-  const { tabId } = useParams();
-
-  //진짜 구현해볼 API
-  // const filtering = pageNumber => {
-  //   fetch(`http://localhost:8000/products/${tabId}?sorted_by=${pageNumber}`, {
-  //     method: 'POST',
-  //     headers: { 'content-Type': 'application/json' },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setTabList(res.data));
-  //   searchParms.set('sorted_by', pageNumber);
-  //   setSearchParams(searchParms);
-  // };
-
-  //목데이터
-  // const filtering = pageNumber => {
-  //   fetch(`http://localhost:3000/data/mock${tabId}?sorted_by=${pageNumber}`, {
-  //     method: 'POST',
-  //     headers: { 'content-Type': 'application/json' },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setTabList(res.data));
-  //   searchParms.set('sorted_by', pageNumber);
-  //   setSearchParams(searchParms);
-  //   setIsChecked(cur => !cur);
-  // };
 
   return (
     <div className="dropdown">
@@ -50,7 +20,7 @@ function Dropdown({ list, setTabList, filtering }) {
               <label
                 htmlFor="check"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => newfilterging(1)}
               >
                 <input type="radio" id="check" name="together" />
                 채소
@@ -58,7 +28,7 @@ function Dropdown({ list, setTabList, filtering }) {
               <label
                 htmlFor="check1"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => newfilterging(2)}
               >
                 <input type="radio" id="check1" name="together" />
                 과일
@@ -66,7 +36,7 @@ function Dropdown({ list, setTabList, filtering }) {
               <label
                 htmlFor="check3"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => newfilterging(3)}
               >
                 <input type="radio" id="check3" name="together" />
                 수산﹒해산﹒건어물
@@ -74,7 +44,7 @@ function Dropdown({ list, setTabList, filtering }) {
               <label
                 htmlFor="check4"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => newfilterging(4)}
               >
                 <input type="radio" id="check4" name="together" />
                 정육﹒계란
@@ -82,7 +52,7 @@ function Dropdown({ list, setTabList, filtering }) {
               <label
                 htmlFor="check5"
                 className="dropdown-item"
-                onClick={() => filtering()}
+                onClick={() => newfilterging(5)}
               >
                 <input type="radio" id="check5" name="together" />
                 국﹒반찬﹒메인요리

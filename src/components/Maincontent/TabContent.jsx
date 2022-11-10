@@ -12,12 +12,12 @@ function TabContent({
   setTabList,
   search,
 }) {
-  // const [miniFilter, setMiniFilter] = useState([]);
   let [searchParms, setSearchParams] = useSearchParams();
 
-  const sorted_by = searchParms.get('sorted_by');
+  const category_id = searchParms.get('category_id');
   const { tabId } = useParams();
 
+  //최종API (사이드필터 및 mini필터)
   const filtering = pageNumber => {
     fetch(`http://localhost:8000/products/${tabId}?sorted_by=${pageNumber}`, {
       method: 'POST',
@@ -25,10 +25,27 @@ function TabContent({
     })
       .then(res => res.json())
       .then(res => setTabList(res.data));
-    setSearchParams(searchParms);
     searchParms.set('sorted_by', pageNumber);
+    searchParms.delete('category_id');
+    setSearchParams(searchParms);
   };
-  const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
+
+  const newfilterging = newNumber => {
+    const sorted_by = searchParms.get('sorted_by');
+    fetch(
+      `http://localhost:8000/products/${tabId}?sorted_by=${sorted_by}&category_id=${newNumber}`,
+      {
+        method: 'POST',
+        headers: { 'content-Type': 'application/json' },
+      }
+    )
+      .then(res => res.json())
+      .then(res => setTabList(res.data));
+    searchParms.set('category_id', newNumber);
+    setSearchParams(searchParms);
+  };
+
+  const filterList = ['카테고리', '가격', '이름순', '해택']; //사이드대장카테고리
 
   const tabTitle = () => {
     if (tabId == 'new') {
@@ -39,8 +56,6 @@ function TabContent({
       return '알뜰쇼핑';
     }
   };
-
-  console.log(tabList);
 
   // 검색창 활성화 구현
   const filterTab = tabList.filter(item =>
@@ -64,13 +79,8 @@ function TabContent({
               <Dropdown
                 key={list}
                 list={list}
-                data={data}
-                setData={setData}
-                tabList={tabList}
-                setTabList={setTabList}
-                searchParms={searchParms}
-                setSearchParams={searchParms}
                 filtering={filtering}
+                newfilterging={newfilterging}
               />
             ))}
           </div>
@@ -84,7 +94,6 @@ function TabContent({
             <div className="productInformation-card">
               {filterTab.map((values, index) => {
                 const { title, price, img } = values;
-                console.log(values);
 
                 return (
                   <CardList

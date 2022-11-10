@@ -5,7 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import SliderImages from '../../components/SliderImages/SliderImages';
 import Footer from '../../components/Footer/Footer';
 import TabContent from '../../components/Maincontent/TabContent';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Menu({ data, setData, setSearch, converPrice, search }) {
   const params = useParams();
@@ -13,7 +13,7 @@ function Menu({ data, setData, setSearch, converPrice, search }) {
 
   let { tabId } = params;
 
-  //진짜 구현해볼 api
+  //최종 API(각탭별 new,best,cheap)
   useEffect(() => {
     fetch(`http://localhost:8000/products/${tabId}`, {
       method: 'POST',
