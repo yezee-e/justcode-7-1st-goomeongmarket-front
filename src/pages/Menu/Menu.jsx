@@ -13,22 +13,22 @@ function Menu({ data, setData, setSearch, converPrice, search }) {
 
   let { tabId } = params;
 
-  //진짜 구현해볼 api
-  // useEffect(() => {
-  //   fetch(`http://localhost:8000/products/${tabId}`, {
-  //     method: 'POST',
-  //     headers: { 'content-Type': 'application/json' },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setTabList(res.data));
-  // }, [tabId]);
-
-  //가짜 목데이터
+  //최종 API(각탭별 new,best,cheap)
   useEffect(() => {
-    fetch(`http://localhost:3000/data/mock${tabId}.json`)
+    fetch(`http://localhost:8000/products/${tabId}`, {
+      method: 'POST',
+      headers: { 'content-Type': 'application/json' },
+    })
       .then(res => res.json())
       .then(res => setTabList(res.data));
   }, [tabId]);
+
+  //가짜 목데이터
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/data/mock${tabId}.json`)
+  //     .then(res => res.json())
+  //     .then(res => setTabList(res.data));
+  // }, [tabId]);
 
   return (
     <div className="menuPages">
