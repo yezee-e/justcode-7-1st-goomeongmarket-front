@@ -7,6 +7,7 @@ import Mainsignup from './Mainsignup/Mainsignup';
 import Mainbasket from './Mainbasket/Mainbasket';
 import Incart from '../components/Maincontent/Incart';
 import Post from '../components/Signup/Post';
+import ProductDetailedPage from '../components/ProductDetailedPage/ProductDetailedPage';
 
 function Router() {
   const converPrice = price => {
@@ -14,7 +15,7 @@ function Router() {
   };
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
-
+  const [search, setSearch] = useState('');
   const mockData = `http://localhost:3000/data/mockData.json`;
 
   useEffect(() => {
@@ -22,6 +23,14 @@ function Router() {
       .then(res => res.json())
       .then(json => setData(json.data));
   }, []);
+
+  //검색창 활성화 구현
+  const filterTitle = data.filter(item =>
+    item.title
+      .replace(' ', '')
+      .toLocaleLowerCase()
+      .includes(search.toLocaleLowerCase().replace(' ', ''))
+  );
 
   return (
     <BrowserRouter>
@@ -34,6 +43,8 @@ function Router() {
               cart={cart}
               setCart={setCart}
               converPrice={converPrice}
+              filterTitle={filterTitle}
+              setSearch={setSearch}
             />
           }
         />
@@ -50,8 +61,25 @@ function Router() {
         <Route path="/signup" element={<Mainsignup />} />
         <Route path="/address" element={<Post />} />
         <Route path="/login" element={<Mainlogin />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route
+          path="/products/:tabId"
+          element={
+            <Menu
+              data={data}
+              setData={setData}
+              converPrice={converPrice}
+              setSearch={setSearch}
+              filterTitle={filterTitle}
+              search={search}
+            />
+          }
+        />
+
         <Route path="/incart" element={<Incart />} />
+        <Route
+          path="/goods/:id"
+          element={<ProductDetailedPage converPrice={converPrice} />}
+        />
       </Routes>
     </BrowserRouter>
   );

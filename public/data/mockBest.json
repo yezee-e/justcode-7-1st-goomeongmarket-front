@@ -3,13 +3,11 @@
     {
       "key": "1",
       "id": "1",
-      "title": "쇼파",
+      "title": "베스트쇼파",
       "price": 21300,
       "category": "goods",
       "titlename": "안녕하세요",
-      "img": "/img/1.jpg",
-      "sub_name": "쇼파",
-      "country_id": "프랑스"
+      "img": "/img/1.jpg"
     },
 
     {
@@ -19,9 +17,7 @@
       "price": 29000,
       "category": "food",
       "titlename": "GMMK",
-      "img": "/img/3.jpg",
-      "sub_name": "피자",
-      "country_id": "한국"
+      "img": "/img/3.jpg"
     },
     {
       "key": "3",
@@ -30,9 +26,7 @@
       "price": 50000,
       "category": "food",
       "titlename": "반갑습니다.",
-      "img": "/img/4.jpg",
-      "sub_name": "파스타",
-      "country_id": "일본"
+      "img": "/img/4.jpg"
     },
     {
       "key": "4",
@@ -41,9 +35,7 @@
       "price": 230000,
       "category": "goods",
       "titlename": "좋은 가격",
-      "img": "/img/5.jpg",
-      "sub_name": "침대",
-      "country_id": "중국"
+      "img": "/img/5.jpg"
     },
     {
       "key": "5",
@@ -52,9 +44,7 @@
       "price": 220000,
       "category": "goods",
       "titlename": "완전보장",
-      "img": "/img/6.jpg",
-      "sub_name": "책상",
-      "country_id": "인도"
+      "img": "/img/6.jpg"
     },
     {
       "key": "6",
@@ -62,9 +52,7 @@
       "title": "이쁜 쇼파",
       "price": 21300,
       "category": "goods",
-      "img": "/img/2.jpg",
-      "sub_name": "이쁜 쇼파",
-      "country_id": "미국"
+      "img": "/img/2.jpg"
     },
     {
       "key": "7",
@@ -72,9 +60,7 @@
       "title": "안이쁜 쇼파",
       "price": 21300,
       "category": "goods",
-      "img": "/img/2.jpg",
-      "sub_name": "안이쁜 쇼파",
-      "country_id": "멕시코"
+      "img": "/img/2.jpg"
     },
     {
       "key": "8",
@@ -82,9 +68,7 @@
       "title": "우리집 쇼파",
       "price": 21300,
       "category": "goods",
-      "img": "/img/2.jpg",
-      "sub_name": "우리집 쇼파",
-      "country_id": "호주"
+      "img": "/img/2.jpg"
     },
     {
       "key": "1",

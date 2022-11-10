@@ -1,21 +1,10 @@
-// * {
-//   box-sizing: initial;
-// }
-
 .sign-up {
   font-family: 'Noto Sans KR', sans-serif;
   margin: auto;
   width: 640px;
-  margin-top: 50px;
-
+}
+.sign-up {
   h1 {
-    margin-bottom: 50px;
-    font-size: 28px;
-    line-height: 35px;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: -1px;
-    color: rgb(51, 51, 51);
   }
   .title p {
     position: relative;
@@ -42,22 +31,22 @@
       height: 50px;
       // display: flex;
       // justify-content: space-between;
-      padding: 35px 20px;
+      padding: 10px 20px;
       .input-name-container {
         position: absolute;
         left: 0px;
         width: 139px;
-        padding-top: 10px;
+        padding-top: 12px;
         .form-label {
-          padding-left: 12px;
+          padding-left: 22px;
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 600;
           color: rgb(51, 51, 51);
           line-height: 20px;
         }
       }
       .gender-name {
-        bottom: -13px;
+        bottom: 15px;
       }
       .email-input-button-column .empty-box {
         width: 120px;
@@ -101,7 +90,7 @@
       }
       .adress-alert-message {
         position: absolute;
-        top: 73px;
+        top: 55px;
         left: 137px;
         margin-top: 10px;
         font-size: 12px;
@@ -132,7 +121,7 @@
   display: flex;
   position: absolute;
 
-  top: 55px;
+  top: 36px;
   left: 141px;
 
   input[type='radio'] {
@@ -196,7 +185,6 @@
     appearance: none;
     cursor: pointer;
     margin-right: 5px;
-    margin-top: 10px;
   }
   input[type='checkbox']:checked::after {
     position: absolute;
@@ -264,21 +252,21 @@
 
 .margin-box {
   border-bottom: 1px solid rgb(51, 51, 51);
-  padding-bottom: 30px;
+  margin-bottom: 5px;
 }
 .gap {
-  margin-top: -26px;
+  margin-top: -28px;
 }
 .choose-one {
   margin-bottom: 10px;
-  margin-top: 0px;
+  margin-top: -5px;
   margin-left: 40px;
   display: flex;
   align-items: center;
 }
 .delivery-alert {
   position: absolute;
-  top: 58px;
+  top: 50px;
   margin-left: 160px;
   padding-left: 16px;
   background: url(https://res.kurly.com/pc/service/common/2006/ico_sub_dot.svg)
@@ -288,9 +276,12 @@
   line-height: 18px;
   letter-spacing: -0.5px;
 }
-
+.gap2 {
+  position: absolute;
+  bottom: 10px;
+  border-bottom: 1px solid rgb(247, 247, 247);
+}
 .signup-button-div {
-  border-top: 1px solid rgb(247, 247, 247);
   button {
     cursor: pointer;
     margin-top: 25px;
@@ -329,6 +320,7 @@
   bottom: -2rem;
   left: 23%;
 }
+
 .gap3 {
   margin-top: 10px;
 }

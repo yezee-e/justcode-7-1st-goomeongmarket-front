@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Nav.scss';
-function Nav({ setSearch, searchClick }) {
+function Nav({ setSearch }) {
   const navigateSignUp = useNavigate();
   const navigateLogin = useNavigate();
   const NavigateBasket = useNavigate();
@@ -48,7 +48,7 @@ function Nav({ setSearch, searchClick }) {
           <div className="navSection">
             <div className="navSectionLeft">
               <Link to="/">
-                <img alt="컬리" src="./img/GMMK.jpg" />
+                <img alt="컬리" src="/img/GMMK.jpg" />
               </Link>
               <button className="NavKurlyMarkerBtn marginLeft20">GM마켓</button>
               <div className="borderRightSection" />
@@ -72,19 +72,19 @@ function Nav({ setSearch, searchClick }) {
               <img
                 className="iconControl "
                 alt="위치"
-                src="./img/location.png"
+                src="/img/location.png"
                 onClick={() => alert('준비중입니다.')}
               />
               <img
                 className="iconControl "
                 alt="하트"
-                src="./img/love.png"
+                src="/img/love.png"
                 onClick={() => alert('준비중입니다.')}
               />
               <img
                 className="iconControl "
                 alt="장바구니"
-                src="./img/purchase.png"
+                src="/img/purchase.png"
                 onClick={goToBasket}
               />
             </div>

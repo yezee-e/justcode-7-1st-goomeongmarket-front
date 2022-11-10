@@ -6,13 +6,22 @@ import SliderImages from '../../components/SliderImages/SliderImages';
 import Footer from '../../components/Footer/Footer';
 import Maincontent from '../../components/Maincontent/Maincontent';
 
-function Main({ cart, setCart, data, converPrice, stock, setStock }) {
+function Main({
+  cart,
+  setCart,
+  data,
+  converPrice,
+  stock,
+  setStock,
+  filterTitle,
+  setSearch,
+}) {
   // const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
 
   return (
-    <div className="mainPages">
-      <Nav />
-      <Header />
+    <div className="mainPages ">
+      <Nav setSearch={setSearch} />
+      <Header setSearch={setSearch} />
       <SliderImages />
       <Maincontent
         cart={cart}
@@ -21,6 +30,7 @@ function Main({ cart, setCart, data, converPrice, stock, setStock }) {
         converPrice={converPrice}
         stock={stock}
         setStock={setStock}
+        filterTitle={filterTitle}
       />
       <Footer />
     </div>

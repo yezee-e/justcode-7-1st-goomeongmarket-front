@@ -13,11 +13,9 @@ body {
 p,
 button {
   margin: 0;
-  // padding: 0;
 }
 .container {
   padding-top: 30px;
-  // margin: 0 184.5px 0 184.5px;
   margin: 0 auto;
   width: 1050px;
 }
@@ -43,6 +41,7 @@ button {
 
 .titleWrap {
   height: 87px;
+  width: 573px;
 
   .titleDelivery {
     color: rgb(153, 153, 153);
@@ -57,7 +56,7 @@ button {
   .titleShort {
     color: rgb(181, 181, 181);
     margin: 0px;
-    padding-top: 5px;
+    padding-top: 12px;
   }
 }
 
@@ -65,11 +64,6 @@ button {
   padding-top: 19px;
   font-weight: 700;
 
-  .discountRate {
-    padding-right: 9px;
-    font-size: 28px;
-    color: rgb(250, 98, 47);
-  }
   .discountPrice {
     padding-right: 4px;
     font-size: 28px;
@@ -240,24 +234,9 @@ button {
 .buttonContainer {
   margin-top: 20px;
   display: flex;
+  justify-content: flex-end;
 
   .heartButton {
-    border: 1px rgb(221, 221, 221) solid;
-    background-color: rgb(255, 255, 255);
-    padding: 0 10px 0 10px;
-    height: 56px;
-    margin-right: 11px;
-
-    span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 32px;
-      height: 32px;
-    }
-  }
-
-  .bellButton {
     border: 1px rgb(221, 221, 221) solid;
     background-color: rgb(255, 255, 255);
     padding: 0 10px 0 10px;
@@ -473,6 +452,124 @@ button {
     }
   }
 }
+.boardOne {
+  width: 1010px;
+}
+.boardone {
+  width: 1010px;
+  font-size: 16px;
+  font-weight: 300;
+
+  .secOne {
+    display: flex;
+    padding: 39px 0 40px 0;
+    border-top: 1px rgb(221, 221, 221) solid;
+
+    .onetitle {
+      width: 340px;
+      padding-left: 31px;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 25px;
+    }
+    p {
+      padding: 2px 20px 0 0;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 22px;
+
+      span {
+        display: block;
+        padding-top: 22px;
+        font-size: 15px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .secTwo {
+    padding: 39px 0 40px 0;
+    display: flex;
+    border-top: 1px rgb(221, 221, 221) solid;
+
+    .twotitle {
+      padding-left: 31px;
+      width: 340px;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 25px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 22px;
+
+      strong:first-child {
+        display: block;
+        font-size: 15px;
+        color: rgb(95, 0, 128);
+        line-height: 22px;
+        padding-bottom: 6px;
+      }
+
+      .strongTwo {
+        padding: 30px 0 6px 0;
+        display: block;
+        font-size: 15px;
+        color: rgb(95, 0, 128);
+        line-height: 22px;
+      }
+      span {
+        display: block;
+        padding-top: 22px;
+      }
+    }
+  }
+
+  .secThree {
+    padding: 39px 0 40px 0;
+    display: flex;
+    border-top: 1px rgb(221, 221, 221) solid;
+
+    .threetitle {
+      width: 340px;
+      padding-left: 31px;
+    }
+
+    p {
+      font-size: 15px;
+
+      span:first-child {
+        padding-top: 20px;
+      }
+    }
+    span {
+      display: block;
+      line-height: 22px;
+    }
+  }
+}
+
+.boardtwo {
+  width: 1010px;
+
+  .boardsecOne,
+  .boardsecTwo {
+    padding: 39px 0 40px 0;
+    border-top: 1px rgb(221, 221, 221) solid;
+    display: flex;
+
+    strong {
+      padding-left: 31px;
+      width: 340px;
+      font-size: 17px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 22px;
+    }
+  }
+}
 
 .exchange,
 .cancelOrder,
@@ -484,8 +581,13 @@ button {
   line-height: 27px;
   border: 1px rgb(221, 221, 221) solid;
   border-bottom: none;
+
   padding: 14px 0 17px 0;
   position: relative;
+
+  .exchangeTitle {
+    display: flex;
+  }
 
   strong {
     width: 179px;
@@ -579,34 +681,6 @@ button {
     background-size: cover;
     border: none;
     cursor: pointer;
-  }
-  button:nth-child(1) {
-    background-image: url('../../assets/review1.jpg');
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-  }
-  button:nth-child(2) {
-    background-image: url('../../assets/review2.jpg');
-  }
-  button:nth-child(3) {
-    background-image: url('../../assets/review3.jpeg');
-  }
-  button:nth-child(4) {
-    background-image: url('../../assets/review4.jpg');
-  }
-  button:nth-child(5) {
-    background-image: url('../../assets/review5.jpeg');
-  }
-  button:nth-child(6) {
-    background-image: url('../../assets/review6.jpeg');
-  }
-  button:nth-child(7) {
-    background-image: url('../../assets/review7.jpg');
-  }
-  button:nth-child(8) {
-    background-image: url('../../assets/review8.jpg');
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
   }
 
   a {
@@ -890,7 +964,7 @@ button {
   border-collapse: collapse;
   border-color: gray;
 
-  div {
+  thead {
     border-top: 2px rgb(51, 51, 51) solid;
     border-bottom: 1px rgb(51, 51, 51) solid;
     height: 58px;
@@ -966,5 +1040,190 @@ button {
   .inqNextBtn {
     background-image: url('../../assets/next.png');
     margin-left: 12px;
+  }
+}
+
+.scrollContainer {
+  position: fixed;
+  right: 1%;
+  bottom: 3%;
+  z-index: 1;
+}
+#top {
+  border: none;
+  background-color: transparent;
+}
+
+.selectContainer {
+  position: fixed;
+  z-index: 20;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-top: 2px rgb(95, 0, 128) solid;
+  min-height: 20px;
+
+  .buttonWrap {
+    position: relative;
+    width: 900px;
+    margin: 0px auto;
+
+    .selectUp {
+      position: absolute;
+      top: -48px;
+      right: 0px;
+      width: 160px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(95, 0, 128);
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+      }
+
+      img {
+        margin-left: 6px;
+      }
+    }
+  }
+
+  .selectWrap {
+    padding-top: 20px;
+    width: 900px;
+
+    .selectTitleWrap {
+      padding: 10px 0 10px 20px;
+      display: flex;
+      background-color: rgb(247, 247, 247);
+      align-items: center;
+
+      .selectTitle {
+        margin-right: 40px;
+        min-width: 500px;
+      }
+
+      .selectButtonWrap {
+        display: flex;
+        justify-content: space-between;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          border: 1px rgb(221, 223, 225) solid;
+          border-radius: 3px;
+          width: 88px;
+          background-color: transparent;
+
+          .selectMinus,
+          .selectPlus {
+            width: 28px;
+            height: 28px;
+            background-color: transparent;
+            background-size: cover;
+            display: flex;
+            border: none;
+          }
+
+          .selectNumber {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 28px;
+            border: none;
+          }
+        }
+        .selectPriceWrap {
+          padding-right: 20px;
+          display: flex;
+          justify-content: flex-end;
+          width: 252px;
+          align-items: center;
+
+          .selectPrice {
+            font-weight: 700;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .selectTotalWrap {
+    width: 900px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding-top: 20px;
+
+    .selectPriceTitle {
+      padding-right: 12px;
+      line-height: 2ppx;
+      font-size: 13px;
+    }
+    .selectTotalPrice {
+      padding-left: 5px;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 30px;
+    }
+    .selectTotalWon {
+      padding-left: 5px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .selectIconContainer {
+    width: 900px;
+    display: flex;
+    justify-content: flex-end;
+
+    .selectIconWrap {
+      margin-bottom: 60px;
+      width: 428px;
+
+      .selectButton {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+
+        .selectLike {
+          padding: 0 10px;
+          border: 1px rgb(221, 221, 221) solid;
+          border-radius: 3px;
+          width: 56px;
+          height: 56px;
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      .selectCartWrap {
+        margin-left: 10px;
+        .selectCart {
+          height: 56px;
+          width: 300px;
+          padding: 0 10px;
+          background-color: rgb(95, 0, 128);
+          color: rgb(255, 255, 255);
+          border-radius: 3px;
+          border: none;
+
+          span {
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
   }
 }
