@@ -10,7 +10,6 @@ function Incart({
   price,
   img,
   title,
-  sub_name,
 }) {
   let [stock, setStock] = useState(1);
 
@@ -30,7 +29,6 @@ function Incart({
       price: priceMultiplQanntity,
       quantity: stock,
       title: title,
-      sub_name: sub_name,
     };
 
     setCart([...cart, cartItem]);
@@ -41,9 +39,7 @@ function Incart({
     <div className="popUpWraper">
       <div className="popUpBox">
         <div className="popUpBoxTop">
-          <span>
-            {sub_name},{title}
-          </span>
+          <span>{title}</span>
           <div className="popUpMarginTop10px popUpCartPriceSection">
             <span>{converPrice(priceMultiplQanntity)}원</span>
             <div className="pmBox">

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
-body {
+
+.detailContainer {
+  padding-top: 30px;
+  margin: 0 auto;
+  width: 1050px;
   font-family: 'Noto Sans KR', sans-serif;
   color: rgb(51, 51, 51);
   font-size: 14px;
@@ -9,15 +13,6 @@ body {
 }
 * {
   // box-sizing: border-box;
-}
-p,
-button {
-  margin: 0;
-}
-.container {
-  padding-top: 30px;
-  margin: 0 auto;
-  width: 1050px;
 }
 .mainDetail {
   display: flex;
