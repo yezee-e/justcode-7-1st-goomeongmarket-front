@@ -74,6 +74,7 @@
         }
       }
       .address-button {
+        z-index: 2;
         display: block;
         padding: 0px 10px;
         text-align: center;
@@ -341,4 +342,27 @@
   padding: 0.25rem;
   bottom: -2rem;
   left: 23%;
+}
+.addressBtn-none {
+  visibility: hidden;
+}
+.address-add {
+  z-index: 1;
+}
+.check-email-done {
+  cursor: pointer;
+  position: absolute;
+  left: 481px;
+  height: 46px;
+  margin-right: 50px;
+  width: 120px;
+  color: rgb(236 219 255);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(236 219 255);
+  padding: 0px 10px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
 }
