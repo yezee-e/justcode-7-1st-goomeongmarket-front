@@ -1,0 +1,60 @@
+.productLi {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 55px 0px;
+  width: 800px;
+  height: 50px;
+  list-style: none;
+
+  letter-spacing: -0.5px;
+}
+
+.checkBoxBtn {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.produntImg {
+  width: 60px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.productTitle {
+  width: 300px;
+}
+.pmButtonBox {
+  display: flex;
+  border: 1px solid #dddfe1;
+  margin-right: 30px;
+  cursor: pointer;
+  height: 25px;
+  align-items: center;
+}
+.pmButton {
+  border: none;
+  width: 30px;
+  background-color: inherit;
+  cursor: pointer;
+}
+.productPriceBox {
+  width: 180px;
+
+  .productPrice {
+    width: 100%;
+    // margin-right: 20px;
+  }
+}
+.listClearbButton {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 35px;
+  border: none;
+  background: url(../../img/x-mark-xxl.png);
+  background-size: cover;
+  cursor: pointer;
+}

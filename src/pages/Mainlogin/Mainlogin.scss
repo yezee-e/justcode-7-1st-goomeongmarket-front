@@ -1,0 +1,53 @@
+.mainPages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+
+  .wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+
+  .filter {
+    width: 250px;
+    margin: 20px;
+    padding: 15px 10px;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    color: #333;
+    cursor: default;
+  }
+
+  .MaincontentWrap {
+    width: 1050px;
+    height: 650px;
+  }
+
+  .MainContentBox {
+    width: 1050px;
+    height: 50px;
+    margin: 0px auto;
+  }
+
+  .MainContentTitle {
+    display: flex;
+    justify-content: center;
+
+    font-size: 25px;
+
+    // margin: 100px 0px 50px 0px;
+  }
+  .productInformation {
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+    height: 450px;
+
+    display: flex;
+    flex-direction: row;
+  }
+}
+// >>>>>>> 07c8f907b9b4ad14503b5073a397295b4d07e7b6

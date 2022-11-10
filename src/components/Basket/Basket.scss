@@ -1,0 +1,185 @@
+.letterSpacing {
+  letter-spacing: -1px;
+}
+
+.borderRightInBasket {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background: rgb(221, 221, 221);
+  margin: 6px 21px 0px 22px;
+  vertical-align: top;
+}
+.basketBody {
+  .fontSettingh2 {
+    font-weight: 700;
+    box-sizing: border-box;
+  }
+
+  .cartNameBox {
+    width: 1050px;
+    height: 150px;
+    text-align: center;
+    padding: 70px 0px 48px;
+  }
+
+  .cartBoxWraper {
+    display: flex;
+
+    .checkBoxBtnHead {
+      margin: 0px 10px 0px 50px;
+
+      width: 20px;
+    }
+    .cartBoxLeft {
+      width: 800px;
+      height: 100%;
+
+      .noProdInCart {
+        width: 500px;
+        margin-top: 50px;
+        margin-left: 120px;
+        padding: 115px 0;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+        color: #b5b5b5;
+      }
+      .selectBox {
+        display: flex;
+        flex-direction: row;
+        padding: 18px 10px 16px 2px;
+        line-height: 26px;
+        border-bottom: 1px solid #333333;
+
+        .selectDelBox {
+          border: none;
+          background-color: inherit;
+        }
+      }
+    }
+
+    .cartBoxRight {
+      letter-spacing: -0.5px;
+      width: 300px;
+      height: 700px;
+      position: relative;
+      margin-left: 30px;
+      .cartBoxRightWraper {
+        border: 1px solid beige;
+      }
+
+      .cartBoxRightHead {
+        margin: 30px 0px 10px 20px;
+        align-items: center;
+
+        .baesong {
+          display: flex;
+        }
+        .locationIcon {
+          width: 25px;
+          height: 25px;
+          background: url(../../img/location.png);
+          background-size: cover;
+          margin-right: 5px;
+        }
+
+        strong {
+          color: #5f00a1;
+        }
+      }
+      .addressBox {
+        position: relative;
+        width: 250px;
+        height: 35px;
+        font-size: 12px;
+        color: #744588;
+        border-radius: 5px;
+        border: 1px solid #5f0080;
+        background-color: inherit;
+        margin: 15px 0px 15px 0px;
+
+        .addressBoxMagnifier {
+          position: absolute;
+          top: 10 px;
+          left: 82px;
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .productInformationBox {
+        position: absolute;
+        width: 300px;
+        padding-top: 60px;
+      }
+    }
+
+    .cartBoxRightBody {
+      padding: 20px;
+      border: 1px solid #f2f2f2;
+      background-color: #fafafa;
+
+      .benefits {
+        display: block;
+        padding-top: 2px;
+        color: rgb(95, 0, 128);
+        font-size: 12px;
+        line-height: 18px;
+        text-align: right;
+        margin-bottom: 50px;
+
+        strong {
+          color: #5f00a1;
+        }
+      }
+      .cartBoxTop {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .cartBoxMid {
+        margin-top: 10px;
+
+        display: flex;
+        justify-content: space-between;
+      }
+      .cartBoxBot {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .cartBoxRightFoo {
+      margin-top: 25px;
+
+      .cartBoxRightFooBtn {
+        width: 300px;
+        height: 55px;
+        background-color: #ddd;
+        border: none;
+        border-radius: 5px;
+
+        span {
+          font-size: 14px;
+          color: white;
+        }
+      }
+
+      .cartBoxRightFooBtn:hover {
+        background-color: #5f0080;
+      }
+
+      .listController {
+        color: #666;
+        font-size: 12px;
+        list-style: none;
+        margin: 10px;
+        padding: 0;
+      }
+    }
+  }
+}
