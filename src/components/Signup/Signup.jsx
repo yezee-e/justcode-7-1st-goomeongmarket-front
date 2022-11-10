@@ -28,8 +28,11 @@ function Signup() {
   const [checkList, setCheckList] = useState([]);
   const [active, setActive] = useState('button');
   const [date, setDate] = useState('');
+  const [validDate, setValidDate] = useState(false);
   const [year, setYear] = useState('');
+  const [validYear, setValidYear] = useState(false);
   const [month, setMonth] = useState('');
+  const [validMonth, setValidMonth] = useState(false);
   const birthDatePlus = year + month + date;
   const [emailBtnDisable, setEmailBtnDisable] = useState(false);
   const [signupHadle, setSignupHandle] = useState(false);
@@ -93,7 +96,10 @@ function Signup() {
       !checkList.includes('must3')
     ) {
       alert('약관 동의 필수에 동의해주세요');
-    } else alert('회원가입에 성공하셨습니다');
+    } else {
+      alert('회원가입에 성공하셨습니다');
+      navigate('/login');
+    }
   };
   // 전체동의 체크박스
   useEffect(() => {
@@ -103,6 +109,11 @@ function Signup() {
     setVaildPassword(PWD_REGEX.test(password));
     setValidSamePwd(password === samePwd);
   }, [password, samePwd]);
+  useEffect(() => {
+    setValidDate(date < 32);
+    setValidMonth(month < 13);
+    setValidYear(year < 2010);
+  }, [date, year, month]);
 
   const checkAll = e => {
     e.target.checked
@@ -167,6 +178,7 @@ function Signup() {
       <div className="title">
         <h1>회원가입 </h1>
         <p>필수입력사항</p>
+        <span className="must-input plus-change">*</span>
       </div>
       <form className="form-whole">
         <div className="form-input">
@@ -345,6 +357,7 @@ function Signup() {
           <div className="input-container">
             <div className="input-name-container gender-name">
               <label className="form-label">성별</label>
+              <span className="must-input">*</span>
             </div>
             <div className="gender-input-container">
               <div className="gender-input-personal-container">
@@ -426,6 +439,30 @@ function Signup() {
                   }
                 }}
               />
+              <p
+                id="uidnote"
+                className={
+                  date && !validDate ? 'cond_msg add-birth-msg' : 'offscreen'
+                }
+              >
+                한 달은 최대 31일로 구성되어 있습니다.
+              </p>
+              <p
+                id="uidnote"
+                className={
+                  year && !validYear ? 'cond_msg add-birth-msg' : 'offscreen'
+                }
+              >
+                14세 이상부터만 가입가능합니다.
+              </p>
+              <p
+                id="uidnote"
+                className={
+                  month && !validMonth ? 'cond_msg add-birth-msg' : 'offscreen'
+                }
+              >
+                12월 이상은 없습니다.
+              </p>
             </div>
           </div>
           <div className="margin-box"> </div>
