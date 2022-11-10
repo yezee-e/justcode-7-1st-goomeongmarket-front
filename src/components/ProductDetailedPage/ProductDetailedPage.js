@@ -23,7 +23,6 @@ function ProductDetailedPage({ converPrice }) {
   const [visibleTwo, setVisibleTwo] = useState(true);
 
   const reviewRef = useRef();
-  // const inquiryRef = useRef();
 
   useEffect(() => {
     fetch(`http://localhost:8000/products/goods/${params.id}`, {
@@ -58,7 +57,7 @@ function ProductDetailedPage({ converPrice }) {
     };
   }, []);
 
-  const select = state.filter(value => value.id == params.id);
+  const select = state.filter(value => value.id === params.id);
   const change = select[0];
 
   const scrollToTop = () => {
@@ -76,9 +75,6 @@ function ProductDetailedPage({ converPrice }) {
   const clickScrollReview = () => {
     reviewRef.current.scrollIntoView({ behavior: 'smooth' });
   };
-  // const clickScrollInq = () => {
-  //   inquiryRef.current.scrollIntoView({ behavior: 'smooth' });
-  // };
 
   const wishAddHandler = () => {
     setIsWishAdd(!isWishAdd);
@@ -111,7 +107,7 @@ function ProductDetailedPage({ converPrice }) {
   };
 
   const cartAddHandler = () => {
-    setIsCartAdd(!isWishAdd);
+    setIsCartAdd(!isCartAdd);
   };
   const cartCountHandler = () => {
     cartAddHandler();
@@ -139,7 +135,7 @@ function ProductDetailedPage({ converPrice }) {
           {showButton && (
             <div className="scrollContainer">
               <button id="top" onClick={scrollToTop} type="button">
-                <img src="/icons/top.webp" />
+                <img src="/icons/top.webp" alt="탑" />
               </button>
             </div>
           )}
@@ -186,10 +182,6 @@ function ProductDetailedPage({ converPrice }) {
                       `${change.price}원`}
                     {converPrice(change.price)}
                   </span>
-                </div> */}
-
-                {/* <div className="loginBefore">
-                  "로그인 후, 할인 및 적립 혜택이 제공됩니다."
                 </div> */}
               </div>
 
@@ -290,12 +282,6 @@ function ProductDetailedPage({ converPrice }) {
                   </span>
                   <span className="totalWon">원</span>
                 </div>
-                {/* <div className="savingWrap">
-                  <span className="savingIcon">적립</span>
-                  <span className="savingContent">
-                    로그인 후,할인 및 적립 혜택 제공
-                  </span>
-                </div> */}
               </div>
 
               <div className="buttonContainer">
@@ -313,17 +299,6 @@ function ProductDetailedPage({ converPrice }) {
                     />
                   </span>
                 </button>
-
-                {/* <button className="bellButton">
-                  <span>
-                    <img
-                      className="grayBell"
-                      src="/icons/grayBell.png"
-                      width="26px"
-                      alt="재입고알림"
-                    />
-                  </span>
-                </button> */}
 
                 <div className="cartWrap">
                   <button
@@ -585,24 +560,11 @@ function ProductDetailedPage({ converPrice }) {
                   평균 1~2일 소요)
                 </li>
               </ul>
-              {/* <div className="reviewMainPhoto">
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <a className="seeMore"><span>+더보기</span></a>
-              </div> */}
+
               <div className="reviewForm">
                 <div className="reviewCount">
                   <span>{`총 ${comment.length}개`}</span>
                   {/* <div>
-                    <button>
-                      추천순<div className="sector"></div>
-                    </button>
                     <button>최근등록순</button>
                   </div> */}
                 </div>
@@ -615,12 +577,12 @@ function ProductDetailedPage({ converPrice }) {
                   <button>금주의 Best 후기 안내</button>
                 </div>
 
-                {comment.map((values, index) => {
+                {comment.map(values => {
                   const { id, username, comment, updated_at } = values;
 
                   return (
                     <Reviews
-                      key={index}
+                      key={id}
                       id={id}
                       username={username}
                       comment={comment}
@@ -636,59 +598,6 @@ function ProductDetailedPage({ converPrice }) {
               </div>
             </section>
           </div>
-
-          {/* <div className="inquiryWrap" ref={inquiryRef}>
-            <div className="inquiry">
-              <div className="inquiryBtnWrap">
-                <button className="inquiryBtn">
-                  <span>문의하기</span>
-                </button>
-              </div>
-              <div className="inquiryTitle">
-                <strong>상품 문의</strong>
-                <ul>
-                  <li>
-                    ・상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과
-                    다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.
-                  </li>
-                  <li>
-                    ・배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은
-                    마이컬리 내 1:1문의에 남겨주세요.
-                  </li>
-                </ul>
-              </div>
-
-              <table className="inquiryTable">
-                <thead>
-                  <tr>
-                    <th className="inqTitle">제목</th>
-                    <th className="inqAuthor">작성자</th>
-                    <th className="inqDate">작성일</th>
-                    <th className="inqStatus">답변상태</th>
-                  </tr>
-                </thead>
-
-                <thead className="inqCon">
-                  <tr>
-                    <td className="inqConTitle">
-                      <span>공지</span>판매 (일시)중단 제품 안내 (22.11.04
-                      업데이트)
-                    </td>
-                    <td className="inqConAuthor">GoomeongMarket</td>
-                    <td className="inqConDate">2022.10.04</td>
-                    <td className="inqConStatus">-</td>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-
-            <div className="inqBtnWrap">
-              <div className="inqBtn">
-                <button className="inqPreBtn"></button>
-                <button className="inqNextBtn"></button>
-              </div>
-            </div>
-          </div> */}
         </div>
       )}
       <Footer />

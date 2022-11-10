@@ -51,6 +51,7 @@ function SelectUp({
                         : '/icons/purpleHeart.png'
                     }
                     width="32px"
+                    alt="찜버튼"
                   />
                 </span>
               </button>

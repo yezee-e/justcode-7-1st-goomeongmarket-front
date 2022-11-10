@@ -4,7 +4,7 @@ import Incart from './Incart';
 
 import './CardList.scss';
 
-function CardList({ id, title, img, price, converPrice, cart, setCart, key }) {
+function CardList({ id, title, img, price, converPrice, cart, setCart }) {
   const [popUp, setPopUp] = useState(false);
   const navigate = useNavigate();
   const moveDetail = () => {
@@ -32,7 +32,6 @@ function CardList({ id, title, img, price, converPrice, cart, setCart, key }) {
         <Incart
           cart={cart}
           setCart={setCart}
-          key={key}
           id={id}
           setPopUp={setPopUp}
           converPrice={converPrice}
