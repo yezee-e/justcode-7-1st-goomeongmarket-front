@@ -69,7 +69,6 @@ function Router() {
               setData={setData}
               converPrice={converPrice}
               setSearch={setSearch}
-              filterTitle={filterTitle}
               search={search}
             />
           }

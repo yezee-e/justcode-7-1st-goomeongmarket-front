@@ -17,8 +17,8 @@ function Nav({ setSearch }) {
   };
   return (
     <div className="fontAdd">
-      <nav className="navMain">
-        <div className="navBody">
+      <nav className="navMain ">
+        <div className="navBody ">
           <div className="naviHead">
             <button onClick={goToSignUp} className="signUp btnDesign">
               회원가입
