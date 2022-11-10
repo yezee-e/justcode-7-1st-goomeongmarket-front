@@ -44,7 +44,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
             →
           </button>
           <div className="MainContentTitle">
-            <span>제목입니다.</span>
+            <span></span>
             {/* {data.map((titleName, index) => {
               const { titlename } = titleName;
 
