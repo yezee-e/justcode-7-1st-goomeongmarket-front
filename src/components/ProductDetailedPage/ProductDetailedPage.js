@@ -25,7 +25,7 @@ function ProductDetailedPage({ converPrice }) {
   const reviewRef = useRef();
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mockData.json', {
+    fetch(`http://localhost:8000/products/goods/${params.id}`, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
@@ -34,23 +34,14 @@ function ProductDetailedPage({ converPrice }) {
       .then(res => res.json())
       .then(result => setState(result.data))
       .then(() => setIsLoaded(true));
-    // fetch(`http://localhost:8000/products/goods/${params.id}`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(result => setState(result.data))
-    //   .then(() => setIsLoaded(true));
-    // fetch(`http://localhost:8000/products/review/${params.id}`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(result => setComment(result.data));
+    fetch(`http://localhost:8000/products/review/${params.id}`, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(result => setComment(result.data));
     const handleShowButton = () => {
       if (window.scrollY > 650) {
         setShowButton(true);
