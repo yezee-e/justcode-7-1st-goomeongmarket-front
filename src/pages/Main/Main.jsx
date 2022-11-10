@@ -19,7 +19,7 @@ function Main({
   // const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
 
   return (
-    <div className="mainPages">
+    <div className="mainPages ">
       <Nav setSearch={setSearch} />
       <Header setSearch={setSearch} />
       <SliderImages />

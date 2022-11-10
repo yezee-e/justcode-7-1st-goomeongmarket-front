@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import './Basket.scss';
 import ProductList from './ProductList';
 function Basket({ cart, converPrice, setCart }) {
-  // 장바구니 삭제하는 함수
-  const [tokenVaild, setTokenVaild] = useState(false);
+  const [liveValue, setLiveValue] = useState(0);
 
+  // 장바구니 삭제하는 함수
   const onRemove = id => {
     setCart(cart.filter(el => el.id !== id));
   };
+  // const some = String(liveValue);
+  // const someArr = some.split('');
+  // const Arrmap = someArr.map(el => el);
+  // const somett = some.map(el => el);
+  // console.log(liveValue);
 
   // 장바구니 담은 배열값의 합
   let priceSum = cart.map(el => el.price);
@@ -17,10 +22,10 @@ function Basket({ cart, converPrice, setCart }) {
 
   //결제 시 정보 보내는 코드
 
-  const token = window.localStorage.setItem(
-    'token',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY3OTgyMTU1fQ.OC331tGcgqSpil1IQN-4ZqoyusOuHI8juhW6d8FHGXA'
-  );
+  // const token = window.localStorage.setItem(
+  //   'token',
+  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjY4MDE2OTAxfQ.pifO4BZ5PmFJK9L8I8RimpzNccThL-RNCSVNSHuTcyw'
+  // );
   const getToken = window.localStorage.getItem('token');
 
   // const tokenVaildCheck = () => {
@@ -31,22 +36,27 @@ function Basket({ cart, converPrice, setCart }) {
 
   const payment = () => {
     if (getToken !== '') {
-      setTokenVaild(true);
-
       fetch('http://localhost:8000/products/order', {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           token: getToken,
         },
         body: JSON.stringify({
-          id: cart.id,
-          put_quantity: cart.quantity,
+          product_id: cart[0].id,
+          ordered_number: cart[0].quantity,
         }),
-      }).then(console.log('완료'));
-      console.log('결제 완료 !');
+      }).then(console.log('결제완료!'));
     } else alert('로그인하세요 !');
   };
-  // console.log(tokenVaild);
+
+  // const a = String(cart);
+  // console.log(a.id);
+  // const b = Number(a);
+  // const c = JSON.stringify(cart);
+  // console.log(c);
+  // console.log(typeof c);
+
   return (
     <div className="basketBody">
       <div className="cartNameBox">
@@ -75,6 +85,7 @@ function Basket({ cart, converPrice, setCart }) {
                       converPrice={converPrice}
                       onRemove={onRemove}
                       cart={cart}
+                      setLiveValue={setLiveValue}
                     />
                   );
                 })
@@ -141,7 +152,7 @@ function Basket({ cart, converPrice, setCart }) {
               <ul className="listController">
                 <li>[주문완료]상태일 경우에만 주문 취소 가능합니다.</li>
                 <li>
-                  [마이마켓>주문내역 상세페이지]에서 직접 취소하실 수 있습니다.
+                  [마이마켓 주문내역 상세페이지]에서 직접 취소하실 수 있습니다.
                 </li>
               </ul>
             </div>
