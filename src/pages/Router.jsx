@@ -6,6 +6,7 @@ import Mainlogin from './Mainlogin/Mainlogin';
 import Mainsignup from './Mainsignup/Mainsignup';
 import Mainbasket from './Mainbasket/Mainbasket';
 import Incart from '../components/Maincontent/Incart';
+import Post from '../components/Signup/Post';
 import ProductDetailedPage from '../components/ProductDetailedPage/ProductDetailedPage';
 
 function Router() {
@@ -58,6 +59,7 @@ function Router() {
           }
         />
         <Route path="/signup" element={<Mainsignup />} />
+        <Route path="/address" element={<Post />} />
         <Route path="/login" element={<Mainlogin />} />
         <Route
           path="/products/:tabId"
