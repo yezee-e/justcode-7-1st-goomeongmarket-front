@@ -6,6 +6,8 @@ import {
   faMugSaucer,
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import Post from './Post';
+
 //이메일.비밀번호 정규표현식
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PWD_REGEX =
@@ -20,19 +22,38 @@ function Signup() {
   const [samePwd, setSamePwd] = useState('');
   const [validSamePwd, setValidSamePwd] = useState(false);
   const [username, setusername] = useState('');
-  const [address, setAddress] = useState('');
+
   const [phoneNumber, setPhoneNumber] = useState('');
   const [gender_id, setGender] = useState('');
   const [checkList, setCheckList] = useState([]);
   const [active, setActive] = useState('button');
   const [date, setDate] = useState('');
+  const [validDate, setValidDate] = useState(false);
   const [year, setYear] = useState('');
+  const [validYear, setValidYear] = useState(false);
   const [month, setMonth] = useState('');
+  const [validMonth, setValidMonth] = useState(false);
   const birthDatePlus = year + month + date;
   const [emailBtnDisable, setEmailBtnDisable] = useState(false);
   const [signupHadle, setSignupHandle] = useState(false);
+  const [enroll_company, setEnroll_company] = useState({
+    address: '',
+  });
+  const [addressBtn, setAddressBtn] = useState(false);
+  const [popup, setPopup] = useState(false);
 
-  //회원가입 fetch
+  const handleInput = e => {
+    console.log(enroll_company);
+    setEnroll_company({
+      ...enroll_company,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleComplete = data => {
+    setPopup(!popup);
+    setAddressBtn(true);
+  };
   const sendHandler = e => {
     e.preventDefault();
     fetch('http://localhost:8000/users/account', {
@@ -44,7 +65,7 @@ function Signup() {
         email: email,
         password: password,
         username: username,
-        address: address,
+        address: enroll_company.address,
         phoneNumber: phoneNumber,
         birthDate: birthDatePlus,
         gender_id: gender_id,
@@ -75,7 +96,10 @@ function Signup() {
       !checkList.includes('must3')
     ) {
       alert('약관 동의 필수에 동의해주세요');
-    } else alert('회원가입에 성공하셨습니다');
+    } else {
+      alert('회원가입에 성공하셨습니다');
+      navigate('/login');
+    }
   };
   // 전체동의 체크박스
   useEffect(() => {
@@ -85,6 +109,11 @@ function Signup() {
     setVaildPassword(PWD_REGEX.test(password));
     setValidSamePwd(password === samePwd);
   }, [password, samePwd]);
+  useEffect(() => {
+    setValidDate(date < 32);
+    setValidMonth(month < 13);
+    setValidYear(year < 2010);
+  }, [date, year, month]);
 
   const checkAll = e => {
     e.target.checked
@@ -115,38 +144,6 @@ function Signup() {
       setActive('button');
     }
   }, [checkList]);
-
-  const signupHadler = e => {
-    e.preventDefault();
-    if (!validEmail) {
-      alert('이메일 형식이 맞지 않습니다.');
-    } else if (!emailBtnDisable) {
-      alert('이메일 중복 확인이 되지 않았습니다.');
-    } else if (!validPassword) {
-      alert('비밀번호 형식에 맞지 않습니다.');
-    } else if (username == null) {
-      alert('이름을 입력해주세요.');
-    } else if (phoneNumber.length !== 11) {
-      alert('핸드폰 번호를 정확히 입력해주세요');
-    } else if (birthDatePlus.length !== 8) {
-      alert('생년월일을 8자리로 입력해주세요');
-    } else if (gender_id == null) {
-      alert('성별을 선택해주세요');
-    } else if (
-      checkList.includes('must1') &&
-      checkList.includes('must2') &&
-      checkList.includes('must3')
-    ) {
-      alert('약관 동의 필수에 동의해주세요');
-    }
-  };
-
-  // const handleNext = e => {
-  //   e.preventDefault();
-  //   if (active === 'active') {
-  //     navigate('/signup-check');
-  //   }
-  // };
 
   // 이메일 중복 체크 로직
   const userEmailValidation = e => {
@@ -181,6 +178,7 @@ function Signup() {
       <div className="title">
         <h1>회원가입 </h1>
         <p>필수입력사항</p>
+        <span className="must-input plus-change">*</span>
       </div>
       <form className="form-whole">
         <div className="form-input">
@@ -197,11 +195,10 @@ function Signup() {
                 className="real-input"
                 type="text"
                 onChange={e => setEmail(e.target.value)}
-                //value={'email'}
                 name="email"
               />
               <button
-                className="check-email"
+                className={emailBtnDisable ? 'check-email-done' : 'check-email'}
                 onClick={userEmailValidation}
                 disabled={emailBtnDisable}
               >
@@ -327,10 +324,12 @@ function Signup() {
             </div>
             {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="fa-glass" /> */}
             <button
-              className="real-input address-button"
+              className={
+                addressBtn ? 'addressBtn-none' : 'real-input address-button'
+              }
               //value={'address'}
               name="address"
-              onChange={e => setAddress(e.target.value)}
+              onClick={handleComplete}
             >
               <FontAwesomeIcon icon={faMagnifyingGlass} className="fa-glass" />
               주소 검색
@@ -339,12 +338,26 @@ function Signup() {
             <p className="adress-alert-message">
               배송지에 따라 상품 정보가 달라질 수 있습니다.
             </p>
-            <input type={'text'} className="real-input"></input>
+            <input
+              type={'text'}
+              className="real-input address-add"
+              required={true}
+              name="address"
+              onChange={handleInput}
+              value={enroll_company.address}
+            ></input>
+            {popup && (
+              <Post
+                company={enroll_company}
+                setcompany={setEnroll_company}
+              ></Post>
+            )}
           </div>
           {/* 성별 */}
           <div className="input-container">
             <div className="input-name-container gender-name">
               <label className="form-label">성별</label>
+              <span className="must-input">*</span>
             </div>
             <div className="gender-input-container">
               <div className="gender-input-personal-container">
@@ -426,6 +439,30 @@ function Signup() {
                   }
                 }}
               />
+              <p
+                id="uidnote"
+                className={
+                  date && !validDate ? 'cond_msg add-birth-msg' : 'offscreen'
+                }
+              >
+                한 달은 최대 31일로 구성되어 있습니다.
+              </p>
+              <p
+                id="uidnote"
+                className={
+                  year && !validYear ? 'cond_msg add-birth-msg' : 'offscreen'
+                }
+              >
+                14세 이상부터만 가입가능합니다.
+              </p>
+              <p
+                id="uidnote"
+                className={
+                  month && !validMonth ? 'cond_msg add-birth-msg' : 'offscreen'
+                }
+              >
+                12월 이상은 없습니다.
+              </p>
             </div>
           </div>
           <div className="margin-box"> </div>
