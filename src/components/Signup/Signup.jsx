@@ -392,7 +392,7 @@ function Signup() {
                   onChange={e => setGender(e.target.value)}
                   value={3}
                 />
-                <label className="gender-check-name">성별 애매</label>
+                <label className="gender-check-name">해당 사항 없음</label>
               </div>
             </div>
             <div className="empty-box"> </div>
