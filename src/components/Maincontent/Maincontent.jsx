@@ -32,15 +32,15 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
   }, [currentSlide]);
-
+  console.log('data.lenth', data.length);
   return (
     <div>
       <div className="MaincontentWraper">
         <div className="MainContentBox">
-          <button onClick={NextSlide} className="btnLeft">
+          <button onClick={PrevSlide} className="btnLeft">
             ←
           </button>
-          <button onClick={PrevSlide} className="btnRight">
+          <button onClick={NextSlide} className="btnRight">
             →
           </button>
           <div className="MainContentTitle">
