@@ -2,7 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import CardList from './CardList';
 import './Maincontent.scss';
 
-function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
+function Maincontent({
+  data,
+  converPrice,
+  cart,
+  setCart,
+  filterTitle,
+  count,
+  setCount,
+}) {
   const TOTAL_SLIDES = data.length / 4;
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,12 +45,8 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
     <div>
       <div className="MaincontentWraper">
         <div className="MainContentBox">
-          <button onClick={PrevSlide} className="btnLeft">
-            ←
-          </button>
-          <button onClick={NextSlide} className="btnRight">
-            →
-          </button>
+          <button className="btnLeft">←</button>
+          <button className="btnRight">→</button>
           <div className="MainContentTitle">
             <span style={{ fontWeight: 'bold' }}>이 상품 어때요 ?</span>
             {/* {data.map((titleName, index) => {
@@ -52,7 +56,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
             })} */}
           </div>
 
-          <div className="productInformation" ref={slideRef}>
+          <div className="productInformation">
             {filterTitle.map((values, index) => {
               const { id, title, price, img } = values;
               return (
@@ -65,6 +69,8 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
                   img={img}
                   cart={cart}
                   setCart={setCart}
+                  count={count}
+                  setCount={setCount}
                 />
               );
             })}
