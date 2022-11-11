@@ -1,11 +1,9 @@
 import React from 'react';
-
+import './Modal.scss';
 const Modal = () => {
   return (
     <div className="modal">
-      <h4>제목</h4>
-      <p>날짜</p>
-      <p>상세내용</p>
+      <p>아이디랑 비밀번호가 일치하지 않습니다.</p>
     </div>
   );
 };
