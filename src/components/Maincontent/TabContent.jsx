@@ -93,10 +93,11 @@ function TabContent({
             </div>
             <div className="productInformation-card">
               {filterTab.map((values, index) => {
-                const { title, price, img } = values;
+                const { id, title, price, img } = values;
 
                 return (
                   <CardList
+                    id={id}
                     title={title}
                     price={price}
                     key={index}

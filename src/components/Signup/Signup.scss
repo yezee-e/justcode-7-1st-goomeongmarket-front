@@ -2,9 +2,17 @@
   font-family: 'Noto Sans KR', sans-serif;
   margin: auto;
   width: 640px;
+  margin-top: 50px;
 }
 .sign-up {
   h1 {
+    margin-bottom: 50px;
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -1px;
+    color: rgb(51, 51, 51);
   }
   .title p {
     position: relative;
@@ -31,22 +39,22 @@
       height: 50px;
       // display: flex;
       // justify-content: space-between;
-      padding: 10px 20px;
+      padding: 35px 20px;
       .input-name-container {
         position: absolute;
         left: 0px;
         width: 139px;
-        padding-top: 12px;
+        padding-top: 10px;
         .form-label {
-          padding-left: 22px;
+          padding-left: 12px;
           font-size: 14px;
-          font-weight: 600;
+          font-weight: 500;
           color: rgb(51, 51, 51);
           line-height: 20px;
         }
       }
       .gender-name {
-        bottom: 15px;
+        bottom: -13px;
       }
       .email-input-button-column .empty-box {
         width: 120px;
@@ -88,11 +96,11 @@
           padding-right: 11px;
         }
       }
-      .adress-alert-message {
+      .address-alert-message {
         position: absolute;
         top: 55px;
         left: 137px;
-        margin-top: 10px;
+        margin-top: 32px;
         font-size: 12px;
         line-height: 18px;
         color: rgb(102, 102, 102);
@@ -121,7 +129,7 @@
   display: flex;
   position: absolute;
 
-  top: 36px;
+  top: 55px;
   left: 141px;
 
   input[type='radio'] {
@@ -150,7 +158,7 @@
   }
 }
 .birth-margin {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .birth-input-column {
   display: flex;
@@ -159,9 +167,7 @@
     border: none;
     padding-left: 35px;
     width: 100px;
-    &::placeholder {
-      //text-align: center;
-    }
+
     &:focus {
       outline: none;
       //text-align: center;
@@ -185,6 +191,7 @@
     appearance: none;
     cursor: pointer;
     margin-right: 5px;
+    margin-top: 10px;
   }
   input[type='checkbox']:checked::after {
     position: absolute;
@@ -252,7 +259,7 @@
 
 .margin-box {
   border-bottom: 1px solid rgb(51, 51, 51);
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .gap {
   margin-top: -28px;
@@ -266,7 +273,7 @@
 }
 .delivery-alert {
   position: absolute;
-  top: 50px;
+  top: 60px;
   margin-left: 160px;
   padding-left: 16px;
   background: url(https://res.kurly.com/pc/service/common/2006/ico_sub_dot.svg)
@@ -369,4 +376,7 @@
 .add-birth-msg {
   font-size: 12px;
   left: 0;
+}
+.padding-size {
+  padding-top: 0px;
 }

@@ -16,7 +16,7 @@ function Router() {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
-  const mockData = `http://localhost:3000/data/mockData.json`;
+  const mockData = `http://localhost:8000/products/main`;
 
   useEffect(() => {
     fetch(mockData)

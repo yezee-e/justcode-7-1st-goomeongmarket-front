@@ -53,7 +53,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
           </div>
 
           <div className="productInformation" ref={slideRef}>
-            {data.map((values, index) => {
+            {filterTitle.map((values, index) => {
               const { id, title, price, img } = values;
               return (
                 <CardList

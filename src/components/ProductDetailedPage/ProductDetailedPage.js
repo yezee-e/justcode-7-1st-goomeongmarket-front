@@ -131,7 +131,7 @@ function ProductDetailedPage({ converPrice }) {
       <Nav />
       <Header />
       {isLoaded && (
-        <div className="container">
+        <div className="detailContainer">
           {showButton && (
             <div className="scrollContainer">
               <button id="top" onClick={scrollToTop} type="button">
