@@ -1,16 +1,17 @@
-import React, { useRef, useNavigate, useState, useCallback } from 'react';
-
+import React, { useRef, useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 import axios from 'axios';
+import Modal from './Modal';
 function Login() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const goToMain = () => {
   //   navigate('/main');
   // };
   // const goToSiginup = () => {
   //   navigate('/signup');
   // };
-
+  const [modal, setModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +21,7 @@ function Login() {
     setErrorMessage('아이디,비밀번호가 일치하지 않습니다.');
     let timer = setTimeout(() => {
       setErrorMessage('');
-    }, 2000);
+    }, 2500);
 
     return () => {
       clearTimeout(timer);
@@ -34,7 +35,7 @@ function Login() {
       .then(res => {
         if (res.status == 200) {
           localStorage.setItem('token', res.data.token);
-          // navigate('/main');
+          navigate('/');
         }
       })
       .catch(err => Error());
@@ -70,6 +71,8 @@ function Login() {
         <button className="sign-up-button">회원가입</button>
         <p className="error-message">{errorMessage}</p>
       </div>
+      {/* 
+      //{modal == true ? <Modal /> : null} */}
     </div>
   );
 }
