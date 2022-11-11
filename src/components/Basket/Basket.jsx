@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Basket.scss';
 import ProductList from './ProductList';
-function Basket({ cart, converPrice, setCart, count, setCount }) {
-  const [liveValue, setLiveValue] = useState(0);
+function Basket({ cart, converPrice, setCart }) {
+  // const [liveValue, setLiveValue] = useState(0);
 
   // 장바구니 삭제하는 함수
   const onRemove = id => {
@@ -76,9 +76,6 @@ function Basket({ cart, converPrice, setCart, count, setCount }) {
                       converPrice={converPrice}
                       onRemove={onRemove}
                       cart={cart}
-                      setLiveValue={setLiveValue}
-                      count={count}
-                      setCount={setCount}
                     />
                   );
                 })

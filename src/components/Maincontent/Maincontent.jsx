@@ -2,15 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import CardList from './CardList';
 import './Maincontent.scss';
 
-function Maincontent({
-  data,
-  converPrice,
-  cart,
-  setCart,
-  filterTitle,
-  count,
-  setCount,
-}) {
+function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
   const TOTAL_SLIDES = data.length / 4;
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -45,8 +37,12 @@ function Maincontent({
     <div>
       <div className="MaincontentWraper">
         <div className="MainContentBox">
-          <button className="btnLeft">←</button>
-          <button className="btnRight">→</button>
+          <button onClick={NextSlide} className="btnLeft">
+            ←
+          </button>
+          <button onClick={PrevSlide} className="btnRight">
+            →
+          </button>
           <div className="MainContentTitle">
             <span style={{ fontWeight: 'bold' }}>이 상품 어때요 ?</span>
             {/* {data.map((titleName, index) => {
@@ -56,7 +52,7 @@ function Maincontent({
             })} */}
           </div>
 
-          <div className="productInformation">
+          <div className="productInformation" ref={slideRef}>
             {filterTitle.map((values, index) => {
               const { id, title, price, img } = values;
               return (
@@ -69,8 +65,6 @@ function Maincontent({
                   img={img}
                   cart={cart}
                   setCart={setCart}
-                  count={count}
-                  setCount={setCount}
                 />
               );
             })}
