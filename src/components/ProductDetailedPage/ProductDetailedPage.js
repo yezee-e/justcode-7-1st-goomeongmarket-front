@@ -57,7 +57,7 @@ function ProductDetailedPage({ converPrice }) {
     };
   }, []);
 
-  const select = state.filter(value => value.id === params.id);
+  const select = state.filter(value => value.id == params.id);
   const change = select[0];
 
   const scrollToTop = () => {

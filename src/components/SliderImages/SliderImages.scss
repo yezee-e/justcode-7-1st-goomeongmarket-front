@@ -1,9 +1,12 @@
 .SliderImages {
   width: 100vw;
   height: 370px;
-  background: url(https://cdn.pixabay.com/photo/2020/09/04/11/28/apples-5543778_960_720.jpg)
-    no-repeat;
+  background: url('/img/background.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   margin-bottom: 100px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
 }
