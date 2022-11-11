@@ -57,7 +57,7 @@ function Incart({
     else setCart([...cart, cartItem]);
   };
 
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <div className="popUpWraper">
