@@ -35,7 +35,7 @@ function ProductList({ converPrice, onRemove, cart, setLiveValue }) {
           </button>
         </div>
         <div className="productPriceBox">
-          <span className="productPrice">{converPrice(priceSum)}</span>
+          <span className="productPrice">{converPrice(priceSum)}원</span>
         </div>
         <button
           className="listClearbButton"
