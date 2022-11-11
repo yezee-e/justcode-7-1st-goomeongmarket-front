@@ -11,30 +11,54 @@ function Incart({
   img,
   title,
 }) {
-  let [stock, setStock] = useState(1);
+  const [count, setCount] = useState(1);
+  // const onClickPlus = () => {
+  //   setCount(count + 1);
+  // };
+  // const onClickMinus = () => {
+  //   setCount(count !== 0 ? count - 1 : (count = 0));
+  // };
 
-  const onClickPlus = () => {
-    setStock(stock + 1);
-  };
-  const onClickMinus = () => {
-    setStock(stock !== 0 ? stock - 1 : (stock = 0));
+  const handleQuantity = type => {
+    if (type === 'plus') {
+      setCount(count + 1);
+    } else {
+      if (count === 1) return;
+      setCount(count - 1);
+    }
   };
 
-  const priceMultiplQanntity = stock * price;
+  const priceMultiplQanntity = count * price;
+
+  const setQuantity = (id, quantity) => {
+    const found = cart.filter(el => el.id === id)[0];
+    const idx = cart.indexOf(found);
+    const cartItem = {
+      id: id,
+      img: img,
+      price: price,
+      title: title,
+      quantity: count,
+    };
+    setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
+  };
 
   const handleCart = () => {
     const cartItem = {
       id: id,
       img: img,
-      price: priceMultiplQanntity,
-      quantity: stock,
+      price: price,
       title: title,
+      quantity: count,
     };
 
-    setCart([...cart, cartItem]);
+    const found = cart.find(el => el.id === cartItem.id);
+    if (found) setQuantity(cartItem.id, found.quantity + count);
+    else setCart([...cart, cartItem]);
   };
 
-  // console.log(cart);
+  console.log(cart);
+
   return (
     <div className="popUpWraper">
       <div className="popUpBox">
@@ -44,15 +68,17 @@ function Incart({
             <span>{converPrice(priceMultiplQanntity)}원</span>
             <div className="pmBox">
               <button
-                onClick={onClickMinus}
+                // onClick={onClickMinus}
+                onClick={() => handleQuantity('minus')}
                 type="button"
                 className="pmBoxInBtnM"
               >
                 -
               </button>
-              <span>{stock}</span>
+              <span>{count}</span>
               <button
-                onClick={onClickPlus}
+                // onClick={onClickPlus}
+                onClick={() => handleQuantity('plus')}
                 type="button"
                 className="pmBoxInBtnP"
               >

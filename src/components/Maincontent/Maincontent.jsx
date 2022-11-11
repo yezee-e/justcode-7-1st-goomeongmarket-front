@@ -44,7 +44,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
             →
           </button>
           <div className="MainContentTitle">
-            <span>제목입니다.</span>
+            <span style={{ fontWeight: 'bold' }}>이 상품 어때요 ?</span>
             {/* {data.map((titleName, index) => {
               const { titlename } = titleName;
 
@@ -53,7 +53,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
           </div>
 
           <div className="productInformation" ref={slideRef}>
-            {data.map((values, index) => {
+            {filterTitle.map((values, index) => {
               const { id, title, price, img } = values;
               return (
                 <CardList
