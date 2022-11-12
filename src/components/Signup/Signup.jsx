@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from 'react';
+import { React, useState, useEffect } from 'react';
 import './Signup.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -14,6 +14,7 @@ const PWD_REGEX =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
 function Signup() {
+  const [submitPrevent, setSubmitPrevent] = useState(false);
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [validEmail, setValidEmail] = useState(false);
@@ -55,6 +56,7 @@ function Signup() {
     setAddressBtn(true);
   };
   const sendHandler = e => {
+    console.log(submitPrevent);
     e.preventDefault();
     fetch('http://localhost:8000/users/account', {
       method: 'POST',
@@ -70,9 +72,8 @@ function Signup() {
         birthDate: birthDatePlus,
         gender_id: gender_id,
       }),
-    })
-      .then(res => res.json())
-      .then(res => console.log(res));
+    }).then(res => res.json());
+    // .then(res => console.log(res));
     if (!validEmail) {
       alert('이메일 형식이 맞지 않습니다.');
     } else if (!emailBtnDisable) {
@@ -82,7 +83,6 @@ function Signup() {
     } else if (!validSamePwd) {
       alert('비밀번호 확인이 같지 않습니다');
     } else if (username == '') {
-      console.log(username);
       alert('이름을 입력해주세요.');
     } else if (phoneNumber.length !== 11) {
       alert('핸드폰 번호를 정확히 입력해주세요');
@@ -98,9 +98,12 @@ function Signup() {
       alert('약관 동의 필수에 동의해주세요');
     } else {
       alert('회원가입에 성공하셨습니다');
+
+      //setSubmitPrevent('submit');
       navigate('/login');
     }
   };
+
   // 전체동의 체크박스
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(email));
@@ -133,17 +136,17 @@ function Signup() {
       ? setCheckList([...checkList, e.target.name])
       : setCheckList(checkList.filter(el => el !== e.target.name));
   };
-  useEffect(() => {
-    if (
-      checkList.includes('must1') &&
-      checkList.includes('must2') &&
-      checkList.includes('must3')
-    ) {
-      setActive('active');
-    } else {
-      setActive('button');
-    }
-  }, [checkList]);
+  // useEffect(() => {
+  //   if (
+  //     checkList.includes('must1') &&
+  //     checkList.includes('must2') &&
+  //     checkList.includes('must3')
+  //   ) {
+  //     setActive('active');
+  //   } else {
+  //     setActive('button');
+  //   }
+  // }, [checkList]);
 
   // 이메일 중복 체크 로직
   const userEmailValidation = e => {
@@ -177,8 +180,9 @@ function Signup() {
       {/*회원가입 타이틀 */}
       <div className="title">
         <h1>회원가입 </h1>
-        <p>필수입력사항</p>
-        <span className="must-input plus-change">*</span>
+        <p>
+          필수입력사항<span className="must-input">*</span>
+        </p>
       </div>
       <form className="form-whole">
         <div className="form-input">
@@ -335,7 +339,7 @@ function Signup() {
               주소 검색
             </button>
 
-            <p className="adress-alert-message">
+            <p className="address-alert-message">
               배송지에 따라 상품 정보가 달라질 수 있습니다.
             </p>
             <input
@@ -388,7 +392,7 @@ function Signup() {
                   onChange={e => setGender(e.target.value)}
                   value={3}
                 />
-                <label className="gender-check-name">성별 애매</label>
+                <label className="gender-check-name">해당 사항 없음</label>
               </div>
             </div>
             <div className="empty-box"> </div>
@@ -468,7 +472,7 @@ function Signup() {
           <div className="margin-box"> </div>
           {/* 이용약관동의 */}
           <div className="input-container">
-            <div className="input-name-container">
+            <div className="input-name-container padding-size">
               <label className="form-label">
                 이용약관동의<span className="must-input">*</span>
               </label>

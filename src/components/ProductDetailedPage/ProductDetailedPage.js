@@ -57,7 +57,7 @@ function ProductDetailedPage({ converPrice }) {
     };
   }, []);
 
-  const select = state.filter(value => value.id === params.id);
+  const select = state.filter(value => value.id == params.id);
   const change = select[0];
 
   const scrollToTop = () => {
@@ -92,6 +92,7 @@ function ProductDetailedPage({ converPrice }) {
           product_id: params.id,
         }),
       });
+      alert('찜 목록에 추가되었습니다');
     } else if (isWishAdd) {
       fetch('http://localhost:8000/like/removelike', {
         method: 'DELETE',
@@ -103,6 +104,7 @@ function ProductDetailedPage({ converPrice }) {
           product_id: params.id,
         }),
       });
+      alert('찜 목록에서 삭제되었습니다');
     }
   };
 
@@ -124,6 +126,7 @@ function ProductDetailedPage({ converPrice }) {
         }),
       });
     }
+    alert('장바구니에 추가되었습니다');
   };
 
   return (

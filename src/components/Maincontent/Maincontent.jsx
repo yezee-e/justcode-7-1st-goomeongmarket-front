@@ -32,7 +32,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
   }, [currentSlide]);
-
+  console.log('data.lenth', data.length);
   return (
     <div>
       <div className="MaincontentWraper">
@@ -44,7 +44,7 @@ function Maincontent({ data, converPrice, cart, setCart, filterTitle }) {
             →
           </button>
           <div className="MainContentTitle">
-            <span>제목입니다.</span>
+            <span style={{ fontWeight: 'bold' }}>이 상품 어때요 ?</span>
             {/* {data.map((titleName, index) => {
               const { titlename } = titleName;
 

@@ -15,6 +15,8 @@ function Main({
   setStock,
   filterTitle,
   setSearch,
+  count,
+  setCount,
 }) {
   // const filterList = ['카테고리', '가격', '이름순', '해택']; //대장카테고리
 
@@ -31,6 +33,8 @@ function Main({
         stock={stock}
         setStock={setStock}
         filterTitle={filterTitle}
+        count={count}
+        setCount={setCount}
       />
       <Footer />
     </div>
