@@ -39,7 +39,11 @@ function Dropdown({ list, filtering, newfilterging }) {
                 onClick={() => newfilterging(3)}
               >
                 <input type="radio" id="check3" name="together" />
+<<<<<<< HEAD
                 정육
+=======
+                정육﹒계란
+>>>>>>> upstream/main
               </label>
               <label
                 htmlFor="check4"
