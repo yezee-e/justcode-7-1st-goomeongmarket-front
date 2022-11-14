@@ -58,7 +58,7 @@ function Signup() {
   const sendHandler = e => {
     console.log(submitPrevent);
     e.preventDefault();
-    fetch('http://localhost:8000/users/account', {
+    fetch('http://13.125.228.177:8000/users/account', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ function Signup() {
     if (!validEmail) {
       alert('이메일 형식이 아닙니다.');
     } else {
-      fetch('http://localhost:8000/users/account2', {
+      fetch('http://13.125.228.177:8000/users/account2', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
