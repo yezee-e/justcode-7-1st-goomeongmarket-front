@@ -1,10 +1,13 @@
 .SliderImages {
   width: 100vw;
   height: 370px;
-  background: url(https://media.discordapp.net/attachments/1036473676742271006/1040471226063269948/pin_12.jpg?width=1440&height=617)
-    no-repeat;
+  background: url('/img/background.jpg') no-repeat;
   background-size: cover;
   background-position: center;
 
   margin-bottom: 100px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
 }
