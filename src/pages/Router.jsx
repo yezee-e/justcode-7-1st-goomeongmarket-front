@@ -17,9 +17,9 @@ function Router() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   //API
-  const mockData = `http://localhost:8000/products/main`;
+  const mockData = `http://13.125.228.177:8000/products/main`;
   //mock
-  // const mockData = `http://localhost:3000/data/mockData.json`;
+  // const mockData = `http://13.125.228.177:3000/data/mockData.json`;
 
   useEffect(() => {
     fetch(mockData)
