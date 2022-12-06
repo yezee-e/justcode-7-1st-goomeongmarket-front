@@ -3,9 +3,25 @@ import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
 import './Dropdown.scss';
 
-function Dropdown({ list, filtering, newfilterging }) {
+function Dropdown({ list, filtering }) {
   const [isActive, setIsActive] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const mainCategoryType = [
+    { num: 1, value: '과일' },
+    { num: 2, value: '수산﹒해산﹒건어물' },
+    { num: 3, value: '정육﹒계란' },
+    { num: 4, value: '채소' },
+    { num: 5, value: '국﹒반찬﹒메인요리' },
+  ];
+  const mainCategoryPrice = [
+    { num: -6, value: '높은 가격순' },
+    { num: 6, value: '낮은 가격순' },
+  ];
+
+  const mainCategoryName = [
+    { num: -2, value: '오름차순' },
+    { num: 2, value: '내림차순' },
+  ];
 
   return (
     <div className="dropdown">
@@ -17,86 +33,47 @@ function Dropdown({ list, filtering, newfilterging }) {
         <div className="dropdown-content">
           {list === '카테고리' && (
             <div className="dropdown-content_label">
-              <label
-                htmlFor="check"
-                className="dropdown-item"
-                onClick={() => newfilterging(1)}
-              >
-                <input type="radio" id="check" name="together" />
-                과일
-              </label>
-              <label
-                htmlFor="check1"
-                className="dropdown-item"
-                onClick={() => newfilterging(2)}
-              >
-                <input type="radio" id="check1" name="together" />
-                수산﹒해산﹒건어물
-              </label>
-              <label
-                htmlFor="check3"
-                className="dropdown-item"
-                onClick={() => newfilterging(3)}
-              >
-                <input type="radio" id="check3" name="together" />
-                정육﹒계란
-              </label>
-              <label
-                htmlFor="check4"
-                className="dropdown-item"
-                onClick={() => newfilterging(4)}
-              >
-                <input type="radio" id="check4" name="together" />
-                채소
-              </label>
-              <label
-                htmlFor="check5"
-                className="dropdown-item"
-                onClick={() => newfilterging(5)}
-              >
-                <input type="radio" id="check5" name="together" />
-                국﹒반찬﹒메인요리
-              </label>
+              {mainCategoryType.map(category => (
+                <label
+                  key={category.num}
+                  htmlFor={category.value}
+                  className="dropdown-item"
+                  onClick={() => filtering(category.num)}
+                >
+                  <input type="radio" id={category.value} name="together" />
+                  {category.value}
+                </label>
+              ))}
             </div>
           )}
-          {list == '가격' && (
+          {list === '가격' && (
             <div className="dropdown-content_label">
-              <label
-                htmlFor="check6"
-                className="dropdown-item"
-                onClick={() => filtering(-6)}
-              >
-                <input type="radio" id="check6" name="together" />
-                높은 가격순
-              </label>
-              <label
-                htmlFor="check7"
-                className="dropdown-item"
-                onClick={() => filtering(6)}
-              >
-                <input type="radio" id="check7" name="together" />
-                낮은 가격순
-              </label>
+              {mainCategoryPrice.map(price => (
+                <label
+                  key={price.num}
+                  htmlFor={price.value}
+                  className="dropdown-item"
+                  onClick={() => filtering(price.num)}
+                >
+                  <input type="radio" id={price.value} name="together" />
+                  {price.value}
+                </label>
+              ))}
             </div>
           )}
           {list === '이름순' && (
             <div className="dropdown-content_label">
-              <label
-                htmlFor="check8"
-                className="dropdown-item"
-                onClick={() => filtering(2)}
-              >
-                <input type="radio" id="check8" name="together" />
-                오름차순
-              </label>
-              <label
-                htmlFor="check9"
-                className="dropdown-item"
-                onClick={() => filtering(-2)}
-              >
-                <input type="radio" id="check9" name="together" />
-                내림차순
-              </label>
+              {mainCategoryName.map(name => (
+                <label
+                  key={name.num}
+                  htmlFor={name.value}
+                  className="dropdown-item"
+                  onClick={() => filtering(name.num)}
+                >
+                  <input type="radio" id={name.value} name="together" />
+                  {name.value}
+                </label>
+              ))}
             </div>
           )}
         </div>

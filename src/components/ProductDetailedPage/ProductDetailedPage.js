@@ -129,6 +129,16 @@ function ProductDetailedPage({ converPrice }) {
     alert('장바구니에 추가되었습니다');
   };
 
+  //최근본상품
+  useEffect(() => {
+    let watching = localStorage.getItem('watch');
+    watching = JSON.parse(watching);
+    watching.push(params.id); //array로 받는다
+    // watching = new Set(watching); //중복제거
+    watching = [...watching]; //다시 중복제거한 Set을 array로 변환
+    localStorage.setItem('watch', JSON.stringify(watching));
+  }, [params.id]);
+
   return (
     <>
       <Nav />

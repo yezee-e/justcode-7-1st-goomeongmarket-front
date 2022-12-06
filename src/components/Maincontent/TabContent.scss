@@ -26,7 +26,6 @@
 
   .productInformation {
     margin-top: 40px;
-
     display: flex;
     flex-direction: column;
   }
@@ -57,5 +56,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-left: 20px;
+  }
+  .productInformation-watch {
+    border: 1px solid black;
+    width: 100px;
+    height: 300px;
+    position: sticky;
+    top: 200px;
+    left: 1750px;
+    text-align: center;
   }
 }

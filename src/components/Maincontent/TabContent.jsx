@@ -3,50 +3,56 @@ import CardList from './CardList';
 import Dropdown from '../Filter/Dropdown';
 import './TabContent.scss';
 import { useParams, useSearchParams } from 'react-router-dom';
+import axios from 'axios';
 
-function TabContent({
-  data,
-  setData,
-  converPrice,
-  tabList,
-  setTabList,
-  search,
-}) {
+function TabContent({ converPrice, tabList, setTabList, search }) {
   let [searchParms, setSearchParams] = useSearchParams();
 
   const category_id = searchParms.get('category_id');
   const { tabId } = useParams();
 
   //최종API (사이드필터 및 mini필터)
-  const filtering = pageNumber => {
-    fetch(
-      `http://13.125.228.177:8000/products/${tabId}?sorted_by=${pageNumber}`,
-      {
-        method: 'POST',
-        headers: { 'content-Type': 'application/json' },
-      }
-    )
-      .then(res => res.json())
+  // const filtering = pageNumber => {
+  //   fetch(
+  //     `http://13.125.228.177:8000/products/${tabId}?sorted_by=${pageNumber}`,
+  //     {
+  //       method: 'POST',
+  //       headers: { 'content-Type': 'application/json' },
+  //     }
+  //   )
+  //     .then(res => res.json())
+  //     .then(res => setTabList(res.data));
+  //   searchParms.set('sorted_by', pageNumber);
+  //   searchParms.delete('category_id');
+  //   setSearchParams(searchParms);
+  // };
+
+  // const newfilterging = newNumber => {
+  //   const sorted_by = searchParms.get('sorted_by');
+  //   fetch(
+  //     `http://13.125.228.177:8000/products/${tabId}?sorted_by=${sorted_by}&category_id=${newNumber}`,
+  //     {
+  //       method: 'POST',
+  //       headers: { 'content-Type': 'application/json' },
+  //     }
+  //   )
+  //     .then(res => res.json())
+  //     .then(res => setTabList(res.data));
+  //   searchParms.set('category_id', newNumber);
+  //   setSearchParams(searchParms);
+  // };
+
+  let filtering = num => {
+    axios
+      .post(`http://13.125.228.177:8000/products/${tabId}`, {
+        params: { sorted_by: num, category_id: num },
+      })
       .then(res => setTabList(res.data));
-    searchParms.set('sorted_by', pageNumber);
-    searchParms.delete('category_id');
-    setSearchParams(searchParms);
   };
 
-  const newfilterging = newNumber => {
-    const sorted_by = searchParms.get('sorted_by');
-    fetch(
-      `http://13.125.228.177:8000/products/${tabId}?sorted_by=${sorted_by}&category_id=${newNumber}`,
-      {
-        method: 'POST',
-        headers: { 'content-Type': 'application/json' },
-      }
-    )
-      .then(res => res.json())
-      .then(res => setTabList(res.data));
-    searchParms.set('category_id', newNumber);
-    setSearchParams(searchParms);
-  };
+  useEffect(() => {
+    filtering();
+  }, []);
 
   const filterList = ['카테고리', '가격', '이름순', '해택']; //사이드대장카테고리
 
@@ -68,6 +74,12 @@ function TabContent({
       .includes(search.toLocaleLowerCase().replace(' ', ''))
   );
 
+  //Detail페이지 접속하면 그 페이지에 보이는 상품 id가져와서
+  //localstorage에 watch항목에 추가
+  useEffect(() => {
+    localStorage.setItem('watch', JSON.stringify([]));
+  }, []);
+
   return (
     <div className="wrap">
       <div className="MaincontentWrap">
@@ -79,12 +91,7 @@ function TabContent({
           <div>
             <div className="filter">필터</div>
             {filterList.map(list => (
-              <Dropdown
-                key={list}
-                list={list}
-                filtering={filtering}
-                newfilterging={newfilterging}
-              />
+              <Dropdown key={list} list={list} filtering={filtering} />
             ))}
           </div>
           <div className="productInformation">
@@ -110,6 +117,10 @@ function TabContent({
                 );
               })}
             </div>
+          </div>
+          <div className="productInformation-watch">
+            최근본상품
+            <div></div>
           </div>
         </div>
       </div>

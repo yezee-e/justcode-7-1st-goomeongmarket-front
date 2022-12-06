@@ -43,6 +43,7 @@ function Menu({ data, setData, setSearch, converPrice, search }) {
         search={search}
         setTabList={setTabList}
       />
+
       <Footer />
     </div>
   );
